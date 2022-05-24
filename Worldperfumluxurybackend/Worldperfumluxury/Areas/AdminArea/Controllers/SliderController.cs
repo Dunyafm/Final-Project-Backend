@@ -82,6 +82,81 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Slider slider = await GetSliderById(id);
+
+            if (slider == null) return NotFound();
+
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/slider", slider.Image);
+
+            Helper.DeleteFile(path);
+
+            _context.Sliders.Remove(slider);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            Slider slider = await _context.Sliders.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
+            if (slider is null) return NotFound();
+            return View(slider);
+        }
+
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var slider = await GetSliderById(id);
+            if (slider is null) return NotFound();
+            return View(slider);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Slider slider)
+        {
+            var dbSlider = await GetSliderById(id);
+            if (dbSlider == null) return NotFound();
+
+            if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
+
+            if (!slider.Photo.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("Photo", "Image type is wrong");
+                return View(dbSlider);
+            }
+
+            if (!slider.Photo.CheckFileSize(10000))
+            {
+                ModelState.AddModelError("Photo", "Image size is wrong");
+                return View(dbSlider);
+            }
+
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/slider", dbSlider.Image);
+
+            Helper.DeleteFile(path);
+
+
+            string fileName = Guid.NewGuid().ToString() + "_" + slider.Photo.FileName;
+
+            string newPath = Helper.GetFilePath(_env.WebRootPath, "assets/img/slider", fileName);
+
+            using (FileStream stream = new FileStream(newPath, FileMode.Create))
+            {
+                await slider.Photo.CopyToAsync(stream);
+            }
+
+            dbSlider.Image = fileName;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
 
         //Helper Method
         private async Task<Slider> GetSliderById(int id)
