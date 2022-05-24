@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Worldperfumluxury.Models;
 
 namespace Worldperfumluxury.Data
 {
@@ -12,5 +13,6 @@ namespace Worldperfumluxury.Data
         {
 
         }
+        public DbSet<Slider> Sliders { get; set; }
     }
 }
