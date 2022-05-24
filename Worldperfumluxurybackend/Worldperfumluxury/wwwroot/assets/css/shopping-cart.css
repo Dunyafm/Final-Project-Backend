@@ -1,0 +1,371 @@
+body {
+    font-family: urbanist, sans-serif;
+    font-size: .9375rem;
+    font-weight: 500;
+    line-height: 2.5;
+    color: #7e7e7e;
+    text-align: left;
+  
+  }
+  
+  /* HEADER NAVBAR CSS */
+  
+  header nav {
+    padding: 0px !important;
+  }
+  
+  header nav #logo {
+    width: 220px;
+    height: 35px;
+  }
+  
+  header nav #mobile-navbar-show {
+    cursor: pointer;
+    border: none;
+  }
+  
+  header nav ul li {
+    position: relative;
+    padding: 48px 20px;
+  }
+  
+  header nav ul li a {
+    position: relative;
+    font-size: 20px;
+    text-transform:inherit;
+    letter-spacing: .1em;
+    color: black !important;
+    font-weight: 500;
+  }
+  
+  header nav ul li a::after {
+    content: "";
+    -webkit-transition: width .3s;
+    transition: width .3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: black;
+  }
+  
+  
+  header nav ul li a:hover::after {
+    width: 80%;
+  }
+  
+  
+  
+  header nav ul li ul {
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+    background-color: #fff;
+    position: absolute;
+    top: 115px;
+    left: 0;
+    width: 228px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+  }
+  
+  header nav ul li ul li {
+    padding: 5px 30px;
+  }
+  
+  
+  
+   header nav ul li:hover ul {
+    opacity: 1;
+    visibility: visible;
+  } 
+  
+  
+  header .mobile-navbar {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    background-color: #fff;
+    top: 0;
+    right: 36px;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  header .mobile-navbar .fa-times {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    cursor: pointer;
+    color: #f34f3f;
+  }
+  
+  header .mobile-navbar ul li {
+    margin-top: 20px;
+  }
+  
+  header .mobile-navbar ul li a {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: black;
+    letter-spacing: .1em;
+  }
+  
+  header .mobile-navbar ul li a:hover {
+    text-decoration: none;
+  }
+  
+  header .mobile-navbar ul ul {
+    display: none;
+  }
+  
+  header .mobile-navbar ul ul li {
+    margin-top: 0;
+  }
+  
+  header .mobile-navbar ul ul li a {
+    padding: 0 !important;
+    text-transform: capitalize;
+    font-size: 12px;
+    letter-spacing: 0em;
+    color: gray;
+  }
+  
+  header .mobile-navbar ul ul ul li {
+    text-transform: uppercase;
+  }
+  
+  header .mobile-navbar.active {
+    width: 420px;
+    visibility: visible;
+    opacity: 1;
+    right: 0;
+    z-index: 9;
+  }
+  /* Icons */
+  .header__nav__option {
+    text-align: right;
+    padding: 30px 0;
+  }
+  .header__nav__option a {
+    display: inline-block;
+    margin-right: 26px;
+    position: relative;
+  }
+  a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  
+  .header__nav__option .price {
+    font-size: 15px;
+    color: #111111;
+    font-weight: 700;
+    display: inline-block;
+    margin-left: -20px;
+    position: relative;
+    top: 3px;
+  }
+  /* SEARCH */
+  
+  
+  .search__box {
+  float: left;
+  width: 0;
+  height: 4rem;
+  background: none;
+  color: #f7f7f7;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  position: relative;
+  opacity: 1;
+  transition: all .75s ease-in;
+  cursor: pointer;
+  
+  }
+  
+  .search__icon {
+  box-sizing: border-box;
+  float: right;
+  font-size: 2.5rem;
+  display: inline-block;
+  margin-left: .8rem;
+  margin-top: 0;
+  cursor: pointer;
+  position: absolute;
+  color: #21BBD8;
+  transition: all .25s ease-in;
+  padding: .7rem;
+  border-radius: 50%;
+  }
+  
+  .container:hover > .search__box {
+  width: 85%;
+  padding: 0 1rem;
+  }
+  
+  .container:hover > .search__icon {
+  background-color: gainsboro;
+  }
+  
+  .show {
+  width: 85%;
+  border: 1px solid #21BBD8;
+  }
+  
+  
+
+body{
+    background: #ddd;
+    min-height: 100vh;
+    vertical-align: middle;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.title{
+    margin-bottom: 5vh;
+}
+.card{
+    margin: auto;
+    max-width: 970px;
+    width: 90%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    border: transparent;
+}
+@media(max-width:767px){
+    .card{
+        margin: 3vh auto;
+    }
+}
+.cart{
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+@media(max-width:767px){
+    .cart{
+        padding: 4vh;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem;
+    }
+}
+.summary{
+    background-color: #ddd;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(65, 65, 65);
+}
+@media(max-width:767px){
+    .summary{
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+    }
+}
+.summary .col-2{
+    padding: 0;
+}
+.summary .col-10
+{
+    padding: 0;
+}.row{
+    margin: 0;
+}
+.title b{
+    font-size: 1.6rem;
+}
+.main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+.col-2, .col{
+    padding: 0 1vh;
+}
+a{
+    padding: 0 1vh;
+}
+.close{
+    margin-left: auto;
+    font-size: 1rem;
+}
+img{
+    width: 5.5rem;
+}
+.back-to-shop{
+    margin-top: 4.5rem;
+}
+h5{
+    margin-top: 4vh;
+}
+hr{
+    margin-top: 1.25rem;
+}
+form{
+    padding: 2vh 0;
+}
+select{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+input{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+input:focus::-webkit-input-placeholder
+{
+      color:transparent;
+}
+.btn{
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 0;
+}
+.btn:focus{
+    box-shadow: none;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    -webkit-box-shadow: none;
+    -webkit-user-select: none;
+    transition: none; 
+}
+.btn:hover{
+    color: white;
+}
+a{
+    color: black; 
+}
+a:hover{
+    color: black;
+    text-decoration: none;
+}
+ #code{
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}

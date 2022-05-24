@@ -6238,11 +6238,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dima-\\Desktop\\Final-Backend\\Worldperfumluxurybackend\\Worldperfumluxury\\Worldperfumluxury.csproj",
+      "projectUniqueName": "C:\\Users\\dima-\\Desktop\\Final-Project-Backend\\Worldperfumluxurybackend\\Worldperfumluxury\\Worldperfumluxury.csproj",
       "projectName": "Worldperfumluxury",
-      "projectPath": "C:\\Users\\dima-\\Desktop\\Final-Backend\\Worldperfumluxurybackend\\Worldperfumluxury\\Worldperfumluxury.csproj",
+      "projectPath": "C:\\Users\\dima-\\Desktop\\Final-Project-Backend\\Worldperfumluxurybackend\\Worldperfumluxury\\Worldperfumluxury.csproj",
       "packagesPath": "C:\\Users\\dima-\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dima-\\Desktop\\Final-Backend\\Worldperfumluxurybackend\\Worldperfumluxury\\obj\\",
+      "outputPath": "C:\\Users\\dima-\\Desktop\\Final-Project-Backend\\Worldperfumluxurybackend\\Worldperfumluxury\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

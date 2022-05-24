@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xOdNfBoMtSE8WkXzX9nksU7r+o/Hkgyd6hrwvfLk5eN+Z+uT7s3XMIyNUsNymt6mpILoyVPheIU+FEm9h7drIg==",
+  "dgSpecHash": "i0pnxt+NiP/NLCz/7dGmykR+svUobt5DhhOKSHqsN7rrmH0GLvmVoW16RRyI2oZ1p4JV1gC1d2bf7k4auKsNlg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dima-\\Desktop\\Final-Backend\\Worldperfumluxurybackend\\Worldperfumluxury\\Worldperfumluxury.csproj",
+  "projectFilePath": "C:\\Users\\dima-\\Desktop\\Final-Project-Backend\\Worldperfumluxurybackend\\Worldperfumluxury\\Worldperfumluxury.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dima-\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\dima-\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

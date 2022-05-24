@@ -8,4 +8,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\img\footer-gifs\" />
+    <Folder Include="wwwroot\assets\img\Kilians\Notes\Kilian-Akiss\" />
+    <Folder Include="wwwroot\assets\img\parfums\parfums-detail\New folder\" />
+  </ItemGroup>
+
 </Project>

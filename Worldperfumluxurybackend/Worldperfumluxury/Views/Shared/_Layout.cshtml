@@ -1,48 +1,292 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Worldperfumluxury</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.default.css">
+
+
+    <!-- SLIDER START -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--FOR Product slider multi -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+    TESTIMONIAL  -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- ICONS FOR LINKS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <title>ANA SƏYFƏ</title>
+
 </head>
+
 <body>
+
+
+    <!-- HEADER START -->
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Worldperfumluxury</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- NAV-BAR START -->
+                    <nav class="navbar navbar-expand-lg d-flex d-lg-block justify-content-between d-xl-flex navbar-light py-3 py-lg-0">
+                        <a class="navbar-brand" href="#">
+                            <img style="width: 100%;height: 100%;" src="assets/img/logo/Worldlogo.png" alt="" id="logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation" id="mobile-navbar-show">
+                            <span class="navbar-toggler-icon" style="font-size: 12px;"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse d-none d-lg-block" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="product" asp-action="index">ƏTİRLƏR</a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"asp-controller="menshop" asp-action="index">>KİŞİ </a>
+
+                                </li>
+                                <li class="nav-item shop-li">
+                                    <a class="nav-link" asp-controller="product" asp-action="index">QADIN </a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="womenshop" asp-action="index">>UNISEX </a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"asp-controller="blog" asp-action="index">>BLOQ</a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="contact" asp-action="index">>ƏLAQƏ</a>
+
+                                </li>
+
+                                <!-- NAVBAR ICONS -->
+                                <!-- Right elements -->
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="header__nav__option">
+                                        <form class="d-flex">
+                                            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                                            <button class="btn btn-outline-success" type="submit">Search</button>
+                                        </form>
+
+
+                                        <a href="wishlist.html"><img src="./assets/img/icons/heart.png" alt=""></a>
+                                        <a href="shopping-cart.html"><img src="./assets/img/icons/cart.png" alt=""></a>
+
+
+                                        <a href="login-register.html">
+                                            <img src="./assets/img/icons/man.png" alt="">
+                                            <span>0</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <!-- Right elements -->
+
+                            </ul>
+
+                        </div>
+
+                    </nav>
+                    <!-- NAV-BAR END -->
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Worldperfumluxury - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
+
+
+        <div class="mobile-navbar position-absolute shadow-lg h-100 p-5">
+            <i class="fas fa-times fa-lg" id="mobile-navbar-close"></i>
+            <ul class="list-unstyled">
+                <li><a href="#">ƏTİRLƏR <i class="fas fa-caret-right fa-sm"></i></a></li>
+
+                <li><a href="#">KİŞİ <i class="fas fa-caret-right fa-sm"></i></a></li>
+
+                <li><a href="#">QADIN <i class="fas fa-caret-right fa-sm"></i></a></a></li>
+
+                <li><a href="#">UNISEX <i class="fas fa-caret-right fa-sm"></i></a></a></li>
+
+                <li><a href="#">Blog <i class="fas fa-caret-right fa-sm"></i></a></a></li>
+
+                <li><a href="#">Əlaqə <i class="fas fa-caret-right fa-sm"></i></a></a></li>
+
+            </ul>
+        </div>
+
+
+    </header>
+
+    <!-- HEADER END -->
+
+    @RenderBody()
+
+
+    <!-- FOOTER START -->
+    <footer class="footer">
+        <div class="container bottom_border">
+            <div class="row">
+                <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">BİZİMLƏ ƏLAQƏ</h5>
+
+                    <p><i class="fab fa-instagram"></i>worldperfumluxury</p>
+                    <p><i class="fa fa-location-arrow"></i> Baki,Azərbaycan </p>
+                    <p><i class="fa fa-phone"></i> +994553176685 </p>
+                    <p><i class="fa fa fa-envelope"></i> worldperfumluxury@gmail.com </p>
+
+
+                </div>
+
+
+                <div class=" col-sm-4 col-md  col-6 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">ƏTİRLƏR</h5>
+                    <ul class="footer_ul_amrc">
+                        <li><a href="womenshop.html">Qadın ətirləri</a></li>
+                        <li><a href="menshop.html">Kişi ətirləri</a></li>
+                        <li><a href="http://webenlance.com">Unisex ətirlər</a></li>
+                        <li><a href="product.html">Bütün ətir brendləri</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class=" col-sm-4 col-md  col-12 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">İSTİFADƏÇİ PROFİLİ</h5>
+
+                    <ul class="footer-page-two">
+                        <li>
+                            <a href="login-register.html">Daxil ol</a>
+
+                        </li>
+
+                        <li>
+                            <a href="login-register.html">Qeydiyyat</a>
+
+                        </li>
+
+                        <li>
+                            <a href="wishlist.html">Sevimlilər</a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <ul class="footer-bottom">
+                <li><a href="home.html">ƏTİRLƏR</a></li>
+                <li><a href="womenshop.html">QADIN</a></li>
+                <li><a href="menshop.html">KİŞİ</a></li>
+                <li><a href="unisexshop.html">UNISEX</a></li>
+                <li><a href="blog.html">BLOQ</a></li>
+                <li><a href="contact.html">ƏLAQƏ</a></li>
+            </ul>
+
+            <p class="text-center">worldperfumluxury 2019@Bütün hüquqlar qorunur<a href="#"></a></p>
+
+            <ul class="social-footer-ul">
+                <li><a href="http://webenlance.com"><i class="fab fa-facebook-f"></i></a></li>
+                <li>
+                    <a href="https://www.instagram.com/accounts/login/?next=/worldperfumluxury/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </div>
+
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- FOOTER END     -->
+    <!-- TESTIMONIAL JS-->
+    <script>
+        $('.clients-carousel').owlCarousel({
+            loop: true,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            smartSpeed: 450,
+            margin: 30,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                991: {
+                    items: 2
+                },
+                1200: {
+                    items: 2
+                },
+                1920: {
+                    items: 2
+                }
+            }
+        });
+    </script>
+
+
+    <script src="./assets/js//home.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./assets/js/owl.carousel.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"
+            integrity="sha256-cVd/tGoi+gMVBrq5xd20ZA447xChtJWaESiLQc5LB1c=" crossorigin="anonymous"></script>
+
+
+    <!-- TESTIMONIAL LINK -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
 </body>
+
 </html>
