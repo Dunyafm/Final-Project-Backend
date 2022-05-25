@@ -28,8 +28,8 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<BestSelling> bestsellings = await _context.BestSellings.AsNoTracking().ToListAsync();
-            return View(bestsellings);
+            List<BestSelling> bestSellings = await _context.BestSellings.AsNoTracking().ToListAsync();
+            return View(bestSellings);
         }
 
         public IActionResult Create()
@@ -47,23 +47,23 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
             if (!ModelState.IsValid) return View();
 
-            if (!bestsellingVM.detailPhoto.CheckFileType("image/"))
+            if (!bestsellingVM.DetailPhoto.CheckFileType("image/"))
             {
                 ModelState.AddModelError("Photo", "Image type is wrong");
                 return View();
             }
 
-            if (!bestsellingVM.detailPhoto.CheckFileSize(10000))
+            if (!bestsellingVM.DetailPhoto.CheckFileSize(10000))
             {
                 ModelState.AddModelError("Photo", "Image size is wrong");
                 return View();
             }
-            string fileName = Guid.NewGuid().ToString() + "_" + bestsellingVM.detailPhoto.FileName;
+            string fileName = Guid.NewGuid().ToString() + "_" + bestsellingVM.DetailPhoto.FileName;
             string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/event", fileName);
 
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
-                await bestsellingVM.detailPhoto.CopyToAsync(stream);
+                await bestsellingVM.DetailPhoto.CopyToAsync(stream);
             }
            
 
@@ -80,12 +80,12 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
                 return View();
             }
 
-            fileName = Guid.NewGuid().ToString() + "_" + bestsellingVM.detailPhoto.FileName;
+            fileName = Guid.NewGuid().ToString() + "_" + bestsellingVM.DetailPhoto.FileName;
             path = Helper.GetFilePath(_env.WebRootPath, "assets/img/event", fileName);
 
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
-                await bestsellingVM.detailPhoto.CopyToAsync(stream);
+                await bestsellingVM.DetailPhoto.CopyToAsync(stream);
             }
 
             
@@ -113,8 +113,38 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Detail(int id)
+        {
+            BestSelling bestSelling = await _context.BestSellings.Where(m => m.Id == id).Include(m => m.BestSellingDetail).FirstOrDefaultAsync();
+
+            return View(bestSelling);
+        }
 
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            BestSellingDetail bestSellingDetail = await _context.BestSellingDetails
+                .Where(m => m.Id == id)
+                .Include(m => m.BestSelling)
+                .FirstOrDefaultAsync();
+            BestSellingVM bestSellingVM = new BestSellingVM
+            {
+                Image = bestSellingDetail.Image,
+                Title = bestSellingDetail.Title,
+                Seria = bestSellingDetail.Seria,
+                Composition = bestSellingDetail.Composition,
+                Note = bestSellingDetail.Note,
+                Count = bestSellingDetail.Count,
+                Price = bestSellingDetail.Price
+               
+            };
+            return View(bestSellingVM);
+        }
+
+        private async Task<BestSelling> GetBestSellingById(int Id)
+        {
+            return await _context.BestSellings.Where(m => m.Id == Id).Include(m => m.BestSellingDetail).FirstOrDefaultAsync();
+        }
     }
 
 

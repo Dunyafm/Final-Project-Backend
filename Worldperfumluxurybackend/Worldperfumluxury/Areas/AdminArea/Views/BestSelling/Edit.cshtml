@@ -1,0 +1,22 @@
+﻿@model BestSellingVM
+<div class="container">
+    <div class="image">
+        <img src="~/assets/img/course/@Model.Image" />
+        <form class="forms-sample" method="post" asp-action="Edit" enctype="multipart/form-data">
+            <input asp-for="Photo" />
+            <input asp-for="Title" type="text" value="@Model.Title" />
+            <input asp-for="Seria" type="text" value="@Model.Seria" />
+            <input asp-for="Composition" type="text" value="@Model.Composition" />
+            <input asp-for="Note" type="text" value="@Model.Note" />
+            <input asp-for="Count" type="text" value="@Model.Count" />
+            <input asp-for="Price" type="price" value="@Model.Price />
+            
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <a asp-action="Index" class="btn btn-light">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+}

@@ -1,0 +1,43 @@
+﻿@model BestSellingDetail
+
+@{ ViewData["Title"] = "BestSellingDetail";
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml"; }
+
+<div class="container">
+    <div class="row">
+        <h4>Category</h4>
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="header d-flex justify-content-between my-5">
+                        <h1 class="card-title my-3">Slider</h1>
+                        <div><a class="btn btn-success btn-sm my-4" asp-action="Edit">Create</a></div>
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+
+                            </thead>
+                            <tbody style="width:300px">
+
+                                <img style="width: 300px; height: 150px; border-radius: unset" src="~/assets/img/parfums/@Model.Image" alt="BestSelling"></td>
+                                <h5 class="mt-5">@Model.Title</h5>
+                                <h6 class="mt-3">@Model.Seria</h6>
+                                <h6 class="mt-3">@Model.Composition</h6>
+                                <h6 class="mt-3">@Model.Note</h6>
+                                <h6 class="mt-3">@Model.Count</h6>
+                                <h6 class="mt-3">@Model.Price</h6>
+
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

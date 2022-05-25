@@ -14,5 +14,8 @@ namespace Worldperfumluxury.Models
         public int NewPrice { get; set; }
 
         public int Discount { get; set; }
+
+
+        public BestSellingDetail BestSellingDetail { get; set; }
     }
 }
