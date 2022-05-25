@@ -265,3 +265,5 @@ C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfu
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\Slider\Create.cshtml.g.cs
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\Slider\Edit.cshtml.g.cs
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\BestSelling\Index.cshtml.g.cs
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\BestSelling\Create.cshtml.g.cs

@@ -118,6 +118,7 @@
         </nav>
         <!-- partial -->
         @RenderBody()
+        <div class="col-lg-8"></div>
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_settings-panel.html -->
             <div class="theme-setting-wrapper">
@@ -290,6 +291,7 @@
             </div>
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
+            <div class="col-lg-4">
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
@@ -305,9 +307,9 @@
                             <i class="menu-arrow"></i>
                         </a>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="Best Selling" asp-action="Index" >
+                        <a class="nav-link" asp-area="AdminArea" asp-controller="BestSelling" asp-action="Index" >
                             <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">Best Selling</span>
+                            <span class="menu-title">BestSelling</span>
                             <i class="menu-arrow"></i>
                         </a>
 
@@ -373,7 +375,7 @@
 
                 </ul>
             </nav>
-
+            </div>
         </div>
         <!-- page-body-wrapper ends -->
     </div>

@@ -14,5 +14,6 @@ namespace Worldperfumluxury.Data
 
         }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<BestSelling> BestSellings { get; set; }
     }
 }
