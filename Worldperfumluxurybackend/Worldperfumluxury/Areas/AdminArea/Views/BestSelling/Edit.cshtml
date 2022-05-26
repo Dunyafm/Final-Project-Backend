@@ -1,22 +1,32 @@
-﻿@model BestSellingVM
-<div class="container">
-    <div class="image">
-        <img src="~/assets/img/course/@Model.Image" />
-        <form class="forms-sample" method="post" asp-action="Edit" enctype="multipart/form-data">
-            <input asp-for="Photo" />
-            <input asp-for="Title" type="text" value="@Model.Title" />
-            <input asp-for="Seria" type="text" value="@Model.Seria" />
-            <input asp-for="Composition" type="text" value="@Model.Composition" />
-            <input asp-for="Note" type="text" value="@Model.Note" />
-            <input asp-for="Count" type="text" value="@Model.Count" />
-            <input asp-for="Price" type="price" value="@Model.Price />
-            
-            <button type="submit" class="btn btn-primary me-2">Submit</button>
-            <a asp-action="Index" class="btn btn-light">Cancel</a>
-        </form>
-    </div>
-</div>
+﻿
+@*@model BestSelling
+@{
+    ViewData["Title"] = "Edit";
+}
 
+<div class="container mt-5">
+    <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Photo"></label>
+            <input class="form-control" style="width:300px" asp-for="Photo">
+            <span class="text-danger" asp-validation-for="Photo"></span>
+
+            <input asp-for="Title" type="text" placeholder="Title" />
+            <span asp-validation-for="Title"></span>
+
+            <input asp-for="Oldprice" type="text" placeholder="Oldprice" />
+            <span asp-validation-for="Oldprice"></span>
+
+            <input asp-for="NewPrice" type="text" placeholder="Newprice" />
+            <input asp-for="Discount" type="text" placeholder="Start" />
+
+
+        </div>
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+    </form>
+</div>
 @section Scripts{
     <partial name="_ValidationPartial" />
-}
+}*@
+

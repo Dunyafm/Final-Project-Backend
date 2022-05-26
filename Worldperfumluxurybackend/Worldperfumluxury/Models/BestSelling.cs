@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace Worldperfumluxury.Models
 {
-    public class BestSelling
+    public class BestSelling : BaseEntity
     {
-        public int Id { get; set; }
         public string Photo { get; set; }
         public string Title { get; set; }
         public int Oldprice { get; set; }
