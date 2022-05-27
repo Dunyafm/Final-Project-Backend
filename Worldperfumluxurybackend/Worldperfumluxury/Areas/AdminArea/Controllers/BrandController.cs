@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Linq; 
 using System.Threading.Tasks;
 using Worldperfumluxury.Data;
 using Worldperfumluxury.Models;
@@ -86,5 +86,88 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             //    return await _context.Brands.FindAsync(id);
             //}
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Brand brand = await GetBrandById(id);
+
+            if (brand == null) return NotFound();
+
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/logo", brand.Image);
+
+            Helper.DeleteFile(path);
+
+            _context.Brands.Remove(brand);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+      
+        public async Task<IActionResult> Detail(int id)
+        {
+            Brand brand = await _context.Brands.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
+            if (brand is null) return NotFound();
+            return View(brand);
+        }
+
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var brand = await GetBrandById(id);
+            if (brand is null) return NotFound();
+            return View(brand);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Brand brand)
+        {
+            var dbBrand = await GetBrandById(id);
+            if (dbBrand == null) return NotFound();
+
+            if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
+
+            if (!brand.Photo.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("Photo", "Image type is wrong");
+                return View(dbBrand);
+            }
+
+            if (!brand.Photo.CheckFileSize(10000))
+            {
+                ModelState.AddModelError("Photo", "Image size is wrong");
+                return View(dbBrand);
+            }
+
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/slider", dbBrand.Image);
+
+            Helper.DeleteFile(path);
+
+
+            string fileName = Guid.NewGuid().ToString() + "_" + brand.Photo.FileName;
+
+            string newPath = Helper.GetFilePath(_env.WebRootPath, "assets/img/logo", fileName);
+
+            using (FileStream stream = new FileStream(newPath, FileMode.Create))
+            {
+                await brand.Photo.CopyToAsync(stream);
+            }
+
+            dbBrand.Image = fileName;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        //Helper Method
+        private async Task<Brand> GetBrandById(int id)
+        {
+            return await _context.Brands.FindAsync(id);
+        }
+
+
     }
 }

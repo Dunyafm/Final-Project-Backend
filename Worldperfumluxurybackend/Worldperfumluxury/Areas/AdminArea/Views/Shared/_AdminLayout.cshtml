@@ -20,9 +20,13 @@
     <link rel="stylesheet" href="~/admin/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="~/admin/images/favicon.png" />
+    <!-- ICONS FOR LINKS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 </head>
 <body>
-    <div class="container-scroller">
+    <div class="container-scroller d-flex">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -116,10 +120,8 @@
                 </button>
             </div>
         </nav>
-        <!-- partial -->
-        @RenderBody()
-        <div class="col-lg-8"></div>
-        <div class="container-fluid page-body-wrapper">
+     
+        <div class=" page-body-wrapper" style="width:15% !important">
             <!-- partial:partials/_settings-panel.html -->
             <div class="theme-setting-wrapper">
                 <div id="settings-trigger"><i class="ti-settings"></i></div>
@@ -292,91 +294,94 @@
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
             <div class="col-lg-4">
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/admin/index.html">
-                            <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Worldperfumluxury</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="Slider" asp-action="Index" >
-                            <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Slider</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="BestSelling" asp-action="Index" >
-                            <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">BestSelling</span>
-                            <i class="menu-arrow"></i>
-                        </a>
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index">
+                                <i class="icon-grid menu-icon"></i>
+                                <span class="menu-title">Worldperfumluxury</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="Slider" asp-action="Index">
+                                <i class="icon-columns menu-icon"></i>
+                                <span class="menu-title">Slider</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="BestSelling" asp-action="Index">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">BestSelling</span>
+                                <i class="menu-arrow"></i>
+                            </a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"asp-area="AdminArea" asp-controller="Brands" asp-action="Index" >
-                            <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Brands</span>
-                            <i class="menu-arrow"></i>
-                        </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="Brand" asp-action="Index">
+                                <i class="icon-columns menu-icon"></i>
+                                <span class="menu-title">Brand</span>
+                                <i class="menu-arrow"></i>
+                            </a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="Products" asp-action="Index" >
-                            <i class="icon-bar-graph menu-icon"></i>
-                            <span class="menu-title">Products</span>
-                            <i class="menu-arrow"></i>
-                        </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="Products" asp-action="Index">
+                                <i class="icon-bar-graph menu-icon"></i>
+                                <span class="menu-title">Products</span>
+                                <i class="menu-arrow"></i>
+                            </a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="New Collection" asp-action="Index" >
-                            <i class="icon-grid-2 menu-icon"></i>
-                            <span class="menu-title">New Collection</span>
-                            <i class="menu-arrow"></i>
-                        </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="New Collection" asp-action="Index">
+                                <i class="icon-grid-2 menu-icon"></i>
+                                <span class="menu-title">New Collection</span>
+                                <i class="menu-arrow"></i>
+                            </a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="Video" asp-action="Index" >
-                            <i class="icon-contract menu-icon"></i>
-                            <span class="menu-title">Video</span>
-                            <i class="menu-arrow"></i>
-                        </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="Video" asp-action="Index">
+                                <i class="icon-contract menu-icon"></i>
+                                <span class="menu-title">Video</span>
+                                <i class="menu-arrow"></i>
+                            </a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="User Pages" asp-action="Index" >
-                            <i class="icon-head menu-icon"></i>
-                            <span class="menu-title">User Pages</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register.html"> Register </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="Error pages" asp-action="Index">
-                            <i class="icon-ban menu-icon"></i>
-                            <span class="menu-title">Error pages</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="error">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/error-404.html"> 404 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/error-500.html"> 500 </a></li>
-                            </ul>
-                        </div>
-                    </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="User Pages" asp-action="Index">
+                                <i class="icon-head menu-icon"></i>
+                                <span class="menu-title">User Pages</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="auth">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/login.html"> Login </a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/register.html"> Register </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="AdminArea" asp-controller="Error pages" asp-action="Index">
+                                <i class="icon-ban menu-icon"></i>
+                                <span class="menu-title">Error pages</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="error">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/error-404.html"> 404 </a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="~/admin/pages/samples/error-500.html"> 500 </a></li>
+                                </ul>
+                            </div>
+                        </li>
 
-                </ul>
-            </nav>
-            </div>
+                    </ul>
+                </nav>
+            </div> 
         </div>
+        <!-- partial -->
+        @RenderBody()
+
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->

@@ -3,28 +3,22 @@
     ViewData["Title"] = "Index";
     int count = 1;
 }
+
 <div class="container mt-3">
     <div class="row">
         <div class="header d-flex justify-content-between mt-3">
             <h3>Brands</h3>
             <div class="ml-4">
-                <a class="btn btn-success" asp-controller="Brands" asp-action="Create">Create</a>
+                <a class="btn btn-success" asp-controller="Brand" asp-action="Create">Create</a>
             </div>
         </div>
-
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>
-                            Number
-                        </th>
-                        <th>
-                            Image
-                        </th>
-                        <th>
-                            Settings
-                        </th>
+                        <th>Id</th>
+                        <th>Image</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +29,7 @@
                                 @count
                             </td>
                             <td>
-                                <img src="~/assets/img/slider/@brand.Image" style="width:250px;height:150px; border-radius:unset" alt="slider" />
+                                <img src="~/assets/img/logo/@brand.Image" style="width:250px;height:150px; border-radius:unset" alt="slider" />
                             </td>
                             <td>
                                 <a class="btn btn-primary btn-sm" asp-action="Detail" asp-route-id="@brand.Id">
@@ -58,5 +52,7 @@
             </table>
         </div>
     </div>
-
 </div>
+  
+
+
