@@ -15,6 +15,7 @@ using Worldperfumluxury.ViewModels.Admin;
 
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
+    [Area("AdminArea")]
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
@@ -69,6 +70,8 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             Product product = new Product
             {
                 Image = fileName,
+                
+
 
 
             };
@@ -128,6 +131,29 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Product product = await GetProductById(id);
+
+            if (product == null) return NotFound();
+
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", product.Image);
+
+            Helper.DeleteFile(path);
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            Product product = await _context.Products.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
+            if (product is null) return NotFound();
+            return View(product);
+        }
 
         //Helper Method
         private async Task<Product> GetProductById(int id)

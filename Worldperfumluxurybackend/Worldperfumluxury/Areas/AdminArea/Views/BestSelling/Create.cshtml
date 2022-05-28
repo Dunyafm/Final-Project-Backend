@@ -5,7 +5,7 @@
 
 <div class="container mt-5">
     <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
-        <div class="form-group">
+        <div class="form-group" style="margin-top:7rem!important">
             <label asp-for="Photo"></label>
             <input class="form-control" style="width:300px" asp-for="Photo">
             <span class="text-danger" asp-validation-for="Photo"></span>
@@ -19,6 +19,11 @@
             <label asp-for="Oldprice"></label>
             <input class="form-control" style="width:300px" asp-for="Oldprice">
             <span class="text-danger" asp-validation-for="Oldprice"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewPrice"></label>
+            <input class="form-control" style="width:300px" asp-for="NewPrice">
+            <span class="text-danger" asp-validation-for="NewPrice"></span>
         </div>
         <button type="submit" class="btn btn-primary me-2">Submit</button>
         <a asp-action="Index" class="btn btn-light">Cancel</a>
