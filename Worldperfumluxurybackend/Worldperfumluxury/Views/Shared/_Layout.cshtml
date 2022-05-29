@@ -34,7 +34,6 @@
 
 <body>
 
-
     <!-- HEADER START -->
 
     <header>
@@ -82,22 +81,22 @@
                                 <!-- NAVBAR ICONS -->
                                 <!-- Right elements -->
                                 <div class="col-lg-3 col-md-3">
-                                    <div class="header__nav__option">
+                                    <div class="header__nav__option" style="padding:24px 0">
                                         <form class="d-flex">
                                             <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                                             <button class="btn btn-outline-success" type="submit">Search</button>
                                         </form>
 
 
-                                        <a href="wishlist.html">
+                                        <a asp-controller="Wishlist" asp-action="index">
                                         <img src="./assets/img/icons/heart.png" alt="">
                                         </a>
 
-                                        <a href="shopping-cart.html">
+                                        <a asp-controller="Shopping_cart" asp-action="index">
                                         <img src="./assets/img/icons/cart.png" alt="">
                                         </a>
 
-                                        <a href="login-register.html">
+                                        <a asp-controller="LoginRegister" asp-action="index">
                                             <img src="./assets/img/icons/man.png" alt="">
                                             <span>0</span>
                                         </a>
@@ -162,10 +161,10 @@
                 <div class=" col-sm-4 col-md  col-6 col">
                     <h5 class="headin5_amrc col_white_amrc pt2">ƏTİRLƏR</h5>
                     <ul class="footer_ul_amrc">
-                        <li><a href="womenshop.html">Qadın ətirləri</a></li>
-                        <li><a href="menshop.html">Kişi ətirləri</a></li>
-                        <li><a href="http://webenlance.com">Unisex ətirlər</a></li>
-                        <li><a href="product.html">Bütün ətir brendləri</a></li>
+                        <li><a asp-controller="womenshop" asp-action="index">Qadın ətirləri</a></li>
+                        <li><a asp-controller="menshop" asp-action="index">Kişi ətirləri</a></li>
+                        <li><a asp-controller="unisexshop" asp-action="index">Unisex ətirlər</a></li>
+                        <li><a asp-controller ="product" asp-action="index">Bütün ətir brendləri</a></li>
 
                     </ul>
 
@@ -176,17 +175,17 @@
 
                     <ul class="footer-page-two">
                         <li>
-                            <a href="login-register.html">Daxil ol</a>
+                            <a asp-controller="LoginRegister" asp-action="index">Daxil ol</a>
 
                         </li>
 
                         <li>
-                            <a href="login-register.html">Qeydiyyat</a>
+                            <a asp-controller="LoginRegister" asp-action="index">Qeydiyyat</a>
 
                         </li>
 
                         <li>
-                            <a href="wishlist.html">Sevimlilər</a>
+                            <a asp-controller="wishlist" asp-action="index">Sevimlilər</a>
 
                         </li>
 
@@ -199,12 +198,12 @@
 
         <div class="container">
             <ul class="footer-bottom">
-                <li><a href="home.html">ƏTİRLƏR</a></li>
-                <li><a href="womenshop.html">QADIN</a></li>
-                <li><a href="menshop.html">KİŞİ</a></li>
-                <li><a href="unisexshop.html">UNISEX</a></li>
-                <li><a href="blog.html">BLOQ</a></li>
-                <li><a href="contact.html">ƏLAQƏ</a></li>
+                <li><a asp-controller="product" asp-action="index">>ƏTİRLƏR</a></li>
+                <li><a asp-controller="womenshop" asp-action="index">>QADIN</a></li>
+                <li><a asp-controller="menshop" asp-action="index">KİŞİ</a></li>
+                <li><a asp-controller="unisexshop" asp-action="index">UNISEX</a></li>
+                <li><a asp-controller="blog" asp-action="index">BLOQ</a></li>
+                <li><a asp-controller="contact" asp-action="index">ƏLAQƏ</a></li>
             </ul>
 
             <p class="text-center">worldperfumluxury 2019@Bütün hüquqlar qorunur<a href="#"></a></p>
