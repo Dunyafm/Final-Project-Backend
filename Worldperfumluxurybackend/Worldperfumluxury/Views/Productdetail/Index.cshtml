@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="./assets/css/product-detail.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/plugins/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="assets/css/plugins/magnific-popup/magnific-popup.css">
+<!-- Main CSS File -->
+<link rel="stylesheet" href="assets/css/product-detail.css">
+<link rel="stylesheet" href="assets/css/plugins/nouislider/nouislider.css">
+
+<!-- ICONS FOR LINKS -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+<div class="main">
+    <div class="left-icon">
+        <div>
+            <img onclick="document.getElementById('img-holder').style.backgroundImage = 'url(https://images.selfridges.com/is/image/selfridges/R03789110_M?$PDP_M_ZOOM$)'"
+                 src="./assets/img/Kilians/Products/Kilian-A kiss.jfif" id="left-circle">
+        </div>
+        <div>
+            <img onclick="document.getElementById('img-holder').style.backgroundImage = 'url(https://images.selfridges.com/is/image/selfridges/R03789110_ALT01?$PDP_M_ZOOM$)'"
+                 src="./assets/img/Kilians/Detail/A kiss-kilian.jfif" id="left-circle">
+        </div>
+        <div>
+            <img onclick="document.getElementById('img-holder').style.backgroundImage = 'url(https://images.selfridges.com/is/image/selfridges/R03789110_ALT02?$PDP_M_ZOOM$)'"
+                 src="./assets/img/Kilians/Detail/A kiss-notes.jfif" id="left-circle">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="column">
+            <div id="img-holder"></div>
+        </div>
+        <div class="column">
+            <h>KILIAN</h>
+            <p>A Kiss From A Rose eau de parfum 50ml</p>
+            <p2>
+                <b>
+                    Tərkib:
+                </b>
+            </p2>
+            <ul>
+                <li>
+                    Üst notları:
+                    Ambretta (Müşk əməköməcisi) Badam
+                </li>
+                <li>
+                    Ürək notları:
+                    Freziya Süsən
+                </li>
+                <li>
+                    Baza notları:
+                    Müşk Tonka lobyası Tuberoza Vanil
+                </li>
+                <li>
+                    Qrup: Dəri Şərq
+                </li>
+
+            </ul>
+            <div class="counter">
+                <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                <input type="text" value="1">
+                <span class="up" onClick='increaseCount(event, this)'>+</span>
+            </div>
+            <div class="price">
+                <span>Qiymət</span>
+                <input type="text" value="">
+
+            </div>
+            <button class="price-button">Sifariş et</button>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- COMMENTS -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="be-comment-block">
+        <h1 class="comments-title">Kommentlər(3)</h1>
+        <div class="be-comment">
+            <div class="be-img-comment">
+                <a href="blog-detail-2.html">
+                    <img src="./assets/img/comments/Aydan Mustafayeva.jpg" alt="" class="be-ava-comment">
+                </a>
+            </div>
+            <div class="be-comment-content">
+
+                <span class="be-comment-name">
+                    <a href="blog-detail-2.html">Ravi Sah</a>
+                </span>
+                <span class="be-comment-time">
+                    <i class="fa fa-clock-o"></i>
+                    May 27, 2015 at 3:14am
+                </span>
+
+                <p class="be-comment-text">
+                    Pellentesque gravida tristique ultrices.
+                    Sed blandit varius mauris, vel volutpat urna hendrerit id.
+                    Curabitur rutrum dolor gravida turpis tristique efficitur.
+                </p>
+            </div>
+        </div>
+        <div class="be-comment">
+            <div class="be-img-comment">
+                <a href="blog-detail-2.html">
+                    <img src="./assets/img/comments/users.jpg" alt="" class="be-ava-comment">
+                </a>
+            </div>
+            <div class="be-comment-content">
+                <span class="be-comment-name">
+                    <a href="blog-detail-2.html">Phoenix, the Creative Studio</a>
+                </span>
+                <span class="be-comment-time">
+                    <i class="fa fa-clock-o"></i>
+                    May 27, 2015 at 3:14am
+                </span>
+                <p class="be-comment-text">
+                    Nunc ornare sed dolor sed mattis. In scelerisque dui a arcu mattis, at maximus eros commodo. Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant. Proin ut ornare lectus, vel eleifend est. Fusce hendrerit dui in turpis tristique blandit.
+                </p>
+            </div>
+        </div>
+        <div class="be-comment">
+            <div class="be-img-comment">
+                <a href="blog-detail-2.html">
+                    <img src="./assets/img/comments/Murad Aliyev.jpg" alt="" class="be-ava-comment">
+                </a>
+            </div>
+            <div class="be-comment-content">
+                <span class="be-comment-name">
+                    <a href="blog-detail-2.html">Cüneyt ŞEN</a>
+                </span>
+                <span class="be-comment-time">
+                    <i class="fa fa-clock-o"></i>
+                    May 27, 2015 at 3:14am
+                </span>
+                <p class="be-comment-text">
+                    Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant
+                </p>
+            </div>
+        </div>
+        <form class="form-block">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group fl_icon">
+
+                        <input class="form-input" type="text" placeholder="İstifadəçi adi">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 fl_icon">
+                    <div class="form-group fl_icon">
+
+                        <input class="form-input" type="text" placeholder="Email">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <textarea class="form-input" required="" placeholder=""></textarea>
+                    </div>
+                </div>
+                <a class="btn btn-primary pull-right">Göndər</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="./assets/js/product-detail.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.hoverIntent.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/superfish.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/bootstrap-input-spinner.js"></script>
+<script src="assets/js/jquery.elevateZoom.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<!-- Main JS File -->
+<script src="./assets/js/product-detail.js"></script>

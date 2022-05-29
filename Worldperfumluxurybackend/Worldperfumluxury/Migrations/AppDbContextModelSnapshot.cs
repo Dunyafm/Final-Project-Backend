@@ -129,7 +129,7 @@ namespace Worldperfumluxury.Migrations
                     b.ToTable("NewCollections");
                 });
 
-            modelBuilder.Entity("Worldperfumluxury.Models.Product", b =>
+            modelBuilder.Entity("Worldperfumluxury.Models.Productmulti", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

@@ -16,18 +16,18 @@ using Worldperfumluxury.ViewModels.Admin;
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    public class ProductController : Controller
+    public class ProductmultiController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        public ProductController(AppDbContext context, IWebHostEnvironment env)
+        public ProductmultiController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;
         }
         public async Task<IActionResult> Index()
         {
-            List<Product> products = await _context.Products.AsNoTracking().ToListAsync();
+            List<Productmulti> products = await _context.Products.AsNoTracking().ToListAsync();
             return View(products);
         }
 
@@ -38,7 +38,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProductVM productVM)
+        public async Task<IActionResult> Create(ProductmultiVM productVM)
         {
 
             if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
@@ -67,7 +67,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             }
 
 
-            Product product = new Product
+            Productmulti product = new Productmulti
             {
                 Image = fileName,
                 
@@ -91,7 +91,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product)
+        public async Task<IActionResult> Edit(int id, Productmulti product)
         {
             var dbproduct = await GetProductById(id);
             if (dbproduct == null) return NotFound();
@@ -135,7 +135,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            Product product = await GetProductById(id);
+            Productmulti product = await GetProductById(id);
 
             if (product == null) return NotFound();
 
@@ -150,13 +150,13 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
-            Product product = await _context.Products.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
+            Productmulti product = await _context.Products.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
             if (product is null) return NotFound();
             return View(product);
         }
 
         //Helper Method
-        private async Task<Product> GetProductById(int id)
+        private async Task<Productmulti> GetProductById(int id)
         {
             return await _context.Products.FindAsync(id);
         }

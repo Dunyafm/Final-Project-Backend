@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\AdminArea\Views\Product\Edit.cshtml" />
+    <Content Remove="Areas\AdminArea\Views\Productmulti\Edit.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
