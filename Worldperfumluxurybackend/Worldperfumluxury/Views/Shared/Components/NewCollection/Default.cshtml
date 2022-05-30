@@ -1,48 +1,41 @@
-﻿@model NewCollection
+﻿@model List<NewCollection>
 <div class="row">
 
+    @foreach (var item in Model)
+    {
+        <div class="column">
+            <div class="card">
+                <div class="content">
+                    <div class="front">
+                        <img class="profile" width="100%" src="./assets/img/NewCollection/@item.Image"
+                             alt="Givenchy">
+                        <h2>@item.Name</h2>
+                    </div>
+                    <div class="back from-left">
+                        <p class="des">
+                            <h1>Tərkib</h1>
 
-    <div class="column">
-        <div class="card">
-            <div class="content">
-                <div class="front">
-                    <img class="profile" width="90%" src="./assets/img/NewCollection/givencyseRies.jpg"
-                         alt="Givenchy">
-                    <h2>Givenchy L'Interdit </h2>
-                </div>
-                <div class="back from-left">
-                    <p class="des">
-                        <h1>Tərkib</h1>    0
-                        0 +M
-                        1  0 
+                            <h2>
+                               @item.Desc
+                            </h2>
+                        
 
 
-                            
-                        <h2>
-                            Üst notları:
-                            Qan portağalı Zəncəfil
-                        </h2>
-                        <h2>
-                            Ürək notları:
-                            Jasmin Pimenta (Amerikan dəfnə ağacı) Tuberoza
-                        </h2>
-                        <h2>
-                            Baza notları:
-                            Paçuli Səndəl Vetivera
-                        </h2>
-                        <h2> Qrup Gül Şərq</h2>
+                        </p>
+                   
 
-                    </p>
-                    <ul class="social-icon">
+                        <ul class="social-icon">
 
-                        <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href=""><i class="fab fa-instagram"></i></a></li>
 
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
+
 
 
 </div>
