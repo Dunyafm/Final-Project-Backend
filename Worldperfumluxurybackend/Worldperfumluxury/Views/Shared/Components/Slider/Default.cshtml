@@ -3,8 +3,9 @@
 @foreach (var slider in Model)
 {
     <div class="carousel-item">
-        <div class="carousel-image"
-             style="background-image: url('https://www.carolinaherrera.com/cdn-cgi/image/q=80,format=auto,fit=contain,width=2000/medias/sys_master/images/images/he6/h08/9169708023838/gifting-2560x711-2.jpg'); ">
+        <div class="carousel-image">
+            <img src="~/assets/img/slider/@slider.Image" alt="Alternate Text" />
+            
         </div>
     </div>
 }
