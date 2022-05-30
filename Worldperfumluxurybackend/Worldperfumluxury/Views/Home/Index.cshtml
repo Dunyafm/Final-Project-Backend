@@ -25,11 +25,7 @@
                  style="background-image: url('https://www.carolinaherrera.com/cdn-cgi/image/q=80,format=auto,fit=contain,width=2000/medias/sys_master/images/images/he6/h08/9169708023838/gifting-2560x711-2.jpg'); ">
             </div>
         </div>
-        <div class="carousel-item">
-            <div class="carousel-image"
-                 style="background-image: url('https://www.bykilian.com/media/export/cms/SEPTEMBER%202021/FY22_LIQUORS_DIGITAL-CONTENT_ROI_AS_ABOTR_HV_TOP-BANNER_DESKTOP_3840x960.jpg');">
-            </div>
-        </div>
+        @await Component.InvokeAsync("Slider")
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -72,133 +68,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-2" class="single-product">
-                    <div class="part-1">
-                        <span class="discount">15% off</span>
-                        <ul>
-                            <li><a asp-controller="ProductDetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                            <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+            @await Component.InvokeAsync("BestSelling")
 
-                        </ul>
-                    </div>
-                    <div class="part-2">
-                        <h3 class="product-title">BLACK OPIUM</h3>
-                        <h4 class="product-price">200₼</h4>
 
-                    </div>
-                </div>
-            </div>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-3" class="single-product">
-                    <div class="part-1">
-                        <ul>
-                            <li><a asp-controller="ProductDetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                            <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
-
-                        </ul>
-                    </div>
-                    <div class="part-2">
-                        <h3 class="product-title">MY WAY</h3>
-                        <h4 class="product-old-price">200₼</h4>
-                        <h4 class="product-price">160₼</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-4" class="single-product">
-                    <div class="part-1">
-                        <span class="new">new</span>
-                        <ul>
-                            <li><a asp-controller="ProductDetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                            <li><a href="wishlist.html"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
-
-                        </ul>
-                    </div>
-                    <div class="part-2">
-                        <h3 class="product-title">GOOD GIRL GONE BAD</h3>
-                        <h4 class="product-price">380₼</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-5" class="single-product">
-                    <div class="part-1">
-                        <ul>
-                            <li><a asp-controller="ProductDetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                            <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
-
-                        </ul>
-                    </div>
-                    <div class="part-2">
-                        <h3 class="product-title">DELINA EXCLUSIF</h3>
-                        <h4 class="product-old-price">450₼</h4>
-                        <h4 class="product-price">400₼</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-6" class="single-product">
-                    <div class="part-1">
-                        <span class="discount">15% off</span>
-                        <ul>
-                            <li><a asp-controller="ProductDetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                            <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
-
-                        </ul>
-                    </div>
-                    <div class="part-2">
-                        <h3 class="product-title">BACCARAT ROUGE540</h3>
-                        <h4 class="product-price">580₼</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-7" class="single-product">
-                    <div class="part-1">
-                        <ul>
-                            <li><a asp-controller="ProductDetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                            <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
-
-                        </ul>
-                    </div>
-                    <div class="part-2">
-                        <h3 class="product-title">INITIO</h3>
-                        <h4 class="product-old-price">570₼</h4>
-                        <h4 class="product-price">510₼</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-8" class="single-product">
-                    <div class="part-1">
-                        <span class="new">new</span>
-                        <ul>
-                            <li><a asp-controller="ProductDetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                            <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
-
-                        </ul>
-                    </div>
-                    <div class="part-2">
-                        <h3 class="product-title">OMBRE LEATHER</h3>
-                        <h4 class="product-price">140₼</h4>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
