@@ -17,6 +17,7 @@ namespace Worldperfumluxury.Models
         [NotMapped]
         [Required]
         public IFormFile Photo { get; set; }
+        public  NewCollection newCollection { get; set; }
 
     }
 }

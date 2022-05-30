@@ -59,7 +59,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             string fileName = Guid.NewGuid().ToString() + "_" + newCollectionVM.Photo.FileName;
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", fileName);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/NewCollection", fileName);
 
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {

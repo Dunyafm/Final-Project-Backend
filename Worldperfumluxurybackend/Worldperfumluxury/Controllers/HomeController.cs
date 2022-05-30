@@ -13,9 +13,11 @@ namespace Worldperfumluxury.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
+       
 
-        
+
     }
 }

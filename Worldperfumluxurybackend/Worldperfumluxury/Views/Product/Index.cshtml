@@ -38,7 +38,7 @@
                     <div class="carousel-caption text-left">
                         <h1>AY SONUNA KİMİ</h1>
                         <p>50 % endirimlər davam edir</p>
-                        <p><a class="btn btn-lg btn-primary" href="home.html" role="button">Sifariş et</a></p>
+                        <p><a class="btn btn-lg btn-primary" asp-controller="home" asp-action="index" role="button">Sifariş et</a></p>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <div class="carousel-caption">
                         <h1></h1>
                         <p></p>
-                        <p><a class="btn btn-lg btn-primary" href="product-detail.html" role="button">Sifariş et</a></p>
+                        <p><a class="btn btn-lg btn-primary" asp-controller="Productdetail" asp-action="index" role="button">Sifariş et</a></p>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <div class="carousel-caption text-right">
                         <h1>1+1 kampaniya başladi!!!</h1>
                         <p</p>
-                        <p><a class="btn btn-lg btn-primary" href="product.html" role="button">Yeni kolleksiya</a></p>
+                        <p><a class="btn btn-lg btn-primary" asp-controller="product" asp-action="index" role="button">Yeni kolleksiya</a></p>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
 
                 <h2>QADIN</h2>
 
-                <p><a class="btn btn-secondary" href="./womenshop.html" role="button">Sifarişə başla  &raquo;</a></p>
+                <p><a class="btn btn-secondary" asp-controller="womenshop" asp-action="index" role="button">Sifarişə başla  &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <img src="./assets/img/catergories/mefor.jpg" width="140" height="140" aria-label="Placeholder: 140x140"
@@ -94,7 +94,7 @@
 
                 <h2>KİŞİ</h2>
 
-                <p><a class="btn btn-secondary" href="./menshop.html" role="button">Sifarişə başla  &raquo;</a></p>
+                <p><a class="btn btn-secondary"asp-controller="menshop" asp-action="index" role="button">Sifarişə başla  &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <img src="./assets/img/catergories/unisex-catergory.jpg" width="140" height="140"
@@ -102,7 +102,7 @@
 
                 <h2>UNISEX</h2>
 
-                <p><a class="btn btn-secondary" href="./unisexshop.html" role="button">Sifarişə başla &raquo;</a></p>
+                <p><a class="btn btn-secondary" asp-controller="unisexshop" asp-action="index" role="button">Sifarişə başla &raquo;</a></p>
             </div>
         </div>
 
@@ -127,9 +127,9 @@
                         <div class="part-1">
 
                             <ul>
-                                <li><a href="product-detail.html"><i class="fas fa-info"></i></a></li>
-                                <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                <li><a asp-controller ="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
+                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
+                                <li><a asp-controller="wishlist" asp-action="index"><i class="fas fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -145,9 +145,9 @@
                         <div class="part-1">
                             <span class="discount">15% off</span>
                             <ul>
-                                <li><a href="product-detail.html"><i class="fas fa-info"></i></a></li>
-                                <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
+                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
+                                <li><a asp-controller="wishlist" asp-action="index"><i class="fas fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -162,9 +162,9 @@
                     <div id="product-3" class="single-product">
                         <div class="part-1">
                             <ul>
-                                <li><a href="product-detail.html"><i class="fas fa-info"></i></a></li>
-                                <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
+                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
+                                <li><a asp-controller="wishlist" asp-action="index"><i class="fas fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -180,9 +180,9 @@
                         <div class="part-1">
                             <span class="new">new</span>
                             <ul>
-                                <li><a href="product-detail.html"><i class="fas fa-info"></i></a></li>
-                                <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
+                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
+                                <li><a asp-controller="wishlist" asp-action="index"><i class="fas fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -196,9 +196,9 @@
                     <div id="product-5" class="single-product">
                         <div class="part-1">
                             <ul>
-                                <li><a href="product-detail.html"><i class="fas fa-info"></i></a></li>
-                                <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
+                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
+                                <li><a asp-controller="wishlist" asp-action="index"><i class="fas fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -214,9 +214,9 @@
                         <div class="part-1">
                             <span class="discount">15% off</span>
                             <ul>
-                                <li><a href="product-detail.html"><i class="fas fa-info"></i></a></li>
-                                <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                <li><a href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
+                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
+                                <li><a asp-controller="wishlist" asp-action="index"><i class="fas fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
