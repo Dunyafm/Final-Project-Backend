@@ -60,7 +60,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             string fileName = Guid.NewGuid().ToString() + "_" + bestSellingVM.Photo.FileName;
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/slider", fileName);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", fileName);
 
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
@@ -70,7 +70,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             BestSelling bestSelling = new BestSelling
             {
-                Photo = fileName,
+                Image = fileName,
 
 
 
@@ -84,24 +84,30 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    BestSelling best = await _context.BestSellings.Where(m => m.Id == id).Include(m => m.BestSellingDetail).FirstOrDefaultAsync();
 
-        //    if (BestSelling == null) return NotFound();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            BestSelling bestSelling = await GetBestSellingById(id);
 
-        //    string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", bestSelling.Image);
+            if (bestSelling == null) return NotFound();
 
-        //    Helper.DeleteFile(path);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", bestSelling.Image);
+
+            Helper.DeleteFile(path);
+
+            _context.BestSellings.Remove(bestSelling);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        //Helper Method
+        private async Task<BestSelling> GetBestSellingById(int Id)
+        {
+            return await _context.BestSellings.FindAsync(Id);
+        }
 
 
 
-        //    bestSelling.IsActive = false;
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-
-        //}
     }
 }
