@@ -1,0 +1,72 @@
+﻿@model List<Blog>
+@{ ViewData["Title"] = "Index";
+    int count = 1; }
+
+
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="header d-flex justify-content-between my-5">
+                        <h1 class="card-title my-3">Blogs</h1>
+                        <div><a class="btn btn-success btn-sm my-4" asp-controller="Blog" asp-action="Create">Create</a></div>
+
+
+
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> No </th>
+                                    <th> Image </th>
+                                    <th> Name </th>
+                                    <th> Desc </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var blog in Model)
+                                {
+                                    <tr>
+                                        <td> @count </td>
+                                        <td>   <img style="width:100px; height:50px; border-radius:unset" src="~/assets/img/blog/08_CHANEL_N_5_VISUEL_8_LD.jpg" alt="Photo" /></td>
+                                        <td> @blog.Header </td>
+                                        <td>@blog.Desc</td>
+
+                                        <td>
+                                            <a class="btn btn-primary btn-sm" asp-action="Detail" asp-route-id="@blog.Id">
+                                                <i class="icon-options"></i>
+                                            </a>
+                                            <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@blog.Id">
+                                                <i class="icon-pencil"></i>
+                                            </a>
+                                            <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@blog.Id">
+                                                <button class="btn btn-danger btn-sm" type="submit">
+                                                    <i class=" icon-close"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    count++;
+                                }
+
+
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

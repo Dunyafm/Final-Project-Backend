@@ -22,5 +22,9 @@ namespace Worldperfumluxury.Utilites.Helpers
             }
         }
 
+        internal static string GetFilePath(string webRootPath, string v, int image)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

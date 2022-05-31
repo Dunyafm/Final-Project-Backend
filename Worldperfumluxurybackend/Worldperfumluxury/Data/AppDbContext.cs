@@ -20,5 +20,8 @@ namespace Worldperfumluxury.Data
         public DbSet<Productmulti> Productmultis { get; set; }
         public DbSet<NewCollection> NewCollections { get; set; }
 
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Video> Videos { get; set; }
+
     }
 }
