@@ -17,7 +17,7 @@ namespace Worldperfumluxury.Data
         public DbSet<BestSelling> BestSellings { get; set; }
         public DbSet<BestSellingDetail> BestSellingDetails { get; set; }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<Productmulti> Products { get; set; }
+        public DbSet<Productmulti> Productmultis { get; set; }
         public DbSet<NewCollection> NewCollections { get; set; }
 
     }

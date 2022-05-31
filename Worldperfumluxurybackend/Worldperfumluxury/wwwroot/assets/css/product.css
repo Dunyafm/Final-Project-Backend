@@ -283,46 +283,7 @@ body {
      transition: all 0.3s;
  }
  
- .section-products .single-product:hover .part-1::before {
-     transform: scale(1.2,1.2) rotate(5deg);
- }
  
- .section-products #product-1 .part-1::before {
-     background: url("https://images.selfridges.com/is/image/selfridges/R03676943_ALT01?$PDP_M_ZOOM$") no-repeat center;
-     background-size: cover;
-     transition: all 0.3s;
- }
- 
- .section-products #product-2 .part-1::before {
-     background: url("https://images.selfridges.com/is/image/selfridges/456-84033258-L5597600_M?$PDP_M_ZOOM$") no-repeat center;
-     background-size: cover;
- }
- 
- .section-products #product-3 .part-1::before {
-     background: url("https://images.selfridges.com/is/image/selfridges/R03660320_M?$PDP_M_ZOOM$") no-repeat center;
-     background-size: cover;
- }
- 
- .section-products #product-4 .part-1::before {
-     background: url("https://images.selfridges.com/is/image/selfridges/R00106506_M?$PDP_M_ZOOM$") no-repeat center;
-     background-size: cover;
- }
- .section-products #product-5 .part-1::before {
-   background: url("https://images.selfridges.com/is/image/selfridges/496-3003325-PM0007PV_M?$PDP_M_ZOOM$") no-repeat center;
-   background-size: cover;
- }
- .section-products #product-6 .part-1::before {
-   background: url("https://images.selfridges.com/is/image/selfridges/1033-83022651-MFK1042302_M?$PDP_M_ZOOM$") no-repeat center;
-   background-size: cover;
- }
- .section-products #product-7 .part-1::before {
-   background: url("https://images.selfridges.com/is/image/selfridges/496-71012338-INBG0001SP_ALT01?$PDP_M_ZOOM$") no-repeat center;
-   background-size: cover;
- }
- .section-products #product-8 .part-1::before {
-   background: url("https://images.selfridges.com/is/image/selfridges/453-3001058-T5Y3010000_ALT10?defaultImage=453-3001058-T5Y3010000_M&$PLP_ALL$") no-repeat center;
-   background-size: cover;
- }
  
  .section-products .single-product .part-1 .discount,
  .section-products .single-product .part-1 .new {

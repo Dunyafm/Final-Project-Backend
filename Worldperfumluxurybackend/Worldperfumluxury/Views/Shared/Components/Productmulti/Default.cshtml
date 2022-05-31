@@ -1,0 +1,38 @@
+﻿@model List<Productmulti>
+
+@foreach (var productmulti in Model)
+{
+    <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="slider-item">
+            <div class="slider-image">
+                <img src="./assets/img/Kilians/Products/@productmulti.Image"
+                     class="img-responsive" alt="a" />
+            </div>
+            <div class="slider-main-detail">
+                <div class="slider-detail">
+                    <div class="product-detail">
+                        <h5>@productmulti.Desc</h5>
+                        <h5 class=@productmulti.Price>340₼</h5>
+                    </div>
+                </div>
+                <div class="cart-section">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-6 review">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-6">
+                            <a href="#" class="AddCart btn btn-info">
+                                <i class="fa fa-shopping-cart"
+                                   aria-hidden="true"></i> Sifariş et
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

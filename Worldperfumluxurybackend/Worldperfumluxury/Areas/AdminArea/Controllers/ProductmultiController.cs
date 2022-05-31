@@ -27,7 +27,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<Productmulti> products = await _context.Products.AsNoTracking().ToListAsync();
+            List<Productmulti> products = await _context.Productmultis.AsNoTracking().ToListAsync();
             return View(products);
         }
 
@@ -76,7 +76,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             };
 
-            await _context.Products.AddAsync(product);
+            await _context.Productmultis.AddAsync(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -143,14 +143,14 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             Helper.DeleteFile(path);
 
-            _context.Products.Remove(product);
+            _context.Productmultis.Remove(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Detail(int id)
         {
-            Productmulti product = await _context.Products.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
+            Productmulti product = await _context.Productmultis.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
             if (product is null) return NotFound();
             return View(product);
         }
@@ -158,7 +158,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
         //Helper Method
         private async Task<Productmulti> GetProductById(int id)
         {
-            return await _context.Products.FindAsync(id);
+            return await _context.Productmultis.FindAsync(id);
         }
     }
 }

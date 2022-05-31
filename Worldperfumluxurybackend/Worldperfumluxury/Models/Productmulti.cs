@@ -12,7 +12,8 @@ namespace Worldperfumluxury.Models
     {
         public int Id { get; set; }
         public string Image { get; set; }
-        public int Desc { get; set; }
+        public string Desc { get; set; }
+        public int Price { get; set; }
         [NotMapped]
         [Required]
         public IFormFile Photo { get; set; }
