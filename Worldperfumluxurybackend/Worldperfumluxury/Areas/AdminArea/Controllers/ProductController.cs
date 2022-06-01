@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Worldperfumluxury.Controllers
+namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
     public class ProductController : Controller
     {
@@ -12,6 +12,5 @@ namespace Worldperfumluxury.Controllers
         {
             return View();
         }
-
     }
 }
