@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,9 @@ using Worldperfumluxury.Models;
 
 namespace Worldperfumluxury.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
@@ -22,6 +23,13 @@ namespace Worldperfumluxury.Data
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<FullOrder> FullOrders { get; set; }
+        public virtual DbSet<BasketItem> BasketItems { get; set; }
+        public virtual DbSet<BillingAddress> BillingAddresses { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
     }
 }

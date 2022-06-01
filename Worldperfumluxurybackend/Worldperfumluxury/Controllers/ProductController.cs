@@ -12,6 +12,5 @@ namespace Worldperfumluxury.Controllers
         {
             return View();
         }
-
     }
 }
