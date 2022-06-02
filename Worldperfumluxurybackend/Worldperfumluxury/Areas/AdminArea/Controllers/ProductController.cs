@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Worldperfumluxury.Data;
 using Worldperfumluxury.Extensions;
+using Worldperfumluxury.Helpers;
 using Worldperfumluxury.Models;
+using Worldperfumluxury.Utilites.File;
+using Worldperfumluxury.ViewModels.Admin;
 
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
+    [Area("AdminArea")]
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
@@ -39,6 +44,56 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             return View(lists);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ProductVM productVM)
+        {
+
+            if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
+
+
+            if (!productVM.Photo.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("Photo", "Image type is wrong");
+                return View();
+            }
+
+            if (!productVM.Photo.CheckFileSize(10000))
+            {
+                ModelState.AddModelError("Photo", "Image size is wrong");
+                return View();
+            }
+
+
+            string fileName = Guid.NewGuid().ToString() + "_" + productVM.Photo.FileName;
+
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/product", fileName);
+
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await productVM.Photo.CopyToAsync(stream);
+            }
+
+
+            Product product = new Product
+            {
+                Image = fileName,
+
+            };
+
+            await _context.Products.AddAsync(product);
+
+
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Search(string search)
         {
             var query = await _context.Products.Include(x => x.Category).Where(x => x.IsDeleted == false && (x.Name.ToLower().Contains(search) || x.Category.Name.ToLower().Contains(search)))
@@ -46,134 +101,8 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             return PartialView("_SearchPartial", query);
         }
-        public async Task<IActionResult> Edit(int id)
-        {
-            ViewBag.Categories = await _context.Products.ToListAsync();
-            //ViewBag.ProductTypes = await _context.ProductTypes.ToListAsync();
-            Product product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted == false);
-            if (product == null)
-            {
-                return RedirectToAction("index");
-            }
-            return View(product);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product)
-        {
-            ViewBag.Categories = await _context.Categories.ToListAsync();
-            //ViewBag.ProductTypes = await _context.ProductTypes.ToListAsync();
-
-            Product existproduct = await _context.Products.FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted == false);
-            if (!await _context.Categories.AnyAsync(x => x.Id == product.CategoryId)) return RedirectToAction("index");
-            //if (!await _context.ProductTypes.AnyAsync(x => x.Id == product.ProductTypeId)) return RedirectToAction("index");
-            if (existproduct == null)
-            {
-                return RedirectToAction("index");
-            }
-            if (product.ProductImage != null)
-            {
-                if (!product.ProductImage.IsImage())
-                {
-                    ModelState.AddModelError("ProductImage", "Shekil formatinda file daxil edilmelidir");
-                    return View();
-                }
-                if (product.ProductImage.Length > (1024 * 1024) * 5)
-                {
-                    ModelState.AddModelError("ProductImage", "File olcusu 5mb-dan cox olmaz!");
-                    return View();
-                }
-                string rootPath = _env.WebRootPath;
-                var fileName = Guid.NewGuid().ToString() + product.ProductImage.FileName;
-                var path = Path.Combine(rootPath, "img/Product", fileName);
-
-                using (FileStream stream = new FileStream(path, FileMode.Create))
-                {
-                    product.ProductImage.CopyTo(stream);
-                }
-                if (existproduct.Image != null)
-                {
-                    string existPath = Path.Combine(_env.WebRootPath, "img/Product", existproduct.Image);
-                    if (System.IO.File.Exists(existPath))
-                    {
-                        System.IO.File.Delete(existPath);
-                    }
-                }
-                existproduct.Image = fileName;
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-            existproduct.CategoryId = product.CategoryId;
-            existproduct.ProductTypeId = product.ProductTypeId;
-            existproduct.Price = product.Price;
-            existproduct.Name = product.Name;
-            existproduct.Image = product.Image;
-            existproduct.Description = product.Description;
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction("index");
-        }
-
-        public async Task<IActionResult> Create()
-        {
-            Product product = await _context.Products.Include(p => p.Category).Include(t => t.ProductTypeId).FirstOrDefaultAsync();
-            ViewBag.Categories = await _context.Categories.ToListAsync();
-            //ViewBag.ProductTypes = await _context.ProductTypes.ToListAsync();
-
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product)
-        {
-
-            //ViewBag.ProductTypes = await _context.ProductTypes.ToListAsync();
-            ViewBag.Categories = await _context.Categories.ToListAsync();
-            if (!await _context.Categories.AnyAsync(x => x.Id == product.CategoryId))
-            {
-                ModelState.AddModelError("CategoryId", "Xetaniz var!");
-            }
-            //if (!await _context.ProductTypes.AnyAsync(x => x.Id == product.ProductTypeId))
-            //{
-            //    ModelState.AddModelError("ProductTypeId", "Xetaniz var!");
-            //}
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-            if (product.ProductImage != null)
-            {
-                if (!product.ProductImage.IsImage())
-                {
-                    ModelState.AddModelError("ProductImage", "Image formatinda file daxil edilmelidir");
-                    return View();
-                }
-                if (product.ProductImage.Length > (1024 * 1024) * 5)
-                {
-                    ModelState.AddModelError("ProductImage", "File olcusu 5mb-dan cox olmaz!");
-                    return View();
-                }
-                string rootPath = _env.WebRootPath;
-                var fileName = Guid.NewGuid().ToString() + product.ProductImage.FileName;
-                var path = Path.Combine(rootPath, "img/Product", fileName);
-
-                using (FileStream stream = new FileStream(path, FileMode.Create))
-                {
-                    product.ProductImage.CopyTo(stream);
-                }
-                product.Image = fileName;
-            }
-
-            await _context.Products.AddAsync(product);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("index");
-
-        }
+     
+     
         public async Task<IActionResult> Delete(int id)
         {
             Product product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted == false);

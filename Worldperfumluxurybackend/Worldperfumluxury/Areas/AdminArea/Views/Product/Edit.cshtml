@@ -1,5 +1,19 @@
-﻿
+﻿@model Product
 @{
     ViewData["Title"] = "Edit";
-}
 
+}
+<div class="container mt-5">
+    <div class="img">
+        <img src="~/assets/img/slider/@Model.Image" alt="slider" style="width:250px;height:250px" />
+    </div>
+    <form class="forms-sample" method="post" asp-action="Edit" enctype="multipart/form-data">
+        <div class="form-group">
+
+            <input class="form-control" style="width:300px" asp-for="Photo">
+            <span class="text-danger" asp-validation-for="Photo"></span>
+        </div>
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+    </form>
+</div>

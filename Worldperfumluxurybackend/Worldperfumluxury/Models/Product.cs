@@ -21,8 +21,9 @@ namespace Worldperfumluxury.Models
         public bool IsDeleted { get; set; }
         public IEnumerable<BasketItem> BasketItems { get; set; }
         [NotMapped]
-        public IFormFile ProductImage { get; set; }
-     
+        public IFormFile Photo{ get; set; }
+        //public IFormFile ProductImage { get; set; }
+
         [NotMapped]
         public int Count { get; set; }
 
