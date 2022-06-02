@@ -9,11 +9,13 @@
             <label asp-for="Photo"></label>
             <input class="form-control" style="width:238px; height:60px" asp-for="Photo">
             <span class="text-danger" asp-validation-for="Photo"></span>
+            <input asp-for="Name" type="text" placeholder="Name" />
+            <span asp-validation-for="Name"></span>
             <input asp-for="Price" type="text" placeholder="Price" />
             <span asp-validation-for="Price"></span>
 
-            <input asp-for="Name" type="text" placeholder="Name" />
-            <span asp-validation-for="Name"></span>
+            <input asp-for="Description" type="text" placeholder="Desc" />
+            <span asp-validation-for="Description"></span>
 
 
         </div>

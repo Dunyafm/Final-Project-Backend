@@ -1,4 +1,4 @@
-﻿
+﻿@model ContactVM
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -54,18 +54,18 @@
             </div>
         </div>
         <div class="contactForm">
-            <form action="">
+            <form asp-controller="contact" asp-action="create" method="post">
                 <h2>Messaj göndərin</h2>
                 <div class="inputBox">
-                    <input type="text" required="required">
+                    <input asp-for="@Model.UserName" type="text" required="required">
                     <span>İstifadəçi adiniz</span>
                 </div>
                 <div class="inputBox">
-                    <input type="email" required="required">
+                    <input asp-for="@Model.Email" type="text" required="required">
                     <span>Email</span>
                 </div>
                 <div class="inputBox">
-                    <input type="tel" required="required">
+                    <input asp-for="@Model.Phone" type="tel" required="required">
                     <span>Əlaqə nömrəniz</span>
                 </div>
                 <div class="inputBox">
@@ -73,8 +73,9 @@
                     <span>Sizin messajiniz...</span>
                 </div>
                 <div class="inputBox">
-                    <input type="submit" value="Göndər">
+                    <input asp-controller="Contact" asp-action="create" type="submit" value="Göndər" style="line-height:3.5;">
                 </div>
+
             </form>
         </div>
     </div>

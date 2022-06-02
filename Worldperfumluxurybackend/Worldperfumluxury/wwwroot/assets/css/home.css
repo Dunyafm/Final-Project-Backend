@@ -170,6 +170,11 @@ a {
   position: relative;
   top: 3px;
 }
+
+.navbar .navbar-brand {
+	display: inherit;
+	margin-bottom: 85px;
+}
 /* SEARCH */
 
 

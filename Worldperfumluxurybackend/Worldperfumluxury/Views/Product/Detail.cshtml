@@ -1,10 +1,10 @@
-﻿
+﻿@model BestSelling
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link rel="stylesheet" href="./assets/css/product-detail.css">
+<link rel="stylesheet" href="~/assets/css/product-detail.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 <!-- CSS only -->
@@ -12,12 +12,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/plugins/owl-carousel/owl.carousel.css">
-<link rel="stylesheet" href="assets/css/plugins/magnific-popup/magnific-popup.css">
+<link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/assets/css/plugins/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="~/assets/css/plugins/magnific-popup/magnific-popup.css">
 <!-- Main CSS File -->
-<link rel="stylesheet" href="assets/css/product-detail.css">
-<link rel="stylesheet" href="assets/css/plugins/nouislider/nouislider.css">
+<link rel="stylesheet" href="~/assets/css/product-detail.css">
+<link rel="stylesheet" href="~/assets/css/plugins/nouislider/nouislider.css">
 
 <!-- ICONS FOR LINKS -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -27,15 +27,15 @@
     <div class="left-icon">
         <div>
             <img onclick="document.getElementById('img-holder').style.backgroundImage = 'url(https://images.selfridges.com/is/image/selfridges/R03789110_M?$PDP_M_ZOOM$)'"
-                 src="./assets/img/Kilians/Products/Kilian-A kiss.jfif" id="left-circle">
+                 src="~/assets/img/Kilians/Products/Kilian-A kiss.jfif" id="left-circle">
         </div>
         <div>
             <img onclick="document.getElementById('img-holder').style.backgroundImage = 'url(https://images.selfridges.com/is/image/selfridges/R03789110_ALT01?$PDP_M_ZOOM$)'"
-                 src="./assets/img/Kilians/Detail/A kiss-kilian.jfif" id="left-circle">
+                 src="~/assets/img/Kilians/Detail/A kiss-kilian.jfif" id="left-circle">
         </div>
         <div>
             <img onclick="document.getElementById('img-holder').style.backgroundImage = 'url(https://images.selfridges.com/is/image/selfridges/R03789110_ALT02?$PDP_M_ZOOM$)'"
-                 src="./assets/img/Kilians/Detail/A kiss-notes.jfif" id="left-circle">
+                 src="~/assets/img/Kilians/Detail/A kiss-notes.jfif" id="left-circle">
         </div>
 
     </div>
@@ -90,11 +90,11 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
     <div class="be-comment-block">
-        <h1 class="comments-title">Kommentlər(3)</h1>
+        <h1 class="comments-title">Kommentlər(@Model.Title)</h1>
         <div class="be-comment">
             <div class="be-img-comment">
                 <a href="blog-detail-2.html">
-                    <img src="./assets/img/comments/Aydan Mustafayeva.jpg" alt="" class="be-ava-comment">
+                    <img src="~/assets/img/comments/Aydan Mustafayeva.jpg" alt="" class="be-ava-comment">
                 </a>
             </div>
             <div class="be-comment-content">
@@ -117,7 +117,7 @@
         <div class="be-comment">
             <div class="be-img-comment">
                 <a href="blog-detail-2.html">
-                    <img src="./assets/img/comments/users.jpg" alt="" class="be-ava-comment">
+                    <img src="~/assets/img/comments/users.jpg" alt="" class="be-ava-comment">
                 </a>
             </div>
             <div class="be-comment-content">
@@ -136,7 +136,7 @@
         <div class="be-comment">
             <div class="be-img-comment">
                 <a href="blog-detail-2.html">
-                    <img src="./assets/img/comments/Murad Aliyev.jpg" alt="" class="be-ava-comment">
+                    <img src="~/assets/img/comments/Murad Aliyev.jpg" alt="" class="be-ava-comment">
                 </a>
             </div>
             <div class="be-comment-content">
@@ -178,19 +178,20 @@
 </div>
 
 
-<script src="./assets/js/product-detail.js"></script>
+<script src="~/assets/js/product-detail.js"></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery.hoverIntent.min.js"></script>
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/superfish.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/bootstrap-input-spinner.js"></script>
-<script src="assets/js/jquery.elevateZoom.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="~/assets/js/jquery.min.js"></script>
+<script src="~/assets/js/bootstrap.bundle.min.js"></script>
+<script src="~/assets/js/jquery.hoverIntent.min.js"></script>
+<script src="~/assets/js/jquery.waypoints.min.js"></script>
+<script src="~/assets/js/superfish.min.js"></script>
+<script src="~/assets/js/owl.carousel.min.js"></script>
+<script src="~/assets/js/bootstrap-input-spinner.js"></script>
+<script src="~/assets/js/jquery.elevateZoom.min.js"></script>
+<script src="~/assets/js/jquery.magnific-popup.min.js"></script>
 <!-- Main JS File -->
-<script src="./assets/js/product-detail.js"></script>
+<script src="~/assets/js/product-detail.js"></script>
+

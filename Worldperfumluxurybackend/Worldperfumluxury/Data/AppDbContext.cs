@@ -31,5 +31,7 @@ namespace Worldperfumluxury.Data
         public virtual DbSet<BasketItem> BasketItems { get; set; }
         public virtual DbSet<BillingAddress> BillingAddresses { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
+
+        public DbSet<Contact> Contacts { get; set; }
     }
 }
