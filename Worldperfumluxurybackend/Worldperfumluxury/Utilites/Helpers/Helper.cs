@@ -22,9 +22,11 @@ namespace Worldperfumluxury.Utilites.Helpers
             }
         }
 
-        internal static string GetFilePath(string webRootPath, string v, int image)
+        public enum UserRoles
         {
-            throw new NotImplementedException();
+            Admin,
+            Moderator,
+            User
         }
     }
 }

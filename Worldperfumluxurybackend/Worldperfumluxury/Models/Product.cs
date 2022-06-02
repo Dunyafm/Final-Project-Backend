@@ -13,7 +13,7 @@ namespace Worldperfumluxury.Models
         public string Name { get; set; }
         public double Price { get; set; }
         public string Image { get; set; }
-        public string Description { get; set; }
+        public string Desc { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public int ProductTypeId { get; set; }
@@ -23,7 +23,7 @@ namespace Worldperfumluxury.Models
         [NotMapped]
         public IFormFile Photo{ get; set; }
         //public IFormFile ProductImage { get; set; }
-
+        public string UserId { get; set; }
         [NotMapped]
         public int Count { get; set; }
 

@@ -10,9 +10,11 @@ namespace Worldperfumluxury.ViewModels.Admin
     public class ProductVM
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Bu hisseni bosh buraxmayin")]
+        [MinLength(10, ErrorMessage = "Məzmun qısa ola bilmez")]
         public string Desc { get; set; }
-        public int Price { get; set; }
+        public string Image { get; set; }
+        public double Price { get; set; }
         public IFormFile Photo { get; set; }
     }
 }
