@@ -11,7 +11,7 @@ namespace Worldperfumluxury.Models
     public class Video
     {
         public int Id { get; set; }
-        public int Image { get; set; }
+        public string Image { get; set; }
         public string  Link { get; set; }
         public string Desc { get; set; }
         [NotMapped]

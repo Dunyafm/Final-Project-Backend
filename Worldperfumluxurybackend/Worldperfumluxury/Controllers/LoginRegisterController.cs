@@ -1,4 +1,5 @@
-﻿using MailKit.Security;
+﻿using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,12 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Mail;
+using System.Security.Claims;
+//using System.Net.Mail;
 using System.Threading.Tasks;
 using Worldperfumluxury.Models;
 using Worldperfumluxury.ViewModels.Account;
-using ZendeskApi_v2.Models.Constants;
-using static Worldperfumluxury.Utilities.Helpers.Helper;
+using static Worldperfumluxury.Utilites.Helpers.Helper;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace Worldperfumluxury.Controllers
@@ -89,7 +90,7 @@ namespace Worldperfumluxury.Controllers
             await _userManager.AddToRoleAsync(newUser, UserRoles.User.ToString());
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-            var url = Url.Action(nameof(VerifyEmail), "Accaunt", new { userId = newUser.Id, token = code }, Request.Scheme, Request.Host.ToString());
+            var url = Url.Action(nameof(VerifyEmail), "LoginRegister", new { userId = newUser.Id, token = code }, Request.Scheme, Request.Host.ToString());
 
 
             emailbody = emailbody.Replace("{{fullname}}", $"{appUser.FullName}").Replace("{{code}}", $"{url}");
@@ -99,7 +100,7 @@ namespace Worldperfumluxury.Controllers
             using var smtp = new SmtpClient();
 
             smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("Dunyafm@code.edu.az", "Dun@dun21");
+            smtp.Authenticate("Dunyafm@code.edu.az", "fpqnwcqsuweiidrp");
             smtp.Send(message);
             smtp.Disconnect(true);
 
@@ -139,156 +140,156 @@ namespace Worldperfumluxury.Controllers
 
 
 
-        //#region Login
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Login(LoginVM loginVM)
-        //{
-        //    if (!ModelState.IsValid) return View(loginVM);
+        #region Login
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginVM loginVM)
+        {
+            if (!ModelState.IsValid) return View(loginVM);
 
-        //    AppUser user = await _userManager.FindByEmailAsync(loginVM.UserNameOrEmail);
-        //    if (user is null)
-        //    {
-        //        user = await _userManager.FindByNameAsync(loginVM.UserNameOrEmail);
+            AppUser user = await _userManager.FindByEmailAsync(loginVM.UserNameOrEmail);
+            if (user is null)
+            {
+                user = await _userManager.FindByNameAsync(loginVM.UserNameOrEmail);
 
-        //    }
+            }
 
-        //    if (user is null)
-        //    {
-        //        ModelState.AddModelError("", "Email or Password is Wrong");
-        //        return View(loginVM);
-        //    }
+            if (user is null)
+            {
+                ModelState.AddModelError("", "Email or Password is Wrong");
+                return View(loginVM);
+            }
 
-        //    if (!user.IsActivated)
-        //    {
-        //        ModelState.AddModelError("", "Contact with Admin");
-        //        return View(loginVM);
-        //    }
+            if (!user.IsActivated)
+            {
+                ModelState.AddModelError("", "Contact with Admin");
+                return View(loginVM);
+            }
 
-        //    SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
+            SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
 
-        //    if (!signInResult.Succeeded)
-        //    {
-        //        if (signInResult.IsNotAllowed)
-        //        {
-        //            ModelState.AddModelError("", "Please Confirm Your Accaunt");
-        //            return View(loginVM);
-        //        }
-        //        ModelState.AddModelError("", "Email or Password is Wrong");
-        //        return View(loginVM);
-        //    }
+            if (!signInResult.Succeeded)
+            {
+                if (signInResult.IsNotAllowed)
+                {
+                    ModelState.AddModelError("", "Please Confirm Your Accaunt");
+                    return View(loginVM);
+                }
+                ModelState.AddModelError("", "Email or Password is Wrong");
+                return View(loginVM);
+            }
 
-        //    if (User.FindFirstValue(ClaimTypes.Role) == "User")
-        //    {
-        //        return RedirectToAction("Index", "Home");
+            if (User.FindFirstValue(ClaimTypes.Role) == "User")
+            {
+                return RedirectToAction("Index", "Home");
 
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("Dashboard", "AdminArea");
-        //    }
+            }
+            else
+            {
+                return RedirectToAction("Dashboard", "AdminArea");
+            }
 
-        //    return RedirectToAction("Index", "Home");
-        //}
-        //#endregion
-
-
-        //#region ForgotPassword
-        //public IActionResult ForgotPassword()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> ForgotPassword(ForgotPasswordVM forgotPasswordVM)
-        //{
-        //    if (!ModelState.IsValid) return View(forgotPasswordVM);
-
-        //    var user = await _userManager.FindByEmailAsync(forgotPasswordVM.Email);
-
-        //    if (user is null)
-        //    {
-        //        ModelState.AddModelError("", "This email hasn't been registrated");
-        //        return View(forgotPasswordVM);
-        //    }
-
-        //    var message = new MimeMessage();
-
-        //    message.From.Add(new MailboxAddress("EduHome", "test.code.asgerov@gmail.com"));
-
-        //    message.To.Add(new MailboxAddress(user.FullName, user.Email));
-        //    message.Subject = "Reset Password";
-
-        //    string emailbody = string.Empty;
-
-        //    using (StreamReader streamReader = new StreamReader(Path.Combine(_env.WebRootPath, "Templates", "Reset.html")))
-        //    {
-        //        emailbody = streamReader.ReadToEnd();
-        //    }
-
-        //    string forgotpasswordtoken = await _userManager.GeneratePasswordResetTokenAsync(user);
-        //    string url = Url.Action(nameof(ResetPassword), "Accaunt", new { email = user.Email, Id = user.Id, token = forgotpasswordtoken, }, Request.Scheme);
-
-        //    emailbody = emailbody.Replace("{{fullname}}", $"{user.FullName}").Replace("{{code}}", $"{url}");
-
-        //    message.Body = new TextPart(TextFormat.Html) { Text = emailbody };
-
-        //    using var smtp = new SmtpClient();
-
-        //    smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-        //    smtp.Authenticate("test.code.asgerov@gmail.com", "testcode007");
-        //    smtp.Send(message);
-        //    smtp.Disconnect(true);
-        //    return View();
-        //}
-        //#endregion
+            return RedirectToAction("Index", "Home");
+        }
+        #endregion
 
 
-        //#region Reset Password
-        //[HttpGet]
-        //public IActionResult ResetPassword(string email, string token)
-        //{
-        //    var resetPasswordModel = new ResetPasswordVM { Email = email, Token = token };
-        //    return View(resetPasswordModel);
-        //}
+        #region ForgotPassword
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> ResetPassword(ResetPasswordVM resetPasswordVM)
-        //{
-        //    if (!ModelState.IsValid) return View(resetPasswordVM);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM forgotPasswordVM)
+        {
+            if (!ModelState.IsValid) return View(forgotPasswordVM);
 
-        //    var user = await _userManager.FindByEmailAsync(resetPasswordVM.Email);
+            var user = await _userManager.FindByEmailAsync(forgotPasswordVM.Email);
 
-        //    if (user is null) return NotFound();
+            if (user is null)
+            {
+                ModelState.AddModelError("", "This email hasn't been registrated");
+                return View(forgotPasswordVM);
+            }
 
-        //    IdentityResult result = await _userManager.ResetPasswordAsync(user, resetPasswordVM.Token, resetPasswordVM.Password);
+            var message = new MimeMessage();
 
-        //    if (!result.Succeeded)
-        //    {
-        //        foreach (var item in result.Errors)
-        //        {
-        //            ModelState.AddModelError("", item.Description);
-        //        }
-        //        return View(resetPasswordVM);
+            message.From.Add(new MailboxAddress("Worldperfumluxury", "Dunyamamadli@gmail.com"));
 
-        //    }
+            message.To.Add(new MailboxAddress(user.FullName, user.Email));
+            message.Subject = "Reset Password";
+
+            string emailbody = string.Empty;
+
+            using (StreamReader streamReader = new StreamReader(Path.Combine(_env.WebRootPath, "Templates", "Reset.html")))
+            {
+                emailbody = streamReader.ReadToEnd();
+            }
+
+            string forgotpasswordtoken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            string url = Url.Action(nameof(ResetPasswordVM), "Accaunt", new { email = user.Email, Id = user.Id, token = forgotpasswordtoken, }, Request.Scheme);
+
+            emailbody = emailbody.Replace("{{fullname}}", $"{user.FullName}").Replace("{{code}}", $"{url}");
+
+            message.Body = new TextPart(TextFormat.Html) { Text = emailbody };
+
+            using var smtp = new SmtpClient();
+
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("test.code.asgerov@gmail.com", "testcode007");
+            smtp.Send(message);
+            smtp.Disconnect(true);
+            return View();
+        }
+        #endregion
 
 
-        //    return RedirectToAction(nameof(Login));
+        #region Reset Password
+        [HttpGet]
+        public IActionResult ResetPassword(string email, string token)
+        {
+            var resetPasswordModel = new ResetPasswordVM { Email = email, Token = token };
+            return View(resetPasswordModel);
+        }
 
-        //}
-        //#endregion
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM resetPasswordVM)
+        {
+            if (!ModelState.IsValid) return View(resetPasswordVM);
+
+            var user = await _userManager.FindByEmailAsync(resetPasswordVM.Email);
+
+            if (user is null) return NotFound();
+
+            IdentityResult result = await _userManager.ResetPasswordAsync(user, resetPasswordVM.Token, resetPasswordVM.Password);
+
+            if (!result.Succeeded)
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+                return View(resetPasswordVM);
+
+            }
+
+
+            return RedirectToAction(nameof(Login));
+
+        }
+        #endregion
 
 
         //public async Task CreateRole()
         //{
-        //    foreach (var role in Enum.GetValues(typeof(UserRoles)))
+        //    foreach (var role in Enum.GetValues(typeof(Utilites.Helpers.Helper.UserRoles)))
         //    {
         //        if (!await _roleManager.RoleExistsAsync(role.ToString()))
         //        {
