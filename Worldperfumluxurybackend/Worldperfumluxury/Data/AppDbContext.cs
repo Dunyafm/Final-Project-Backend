@@ -33,5 +33,6 @@ namespace Worldperfumluxury.Data
         public virtual DbSet<Message> Messages { get; set; }
 
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
     }
 }

@@ -20,7 +20,7 @@
                  style="background-image: url('https://www.marieclaire.com.au/media/86053/prix-fragrance-head-1.jpg');">
             </div>
         </div>
-     
+
         @await Component.InvokeAsync("Slider")
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -33,7 +33,6 @@
     </a>
 </div>
 <!-- SLIDER END -->
-
 <!-- Ən çox satilanlar START -->
 
 <section class="section-products">
@@ -46,7 +45,7 @@
             </div>
         </div>
         <div class="row">
-     
+
             @await Component.InvokeAsync("BestSelling")
 
 
@@ -440,7 +439,7 @@ BRANS LOGO SLDIER -->
             <div class="col-lg-6">
                 <div class="img">
                     <img src="./assets/img/video-link/kilian-video.jpg" class="img-fluid"
-                         alt="https://www.youtube.com/watch?v=NMtn_zgL4O8" >
+                         alt="https://www.youtube.com/watch?v=NMtn_zgL4O8">
                     <div class="player position-absolute rounded-circle d-flex align-items-center justify-content-center">
                         <i class="fas fa-play fa-lg"></i>
                     </div>
@@ -562,12 +561,23 @@ BRANS LOGO SLDIER -->
                 <div class="content text-center py-5">
                     <h3>Join The Colorful Bunch!</h3>
                     <div class="form-group d-flex justify-content-center flex-wrap mt-5">
-                        <input type="email" placeholder="Email Address" class="form-control-lg rounded-0">
-                        <button class="btn btn-danger btn-lg rounded-0 px-5 mt-3 mt-sm-0">Subscribe</button>
+                        <form asp-controller="Subscribe" asp-action="Subscribe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <input type="email" name="EMAIL" placeholder="Email Address" class="form-control-lg rounded-0">
+                            <button class="btn btn-danger btn-lg rounded-0 px-5 mt-3 mt-sm-0" type="submit">Subscribe</button>
+                        </form>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </section>
 <!-- SUBSCRIBE END -->
+<!-- mailchimp-alerts Start -->
+<div class="mailchimp-alerts">
+    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+</div>
+<!-- mailchimp-alerts end -->
