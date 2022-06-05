@@ -14,10 +14,6 @@ namespace Worldperfumluxury.Models
         public double Price { get; set; }
         public string Image { get; set; }
         public string Desc { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
-        public int ProductTypeId { get; set; }
-      
         public bool IsDeleted { get; set; }
         public IEnumerable<BasketItem> BasketItems { get; set; }
         [NotMapped]

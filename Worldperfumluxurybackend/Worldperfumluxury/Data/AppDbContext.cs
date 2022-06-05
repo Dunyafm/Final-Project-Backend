@@ -20,18 +20,14 @@ namespace Worldperfumluxury.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Productmulti> Productmultis { get; set; }
         public DbSet<NewCollection> NewCollections { get; set; }
-
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<FullOrder> FullOrders { get; set; }
         public virtual DbSet<BasketItem> BasketItems { get; set; }
         public virtual DbSet<BillingAddress> BillingAddresses { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
-
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
     }

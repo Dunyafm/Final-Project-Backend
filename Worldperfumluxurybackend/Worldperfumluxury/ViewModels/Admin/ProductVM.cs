@@ -15,6 +15,7 @@ namespace Worldperfumluxury.ViewModels.Admin
         public string Desc { get; set; }
         public string Image { get; set; }
         public double Price { get; set; }
+        //public int CategoryId { get; set; }
         public IFormFile Photo { get; set; }
     }
 }

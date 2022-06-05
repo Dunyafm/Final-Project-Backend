@@ -22,7 +22,7 @@ namespace Worldperfumluxury.Controllers
 
         public IActionResult Detail(int id)
         {
-            var model = _context.Products.FirstOrDefault(m => m.Id == id);
+            var model = _context.BestSellings.FirstOrDefault(m => m.Id == id);
             return View(model);
         }
     }

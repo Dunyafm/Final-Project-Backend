@@ -20,7 +20,7 @@ using Worldperfumluxury.ViewModels.Admin;
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    [Authorize(Roles = "Admin,Moderator")]
+
     public class ProductController : Controller
     {
 
@@ -37,20 +37,20 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
         #region Index
         public async Task<IActionResult> Index()
         {
-            var AdminId = this.User.FindFirstValue(ClaimTypes.NameIdentifier).ToString();
-            List<Product> courseDetails = new List<Product> { };
+            //var AdminId = this.User.FindFirstValue(ClaimTypes.NameIdentifier).ToString();
+            List<Product> products = new List<Product> { };
 
-            if (AdminId == "376fc97b-d927-4605-8685-1ef2c94fc33a")
-            {
-                courseDetails = await _context.Products.ToListAsync();
+            //if (AdminId == "376fc97b-d927-4605-8685-1ef2c94fc33a")
+            //{
+            //    products = await _context.Products.ToListAsync();
 
-            }
-            else
-            {
-                courseDetails = await _context.Products.Where(m => m.UserId == this.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToListAsync();
-            }
+            //}
+            //else
+            //{
+            //    products = await _context.Products.Where(m => m.UserId == this.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToListAsync();
+            //}
 
-            return View(courseDetails);
+            return View(products);
         }
         #endregion
 
@@ -156,7 +156,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
                 return View();
             }
 
-            if (!productVM.Photo.CheckFileSize(10000))
+            if (!productVM.Photo.CheckFileSize(100000))
             {
                 ModelState.AddModelError("Photo", "Image size is wrong");
                 return View();
@@ -167,7 +167,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             string fileName = Guid.NewGuid().ToString() + "_" + productVM.Photo.FileName;
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/course", fileName);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", fileName);
 
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
@@ -185,7 +185,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             //    Assestmens = courseVM.Assestmens
             //};
             //await _context.CourseFutures.AddAsync(courseFuture);
-            await _context.SaveChangesAsync();
+        
             //List<CourseFuture> courseFutures = await _context.CourseFutures.ToListAsync();
             Product product = new Product
             {
@@ -193,7 +193,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
                 Desc = productVM.Desc,
                 Price = productVM.Price,
                
-                UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier)
+                //UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier)
 
             };
             await _context.Products.AddAsync(product);
