@@ -28,6 +28,10 @@ namespace Worldperfumluxury
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(option =>
+            {
+                option.IdleTimeout=TimeSpan.FromSeconds(60);
+            });
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options =>
             {
@@ -70,6 +74,7 @@ namespace Worldperfumluxury
             }
             //app.UseHttpsRedirection();
 
+            app.UseSession();
 
             app.UseRouting();
             app.UseStaticFiles();
