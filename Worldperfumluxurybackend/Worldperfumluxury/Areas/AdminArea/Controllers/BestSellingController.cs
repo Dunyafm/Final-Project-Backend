@@ -107,6 +107,15 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             return await _context.BestSellings.FindAsync(Id);
         }
 
+        //public async Task<IActionResult> AddBasket(int? id)
+        //{
+        //    if (id is null) return NotFound();
+        //    BestSelling db = await _context.BestSellings.FindAsync(id);
+        //    if (dbbestSelling == null) return BadRequest();
+
+        //    return Json(id);
+
+        //}
 
 
     }
