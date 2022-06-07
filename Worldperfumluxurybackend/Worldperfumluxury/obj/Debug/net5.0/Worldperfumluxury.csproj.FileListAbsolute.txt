@@ -313,3 +313,4 @@ C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfu
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Views\Shared\_BasketPartial.cshtml.g.cs
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Views\Product\Search.cshtml.g.cs
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Views\Shared\_ProductSearchPartial.cshtml.g.cs
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Views\Shared\_OrderPartial.cshtml.g.cs

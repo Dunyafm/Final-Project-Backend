@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Worldperfumluxury.Models
 {
-    public class Setting
+    public class Setting 
     {
+        public int Id { get; set; }
         public string Logo { get; set; }
         public string Greeting { get; set; }
         [StringLength(255), Required]

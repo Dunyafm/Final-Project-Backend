@@ -1,0 +1,54 @@
+﻿@model OrderVM
+<form id="orderForm" method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="single-input-item">
+                <label asp-for="FullName" class="required">FullName</label>
+                <input asp-for="FullName" placeholder="full Name" required="">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="single-input-item">
+        <label asp-for="Email" class="required">Email Address</label>
+        <input asp-for="Email" placeholder="Email Address" required="">
+    </div>
+
+
+
+    <div class="single-input-item">
+        <label asp-for="Country" class="required">Country</label>
+        <input asp-for="Country" placeholder="Street address Line 1" required="">
+    </div>
+
+    <div class="single-input-item">
+        <label asp-for="Address" required mt-20"></label>
+        <input asp-for="Address" placeholder="Street address Line 1" required="">
+    </div>
+
+    <div class="single-input-item">
+        <input asp-for="Address" placeholder="Street address Line 2 (Optional)">
+    </div>
+
+    <div class="single-input-item">
+        <label asp-for="City" class="required">Town / City</label>
+        <input asp-for="City" placeholder="Town / City" required="">
+    </div>
+
+    <div class="single-input-item">
+        <label asp-for="State">State / Divition</label>
+        <input asp-for="State" placeholder="State / Divition">
+    </div>
+
+    <div class="single-input-item">
+        <label asp-for="ZipCode" class="required">Postcode / ZIP</label>
+        <input asp-for="ZipCode" placeholder="Postcode / ZIP" required="">
+    </div>
+
+
+    <div class="single-input-item">
+        <label for="ordernote">Order Note</label>
+        <textarea name="ordernote" id="ordernote" cols="30" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+    </div>
+</form>
