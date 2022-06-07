@@ -111,21 +111,7 @@ namespace Worldperfumluxury.Controllers
 
             List<BasketVM> basketVMs = null;
 
-            //if (cookieBasket != null)
-            //{
-            //    basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(cookieBasket);
-
-            //    if (!basketVMs.Any(b => b.ProductId == id && b. == color && b.Size == size))
-            //    {
-            //        return NotFound();
-            //    }
-
-            //    basketVMs.Find(b => b.ProductId == id && b.Color == color && b.Size == size).Count = (int)count;
-            //}
-            //else
-            //{
-            //    return BadRequest();
-            //}
+            
 
             cookieBasket = JsonConvert.SerializeObject(basketVMs);
             HttpContext.Response.Cookies.Append("basket", cookieBasket);

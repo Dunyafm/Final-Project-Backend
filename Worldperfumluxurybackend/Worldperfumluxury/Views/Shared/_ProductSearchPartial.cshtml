@@ -1,0 +1,7 @@
+﻿
+@model List<Product>
+
+@foreach (Product item in Model)
+{
+    <li><a id="prod-search-list-link" asp-controller="Product" asp-action="Search" asp-route-query="@item.Name">@item.Name</a></li>
+}
