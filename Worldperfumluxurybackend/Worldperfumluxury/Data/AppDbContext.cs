@@ -24,10 +24,12 @@ namespace Worldperfumluxury.Data
         public DbSet<Product> Products { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<FullOrder> FullOrders { get; set; }
-        public virtual DbSet<BasketItem> BasketItems { get; set; }
+        public virtual DbSet<Basket> Baskets { get; set; }
         public virtual DbSet<BillingAddress> BillingAddresses { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
+
+        public DbSet<Setting> Settings { get; set; }
     }
 }
