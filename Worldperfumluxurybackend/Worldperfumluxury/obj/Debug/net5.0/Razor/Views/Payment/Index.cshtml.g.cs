@@ -55,7 +55,7 @@ using Worldperfumluxury.ViewModels.Admin;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4620ec6bb63630238074da217d44a19a916e3307", @"/Views/Payment/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a777cdf5bb73777a0029bcbc81e8d15abf003e0c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a4100628ee4a71303eb6a4546000d7759fec8621", @"/Views/_ViewImports.cshtml")]
     public class Views_Payment_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden

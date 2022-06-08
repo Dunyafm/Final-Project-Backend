@@ -1,40 +1,29 @@
-﻿
+﻿@model Paginate<WomenshopVM>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = ((Model.CurrentPage - 1) * 10) + 1;
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
 
 <!-- ICONS FOR LINKS -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<link rel="stylesheet" href="./assets/css/womenshop.css">
+<link rel="stylesheet" href="~/assets/css/womenshop.css">
 
 <!-- FILTER START -->
 
 <div class="wrapper">
     <div class="d-md-flex align-items-md-center">
         <div class="h3">QADIN ƏTİRLƏRİ</div>
-        <div class="ml-auto d-flex align-items-center views">
-            <span class="btn text-success">
-                <span class="fas fa-th px-md-2 px-1"></span><span>Grid view</span>
-            </span> <span class="btn">
-                <span class="fas fa-list-ul"></span><span class="px-md-2 px-1">List view</span>
-            </span>
-            <span class="green-label px-md-2 px-1">428</span>
-            <span class="text-muted">Ətirlər</span>
-        </div>
+     
     </div>
     <div class="d-lg-flex align-items-lg-center pt-2">
         <div class="form-inline d-flex align-items-center my-2 mr-lg-2 radio bg-light border">
             <label class="options">
                 POPULYAR ƏTİRLƏR <input type="radio" name="radio"> <span class="checkmark"></span>
             </label>
-            <!-- <label class="options">QADİNLAR<input type="radio" name="radio" checked>
-                <span
-                    class="checkmark">
-                </span>
-            </label> -->
+         
         </div>
         <div class="form-inline d-flex align-items-center my-2 checkbox bg-light border mx-lg-2">
             <label class="tick">
@@ -65,15 +54,7 @@
 
             <span class="text-success px-2 count"> 50 </span>
         </div>
-        <div class="form-inline d-flex align-items-center my-2 checkbox bg-light border mx-lg-2">
-            <span class="border px-1 mx-2 mr-3 font-weight-bold count"> 12</span>
-            <select name="country" id="country" class="bg-light">
-                <option value="" hidden>Dil</option>
-                <option value="India">AZ</option>
-                <option value="USA">USA</option>
-                <option value="Uk">RUS</option>
-            </select>
-        </div>
+      
     </div>
 
     <div id="mobile-filter">
@@ -682,6 +663,28 @@
 
 
 </div>
+@*PAGINATION*@
+
+<div class="row my-3">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item @(Model.HasPrevious ? "" : "disabled") ">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage-1)">Previous</a>
+            </li>
+            @for (int i = 1; i <= Model.TotalPage; i++)
+            {
+                <li class="page-item @(i==Model.CurrentPage ? "disabled" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.HasNext ? "" : "disabled")">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage+1)">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
 <!-- MAIN END -->
 <!-- Filter -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
@@ -692,4 +695,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"></script>
 
 
-<script src="./assets/js/womenshop.js"></script>
+<script src="~/assets/js/womenshop.js"></script>

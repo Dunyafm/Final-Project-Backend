@@ -55,7 +55,7 @@ using Worldperfumluxury.ViewModels.Admin;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c283064ce017ada49d2d33244002e9cf80410b9c", @"/Views/Shared/Components/Subscribe/Deafult.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a777cdf5bb73777a0029bcbc81e8d15abf003e0c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a4100628ee4a71303eb6a4546000d7759fec8621", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Subscribe_Deafult : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

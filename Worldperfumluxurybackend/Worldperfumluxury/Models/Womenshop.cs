@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Worldperfumluxury.ViewModels.Admin;
 
 namespace Worldperfumluxury.Models
 {
-    public class Product 
+    public class Womenshop
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -19,13 +20,17 @@ namespace Worldperfumluxury.Models
         [StringLength(1000)]
         public string MainImage { get; set; }
         public bool IsDeleted { get; set; }
-        
+
         [NotMapped]
-        public IFormFile Photo{ get; set; }
+        public IFormFile Photo { get; set; }
         //public IFormFile ProductImage { get; set; }
         //public string UserId { get; set; }
         [NotMapped]
         public int Count { get; set; }
 
+        internal void Add(WomenshopVM newProduct)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

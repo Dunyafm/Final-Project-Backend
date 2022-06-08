@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Worldperfumluxury.Models;
-using Worldperfumluxury.ViewModels.Pagination;
+//using Worldperfumluxury.ViewModels.Pagination;
 
 namespace Worldperfumluxury.Data
 {
@@ -26,6 +26,9 @@ namespace Worldperfumluxury.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Womenshop> Womenshops { get; set; }
+        public DbSet<Menshop> Menshops { get; set; }
+
 
         public virtual DbSet<FullOrder> FullOrders { get; set; }
 

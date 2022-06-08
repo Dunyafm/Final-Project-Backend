@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Worldperfumluxury.ViewModels.Admin
 {
-    public class ProductListVM
+    public class MenshopListVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -13,5 +13,7 @@ namespace Worldperfumluxury.ViewModels.Admin
         public decimal Price { get; set; }
 
         public string Image { get; set; }
+
+
     }
 }

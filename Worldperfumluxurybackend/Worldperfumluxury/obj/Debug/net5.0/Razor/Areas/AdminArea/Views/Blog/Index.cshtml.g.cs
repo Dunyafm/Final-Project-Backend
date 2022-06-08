@@ -27,13 +27,6 @@ using Worldperfumluxury.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Areas\AdminArea\Views\_ViewImports.cshtml"
-using Worldperfumluxury.Utilites.Pagination;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 4 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Areas\AdminArea\Views\_ViewImports.cshtml"
 using Worldperfumluxury.ViewModels;
 
@@ -48,7 +41,7 @@ using Worldperfumluxury.ViewModels.Admin;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e96ab32646019cbe71c502a35753cbd3ec8ee9d5", @"/Areas/AdminArea/Views/Blog/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c04b6797e93d6898b097b3ca5802b10ec88919ff", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0448b217f05041812d32507ebb667597b54e4ff5", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
     public class Areas_AdminArea_Views_Blog_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Blog>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success btn-sm my-4"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -112,7 +105,7 @@ using Worldperfumluxury.ViewModels.Admin;
                     <div class=""header d-flex justify-content-between my-5"">
                         <h1 class=""card-title my-3"">Blogs</h1>
                         <div>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e96ab32646019cbe71c502a35753cbd3ec8ee9d59504", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e96ab32646019cbe71c502a35753cbd3ec8ee9d59248", async() => {
                 WriteLiteral("Create");
             }
             );
@@ -167,7 +160,7 @@ using Worldperfumluxury.ViewModels.Admin;
 #line hidden
 #nullable disable
             WriteLiteral(" </td>\r\n                                        <td>   ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e96ab32646019cbe71c502a35753cbd3ec8ee9d512289", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e96ab32646019cbe71c502a35753cbd3ec8ee9d512033", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -199,7 +192,7 @@ using Worldperfumluxury.ViewModels.Admin;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n\r\n                                        <td>\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e96ab32646019cbe71c502a35753cbd3ec8ee9d514294", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e96ab32646019cbe71c502a35753cbd3ec8ee9d514038", async() => {
                 WriteLiteral("\r\n                                                <i class=\"icon-options\"></i>\r\n                                            ");
             }
             );
@@ -231,7 +224,7 @@ using Worldperfumluxury.ViewModels.Admin;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e96ab32646019cbe71c502a35753cbd3ec8ee9d516804", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e96ab32646019cbe71c502a35753cbd3ec8ee9d516548", async() => {
                 WriteLiteral("\r\n                                                <i class=\"icon-pencil\"></i>\r\n                                            ");
             }
             );
@@ -263,7 +256,7 @@ using Worldperfumluxury.ViewModels.Admin;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e96ab32646019cbe71c502a35753cbd3ec8ee9d519311", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e96ab32646019cbe71c502a35753cbd3ec8ee9d519055", async() => {
                 WriteLiteral(@"
                                                 <button class=""btn btn-danger btn-sm"" type=""submit"">
                                                     <i class="" icon-close""></i>

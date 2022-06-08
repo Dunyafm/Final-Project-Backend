@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Worldperfumluxury.ViewModels.Admin
 {
-    public class ProductListVM
+    public class WomenshopVM
     {
         public int Id { get; set; }
         public string Name { get; set; }

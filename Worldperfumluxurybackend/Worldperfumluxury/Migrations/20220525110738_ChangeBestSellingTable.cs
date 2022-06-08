@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-using Microsoft.EntityFrameworkCore.Migrations;
+//using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Worldperfumluxury.Migrations
 {

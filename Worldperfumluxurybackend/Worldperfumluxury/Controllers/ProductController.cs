@@ -10,7 +10,7 @@ using Worldperfumluxury.Models;
 using Worldperfumluxury.Utilites.Pagination;
 using Worldperfumluxury.ViewModels;
 using Worldperfumluxury.ViewModels.Admin;
-using Worldperfumluxury.ViewModels.Pagination;
+//using Worldperfumluxury.ViewModels.Pagination;
 
 namespace Worldperfumluxury.Controllers
 {
@@ -26,19 +26,17 @@ namespace Worldperfumluxury.Controllers
             public async Task<IActionResult> Index(int page = 1, int take = 2)
             {
                 List<Product> products = await _context.Products
-                    //.Include(m => m.Category)
-                    .Include(m => m.Images)
                     .Skip((page - 1) * take)
                     .Take(take)
                     .AsNoTracking()
                     .OrderByDescending(m => m.Id)
                     .ToListAsync();
 
-                var productsVM = GetMapDatas(products);
+                var productlistVM = GetMapDatas(products);
 
                 int count = await GetPageCount(take);
 
-                Paginate<ProductListVM> result = new Paginate<ProductListVM>(productsVM, page, count);
+                Paginate<ProductListVM> result = new Paginate<ProductListVM>(productlistVM, page, count);
 
                 return View(result);
             }
@@ -73,11 +71,13 @@ namespace Worldperfumluxury.Controllers
                 return productList;
             }
 
+
+
          public IActionResult Detail(int id)
-        {
+         {
             var model = _context.BestSellings.FirstOrDefault(m => m.Id == id);
             return View(model);
-        }
+         }
         public async Task<IActionResult> AddBasket(int? id, int count = 1, string colorid = "", string sizeid = "")
         {
             if (id == null) return BadRequest();

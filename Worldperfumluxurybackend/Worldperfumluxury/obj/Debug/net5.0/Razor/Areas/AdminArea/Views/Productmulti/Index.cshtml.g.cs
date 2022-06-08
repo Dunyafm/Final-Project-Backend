@@ -27,13 +27,6 @@ using Worldperfumluxury.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Areas\AdminArea\Views\_ViewImports.cshtml"
-using Worldperfumluxury.Utilites.Pagination;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 4 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Areas\AdminArea\Views\_ViewImports.cshtml"
 using Worldperfumluxury.ViewModels;
 
@@ -48,7 +41,7 @@ using Worldperfumluxury.ViewModels.Admin;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"54dfcbbcceb00f889c88542a5b223886b342b2f8", @"/Areas/AdminArea/Views/Productmulti/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c04b6797e93d6898b097b3ca5802b10ec88919ff", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0448b217f05041812d32507ebb667597b54e4ff5", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
     public class Areas_AdminArea_Views_Productmulti_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Productmulti>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -100,7 +93,7 @@ using Worldperfumluxury.ViewModels.Admin;
 #line hidden
 #nullable disable
             WriteLiteral("<div class=\"container mt-3\">\r\n    <div class=\"row\">\r\n        <div class=\"header d-flex justify-content-between mt-3\">\r\n            <h3>Product</h3>\r\n            <div class=\"ml-4\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54dfcbbcceb00f889c88542a5b223886b342b2f89011", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54dfcbbcceb00f889c88542a5b223886b342b2f88755", async() => {
                 WriteLiteral("Create");
             }
             );
@@ -156,7 +149,7 @@ using Worldperfumluxury.ViewModels.Admin;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                            </td>\r\n                            <td>\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "54dfcbbcceb00f889c88542a5b223886b342b2f811829", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "54dfcbbcceb00f889c88542a5b223886b342b2f811573", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -181,7 +174,7 @@ AddHtmlAttributeValue("", 1229, product.Image, 1229, 14, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                            </td>\r\n                            <td>\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54dfcbbcceb00f889c88542a5b223886b342b2f813652", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54dfcbbcceb00f889c88542a5b223886b342b2f813396", async() => {
                 WriteLiteral("\r\n                                    <i class=\"icon-options\"></i>\r\n                                ");
             }
             );
@@ -213,7 +206,7 @@ AddHtmlAttributeValue("", 1229, product.Image, 1229, 14, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54dfcbbcceb00f889c88542a5b223886b342b2f816125", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54dfcbbcceb00f889c88542a5b223886b342b2f815869", async() => {
                 WriteLiteral("\r\n                                    <i class=\"icon-pencil\"></i>\r\n                                ");
             }
             );
@@ -245,7 +238,7 @@ AddHtmlAttributeValue("", 1229, product.Image, 1229, 14, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54dfcbbcceb00f889c88542a5b223886b342b2f818595", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54dfcbbcceb00f889c88542a5b223886b342b2f818339", async() => {
                 WriteLiteral("\r\n                                    <button class=\"btn btn-danger btn-sm\" type=\"submit\">\r\n                                        <i class=\" icon-close\"></i>\r\n                                    </button>\r\n                                ");
             }
             );

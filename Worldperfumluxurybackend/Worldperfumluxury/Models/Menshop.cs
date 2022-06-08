@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Worldperfumluxury.Models
 {
-    public class Product 
+    public class Menshop
     {
+
         public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
@@ -19,13 +20,9 @@ namespace Worldperfumluxury.Models
         [StringLength(1000)]
         public string MainImage { get; set; }
         public bool IsDeleted { get; set; }
-        
+
         [NotMapped]
-        public IFormFile Photo{ get; set; }
-        //public IFormFile ProductImage { get; set; }
-        //public string UserId { get; set; }
-        [NotMapped]
-        public int Count { get; set; }
+        public IFormFile Photo { get; set; }
 
     }
 }

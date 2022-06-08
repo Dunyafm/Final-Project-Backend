@@ -1,7 +1,9 @@
-﻿@model Paginate<ProductListVM>
+﻿@model  Paginate<ProductListVM>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = ((Model.CurrentPage - 1) * 10) + 1;
 }
 
 <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/carousel/">
@@ -60,7 +62,7 @@
                 <div class="container">
                     <div class="carousel-caption text-right">
                         <h1>1+1 kampaniya başladi!!!</h1>
-                        <p</p>
+                        <p></p>
                         <p><a class="btn btn-lg btn-primary" asp-controller="product" asp-action="index" role="button">Yeni kolleksiya</a></p>
                     </div>
                 </div>
