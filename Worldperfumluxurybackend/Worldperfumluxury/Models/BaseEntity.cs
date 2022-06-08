@@ -9,10 +9,10 @@ namespace Worldperfumluxury.Models
     {
         public bool IsActive { get; set; } = true;
         public int Id { get; set; }
-        //public bool IsDeleted { get; set; }
-        //public Nullable<DateTime> CreatedAt { get; set; }
-        //public Nullable<DateTime> DeletedAt { get; set; }
-        //public Nullable<DateTime> UpdatedAt { get; set; }
+        //public bool isdeleted { get; set; }
+        //public Nullable<datetime> createdat { get; set; }
+        //public nullable<datetime> deletedat { get; set; }
+        //public nullable<datetime> updatedat { get; set; }
 
 
     }

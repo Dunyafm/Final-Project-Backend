@@ -7,9 +7,8 @@ using Worldperfumluxury.Enums;
 
 namespace Worldperfumluxury.Models
 {
-    public class Order
+    public class Order : BaseEntity
     {
-        public int Id { get; set; }
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
         public double TotalPrice { get; set; }
