@@ -11,7 +11,7 @@
 
                     <ul>
                         <li><a asp-controller="Product" asp-action="Detail" asp-route-id="@bestSelling.Id"><i class="fas fa-info"></i></a></li>
-                        <li>  <a asp-controller="BestSelling" asp-action="AddBasket" asp-route-id="@bestSelling.Id"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a asp-controller="Basket" asp-action="Index" asp-route-id="@bestSelling.Id"><i class="fas fa-shopping-cart"></i></a></li>
                         <li><a asp-controller="Wishlist" asp-action="index" asp-route-id="@bestSelling.Id"><i class="fas fa-heart"></i></a></li>
 
                     </ul>
