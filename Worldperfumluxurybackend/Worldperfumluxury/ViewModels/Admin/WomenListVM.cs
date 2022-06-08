@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 
 namespace Worldperfumluxury.ViewModels.Admin
 {
-    public class MenshopVM
+    public class WomenListVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int Count { get; set; }
         public decimal Price { get; set; }
+
         public string Image { get; set; }
+
+
     }
 }

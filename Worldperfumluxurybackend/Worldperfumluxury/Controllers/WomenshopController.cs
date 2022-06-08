@@ -14,11 +14,13 @@ namespace Worldperfumluxury.Controllers
 {
     public class WomenshopController : Controller
     {
+
         private readonly AppDbContext _context;
         public WomenshopController(AppDbContext context)
         {
             _context = context;
         }
+
         public async Task<IActionResult> Index(int page = 1, int take = 2)
         {
             List<Womenshop> womenshops = await _context.Womenshops
@@ -28,11 +30,11 @@ namespace Worldperfumluxury.Controllers
                 .OrderByDescending(m => m.Id)
                 .ToListAsync();
 
-            var womenshopVM = GetMapDatas(womenshops);
+            var WomenListVM = GetMapDatas(womenshops);
 
             int count = await GetPageCount(take);
 
-            Paginate<WomenshopVM> result = new Paginate<WomenshopVM>(womenshopVM, page, count);
+            Paginate<WomenListVM> result = new Paginate<WomenListVM>(WomenListVM, page, count);
 
             return View(result);
         }
@@ -46,27 +48,28 @@ namespace Worldperfumluxury.Controllers
         }
 
 
-        private List<WomenshopVM> GetMapDatas(List<Womenshop> womenshops)
+        private List<WomenListVM> GetMapDatas(List<Womenshop> womenshops)
         {
-            List<WomenshopVM> womenshop = new List<WomenshopVM>();
-            foreach (var product in womenshops)
+            List<WomenListVM> productList = new List<WomenListVM>();
+            foreach (var womenshop in womenshops)
             {
-                WomenshopVM newWomenshop = new WomenshopVM
+                WomenListVM newWomenshop = new WomenListVM
                 {
-                    Id = product.Id,
-                   Name = product.Name,
-                    Count = product.Count
-
+                    Id = womenshop.Id,
+                    Name = womenshop.Name,
                     //Image = product.Images.Where(m => m.IsMain).FirstOrDefault()?.Image,
                     //CategoryName = product.Category.Name,
+                    Count = womenshop.Count,
                     //Price = product.Price
                 };
 
-                womenshop.Add(newWomenshop);
+                productList.Add(newWomenshop);
             }
 
-            return womenshop;
+            return productList;
         }
+
+
 
     }
 }
