@@ -7,7 +7,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Worldperfumluxury.Data;
 using Worldperfumluxury.Models;
+using Worldperfumluxury.Utilites.Pagination;
 using Worldperfumluxury.ViewModels;
+using Worldperfumluxury.ViewModels.Admin;
+using Worldperfumluxury.ViewModels.Pagination;
 
 namespace Worldperfumluxury.Controllers
 {
@@ -19,12 +22,58 @@ namespace Worldperfumluxury.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
+            public async Task<IActionResult> Index(int page = 1, int take = 2)
+            {
+                List<Product> products = await _context.Products
+                    //.Include(m => m.Category)
+                    .Include(m => m.Images)
+                    .Skip((page - 1) * take)
+                    .Take(take)
+                    .AsNoTracking()
+                    .OrderByDescending(m => m.Id)
+                    .ToListAsync();
 
-        public IActionResult Detail(int id)
+                var productsVM = GetMapDatas(products);
+
+                int count = await GetPageCount(take);
+
+                Paginate<ProductListVM> result = new Paginate<ProductListVM>(productsVM, page, count);
+
+                return View(result);
+            }
+
+
+            private async Task<int> GetPageCount(int take)
+            {
+                var count = await _context.Products.CountAsync();
+
+                return (int)Math.Ceiling((decimal)count / take);
+            }
+
+
+            private List<ProductListVM> GetMapDatas(List<Product> products)
+            {
+                List<ProductListVM> productList = new List<ProductListVM>();
+                foreach (var product in products)
+                {
+                    ProductListVM newProduct = new ProductListVM
+                    {
+                        Id = product.Id,
+                        Name = product.Name,
+                        //Image = product.Images.Where(m => m.IsMain).FirstOrDefault()?.Image,
+                        //CategoryName = product.Category.Name,
+                        Count = product.Count,
+                        //Price = product.Price
+                    };
+
+                    productList.Add(newProduct);
+                }
+
+                return productList;
+            }
+
+         public IActionResult Detail(int id)
         {
             var model = _context.BestSellings.FirstOrDefault(m => m.Id == id);
             return View(model);
@@ -44,7 +93,7 @@ namespace Worldperfumluxury.Controllers
             if (cookiebasket != null)
             {
                 basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(cookiebasket);
-                if (basketVMs.Any(b => b.ProductId == id ))
+                if (basketVMs.Any(b => b.ProductId == id))
                 {
                     basketVMs.Find(b => b.ProductId == id).Count += count;
                 }
@@ -54,7 +103,7 @@ namespace Worldperfumluxury.Controllers
                     {
                         ProductId = (int)id,
                         Count = count,
-                      
+
                     });
                 }
 
@@ -102,60 +151,17 @@ namespace Worldperfumluxury.Controllers
             return PartialView("_ProductSearchPartial", products);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> AddBasket(int? id)
-        //{
-        //    if (id is null) return NotFound();
-        //    Product dbproduct = await GetProductById(id);
-        //    if (dbproduct == null) return BadRequest();
 
-        //    List<BasketVM> basket = Getbasket();
-        //    UpdateBasket(basket, dbProduct);
-        //    return RedirectToAction("Index", "Home");
-        //}
 
-        //private async Task<Product> GetProductById(int? id)
-        //{
-        //    return await _context.Products.FindAsync(id);
-        //}  
-        //private UpdateBasket(List<BaksetVM> basket, Product product)
 
-        //}
-        //    if (Request.Cookies["basket"] != null)
-        //    {
-        //        basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
-        //    }
-        //    else
-        //    {
-        //        basket = new List<BasketVM>();
-        //    }
-        //    var existProduct = basket.Find(m => m.Id == dbproduct.Id);
 
-        //    if(existProduct == null)
-        //    {
-        //        basket.Add(new BasketVM
-        //        {
-        //            Id = dbproduct.Id,
-        //            Count = 1
-        //        });
-        //    }
-        //    else
-        //    {
-        //        existProduct.Count++;
-        //    }
 
-        //    basket.Add(new BasketVM
-        //    {
-        //        Id=dbproduct.Id,
-        //        Count =1 
-
-        //    });
-        //    Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
-
-        //    return RedirectToAction("Index", "Home");
     }
-}       //}
+
+
+
+
+}
        
     
 

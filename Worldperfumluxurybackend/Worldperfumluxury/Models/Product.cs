@@ -13,7 +13,7 @@ namespace Worldperfumluxury.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-        public string Image { get; set; }
+        public string Images { get; set; }
         public string Desc { get; set; }
         public double DiscountPrice { get; set; }
         [StringLength(1000)]

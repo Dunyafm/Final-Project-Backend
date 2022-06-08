@@ -28,27 +28,34 @@ using Worldperfumluxury.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Views\_ViewImports.cshtml"
-using Worldperfumluxury.ViewModels;
+using Worldperfumluxury.Utilites.Pagination;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Views\_ViewImports.cshtml"
-using Worldperfumluxury.ViewModels.Account;
+using Worldperfumluxury.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Views\_ViewImports.cshtml"
+using Worldperfumluxury.ViewModels.Account;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Views\_ViewImports.cshtml"
 using Worldperfumluxury.ViewModels.Admin;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"53982671b2491b0e0c89ef76e90f6edfe9eeebf2", @"/Views/Shared/_BasketIndexPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cb984bae1ef7fea79c3c490f8ae7a1eef84493e1", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a777cdf5bb73777a0029bcbc81e8d15abf003e0c", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__BasketIndexPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<BasketVM>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "basket", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -163,7 +170,7 @@ WriteAttributeValue("", 1557, basketVM.Image, 1557, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("</span></td>\r\n                                    \r\n                                    <td class=\"pro-quantity\">\r\n\r\n                                        <div class=\"pro-qty\">\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf212013", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf212253", async() => {
                 WriteLiteral(" <span class=\"dec qtybtn\">-</span>");
             }
             );
@@ -223,7 +230,7 @@ WriteAttributeValue("", 2301, basketVM.Count, 2301, 15, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf215879", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf216119", async() => {
                 WriteLiteral(" <span class=\"inc qtybtn\">+</span>");
             }
             );
@@ -265,7 +272,7 @@ WriteAttributeValue("", 2301, basketVM.Count, 2301, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("</span></td>\r\n                                    <td class=\"pro-remove\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf219075", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf219315", async() => {
                 WriteLiteral("<i class=\"fa fa-trash-o\"></i>");
             }
             );
@@ -314,7 +321,7 @@ WriteAttributeValue("", 2301, basketVM.Count, 2301, 15, false);
                 <div class=""cart-update-option d-block d-md-flex justify-content-between"">
                     <div class=""apply-coupon-wrapper"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf222319", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf222559", async() => {
                 WriteLiteral("\r\n                            <input type=\"text\" placeholder=\"Enter Your Coupon Code\" required />\r\n                            <button class=\"btn\">Apply Coupon</button>\r\n                        ");
             }
             );
@@ -376,7 +383,7 @@ WriteAttributeValue("", 2301, basketVM.Count, 2301, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                                </tr>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf226368", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53982671b2491b0e0c89ef76e90f6edfe9eeebf226608", async() => {
                 WriteLiteral("Proceed Checkout");
             }
             );

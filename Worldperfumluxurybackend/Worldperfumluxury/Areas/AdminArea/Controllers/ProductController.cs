@@ -15,7 +15,9 @@ using Worldperfumluxury.Extensions;
 using Worldperfumluxury.Models;
 using Worldperfumluxury.Utilites.File;
 using Worldperfumluxury.Utilites.Helpers;
+using Worldperfumluxury.Utilites.Pagination;
 using Worldperfumluxury.ViewModels.Admin;
+using Worldperfumluxury.ViewModels.Pagination;
 
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
@@ -30,11 +32,29 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             _context = context;
             _env = env;
         }
-        public async Task<IActionResult> Index()
-        {
-            List<Product> products = await _context.Products.AsNoTracking().ToListAsync();
-            return View(products);
-        }
+        //public async Task<IActionResult> Index(int page =1 ,int take = 10)
+        //{
+        //    List<Product> products = await _context.Products
+
+        //      .Include(m => m.Category)
+        //        .Include(m => m.Images)
+        //        .Skip((page - 1) * take)
+        //        .Take(take)
+        //        .AsNoTracking()
+        //        .OrderByDescending(m => m.Id)
+        //        .ToListAsync();
+
+        //    var productsVM = GetMapDatas(products);
+
+        //    int count = await GetPageCount(take);
+
+        //    Paginate<ProductListVM> result = new Paginate<ProductListVM>(productsVM, page, count);
+
+        //    return View(products);
+        //}
+
+
+
 
         public IActionResult Create()
         {
@@ -74,7 +94,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             Product product = new Product
             {
-                Image = fileName,
+                Images = fileName,
 
 
 
@@ -115,7 +135,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
                 return View(dbproduct);
             }
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", dbproduct.Image);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", dbproduct.Images);
 
             Helper.DeleteFile(path);
 
@@ -129,7 +149,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
                 await product.Photo.CopyToAsync(stream);
             }
 
-            dbproduct.Image = fileName;
+            dbproduct.Images = fileName;
 
             await _context.SaveChangesAsync();
 
@@ -144,7 +164,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             if (product == null) return NotFound();
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", product.Image);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", product.Images);
 
             Helper.DeleteFile(path);
 
@@ -155,7 +175,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
-            Product product = await _context.Products.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
+            Product product = await _context.Products.Where(m => m.Id == id).Include(m => m.Images).FirstOrDefaultAsync();
             if (product is null) return NotFound();
             return View(product);
         }
