@@ -78,90 +78,60 @@ namespace Worldperfumluxury.Controllers
             var model = _context.BestSellings.FirstOrDefault(m => m.Id == id);
             return View(model);
          }
-        public async Task<IActionResult> AddBasket(int? id, int count = 1, string colorid = "", string sizeid = "")
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddBasket(int? Id)
         {
-            if (id == null) return BadRequest();
-            Product product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            if (Id is null) return NotFound();
 
-            if (product == null) return NotFound();
+            Product dbProduct = await _context.Products.FindAsync(Id);
+            if (dbProduct == null) return BadRequest();
 
-            //List<Product> products = null;
-            string cookiebasket = HttpContext.Request.Cookies["basket"];
-            List<BasketVM> basketVMs = null;
-
-
-            if (cookiebasket != null)
+            List<BasketVM> basket;
+            if (Request.Cookies["basket"] != null)
             {
-                basketVMs = JsonConvert.DeserializeObject<List<BasketVM>>(cookiebasket);
-                if (basketVMs.Any(b => b.ProductId == id))
-                {
-                    basketVMs.Find(b => b.ProductId == id).Count += count;
-                }
-                else
-                {
-                    basketVMs.Add(new BasketVM
-                    {
-                        ProductId = (int)id,
-                        Count = count,
-
-                    });
-                }
-
+                basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
             }
             else
             {
-                basketVMs = new List<BasketVM>();
-                basketVMs.Add(new BasketVM()
+                basket = new List<BasketVM>();
+            }
+
+            var existProduct = basket.Find(m => m.Id == dbProduct.Id);
+            if (existProduct == null)
+            {
+                basket.Add(new BasketVM
                 {
-                    ProductId = product.Id,
-                    Count = count,
-
-
+                    Id = dbProduct.Id,
+                    Count = 1
                 });
             }
-            cookiebasket = JsonConvert.SerializeObject(basketVMs);
-            HttpContext.Response.Cookies.Append("basket", cookiebasket);
-            foreach (BasketVM basketVM in basketVMs)
+            else
             {
-                Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.Image;
-                basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
-                basketVM.Name = dbProduct.Name;
-
-
+                existProduct.Count++;
             }
 
-
-
-            return PartialView("_BasketPartial", basketVMs);
+            Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
+            return RedirectToAction("Index", "Home");
         }
-
-        public async Task<IActionResult> Search(string query)
+        public IActionResult test()
         {
-            if (string.IsNullOrWhiteSpace(query))
-            {
-                return RedirectToAction("Index", "Product");
-            }
-            List<Product> products = await _context.Products.Where(p => p.Name.ToLower().Contains(query.ToLower())).ToListAsync();
-            return View(products);
+            var cookie = Request.Cookies["basket"];
+            return Json(JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]));
         }
-        public async Task<IActionResult> SearchPartial(string query)
-        {
-            List<Product> products = await _context.Products.Where(p => p.Name.ToLower().Contains(query.ToLower())).ToListAsync();
-            return PartialView("_ProductSearchPartial", products);
-        }
-
-
-
-
-
-
     }
+   
 
 
 
 
-}
+
+ }
+
+
+
+
+
        
     
 

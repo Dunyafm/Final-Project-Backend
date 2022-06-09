@@ -40,7 +40,7 @@ namespace Worldperfumluxury.Services
             foreach (BasketVM basketVM in basketVMs)
             {
                 Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.Image;
+                basketVM.Image = dbProduct.Images;
                 basketVM.Price = dbProduct.Price;
                 basketVM.Name = dbProduct.Name;
 

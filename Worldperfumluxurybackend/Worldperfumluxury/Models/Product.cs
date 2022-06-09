@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Worldperfumluxury.Models
 {
-    public class Product 
+    public class Product: BaseEntity
     {
-        public int Id { get; set; }
+       
         public string Name { get; set; }
         public double Price { get; set; }
 
         public string Desc { get; set; }
         public double DiscountPrice { get; set; }
         [StringLength(1000)]
-        public string Image { get; set; }
-        public bool IsDeleted { get; set; }
+        public string Images { get; set; }
+        
         
         [NotMapped]
         public IFormFile Photo{ get; set; }

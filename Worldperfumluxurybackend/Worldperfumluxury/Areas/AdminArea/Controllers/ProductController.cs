@@ -99,7 +99,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             Product product = new Product
             {
-                Image = fileName,
+                Images = fileName,
 
 
 
@@ -140,7 +140,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
                 return View(dbproduct);
             }
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", dbproduct.Image);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", dbproduct.Images);
 
             Helper.DeleteFile(path);
 
@@ -154,7 +154,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
                 await product.Photo.CopyToAsync(stream);
             }
 
-            dbproduct.Image = fileName;
+            dbproduct.Images = fileName;
 
             await _context.SaveChangesAsync();
 
@@ -169,7 +169,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
             if (product == null) return NotFound();
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", product.Image);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", product.Images);
 
             Helper.DeleteFile(path);
 
@@ -180,7 +180,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
-            Product product = await _context.Products.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();
+            Product product = await _context.Products.Where(m => m.Id == id).Include(m => m.Images).FirstOrDefaultAsync();
             if (product is null) return NotFound();
             return View(product);
         }

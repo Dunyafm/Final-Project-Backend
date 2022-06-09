@@ -1,0 +1,33 @@
+﻿@model List<Product>
+
+
+
+@if (Model.Count() > 0)
+{
+    @foreach (var product in Model)
+    {
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+            <div class="product-item text-center" data-id="@product.Photo.Name.ToLower()">
+                <div class="img">
+                    @*<a href="">
+                        @if (product.Images.Where(m => m.IsMain == false).Count() > 0)
+                        {
+                            <img src="~/img/@product.Images.Where(m=>m.IsMain == false).FirstOrDefault().Image" class="img-fluid" alt="">
+                        }
+                    </a>*@
+                    
+                </div>
+                
+                <div class="title mt-3">
+                    <h6>@product.Name</h6>
+                </div>
+                <div class="price">
+                    <span class="text-black-50">
+                        <a asp-controller="Product" asp-action="AddBasket" asp-route-Id="@product.Id">Add to cart</a>
+                    </span>
+                    <span class="text-black-50">$@product.Price</span>
+                </div>
+            </div>
+        </div>
+    }
+}
