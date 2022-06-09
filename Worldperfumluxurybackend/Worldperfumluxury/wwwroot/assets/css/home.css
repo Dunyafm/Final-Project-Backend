@@ -15,8 +15,8 @@ header nav {
 }
 
 header nav #logo {
-  width: 200px;
-  height: 100px;
+  width: 250px;
+  height: 35px;
 }
 
 header nav #mobile-navbar-show {
@@ -145,6 +145,10 @@ header .mobile-navbar.active {
   right: 0;
   z-index: 9;
 }
+.navbar .navbar-brand {
+	display: inherit;
+	margin-bottom: 85px;
+}
 /* Icons */
 .header__nav__option {
   text-align: right;
@@ -169,11 +173,6 @@ a {
   margin-left: -20px;
   position: relative;
   top: 3px;
-}
-
-.navbar .navbar-brand {
-	display: inherit;
-	margin-bottom: 85px;
 }
 /* SEARCH */
 
@@ -362,16 +361,41 @@ a:hover {
 }
 
 .section-products #product-1 .part-1::before {
-    
+    background: url("https://images.selfridges.com/is/image/selfridges/R03676943_ALT01?$PDP_M_ZOOM$") no-repeat center;
+    background-size: cover;
 		transition: all 0.3s;
 }
 
 .section-products #product-2 .part-1::before {
-    background: no-repeat center;
+    background: url("https://images.selfridges.com/is/image/selfridges/456-84033258-L5597600_M?$PDP_M_ZOOM$") no-repeat center;
     background-size: cover;
 }
 
+.section-products #product-3 .part-1::before {
+    background: url("https://images.selfridges.com/is/image/selfridges/R03660320_M?$PDP_M_ZOOM$") no-repeat center;
+    background-size: cover;
+}
 
+.section-products #product-4 .part-1::before {
+    background: url("https://images.selfridges.com/is/image/selfridges/R00106506_M?$PDP_M_ZOOM$") no-repeat center;
+    background-size: cover;
+}
+.section-products #product-5 .part-1::before {
+  background: url("https://images.selfridges.com/is/image/selfridges/496-3003325-PM0007PV_M?$PDP_M_ZOOM$") no-repeat center;
+  background-size: cover;
+}
+.section-products #product-6 .part-1::before {
+  background: url("https://images.selfridges.com/is/image/selfridges/1033-83022651-MFK1042302_M?$PDP_M_ZOOM$") no-repeat center;
+  background-size: cover;
+}
+.section-products #product-7 .part-1::before {
+  background: url("https://images.selfridges.com/is/image/selfridges/496-71012338-INBG0001SP_ALT01?$PDP_M_ZOOM$") no-repeat center;
+  background-size: cover;
+}
+.section-products #product-8 .part-1::before {
+  background: url("https://images.selfridges.com/is/image/selfridges/453-3001058-T5Y3010000_ALT10?defaultImage=453-3001058-T5Y3010000_M&$PLP_ALL$") no-repeat center;
+  background-size: cover;
+}
 
 .section-products .single-product .part-1 .discount,
 .section-products .single-product .part-1 .new {
@@ -1174,3 +1198,116 @@ a {
   text-align: center;
 }
 /* FOOTER END */
+
+
+.forbasket {
+  position: fixed;
+  z-index: 99999;
+  right: -100%;
+  top: 15px;
+  min-height: 20%;
+  width: 30%;
+  background: #030e16;
+  padding: 40px 30px 40px 40px;
+  border: 1px solid #cfa86e;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.7s linear;
+  overflow:hidden;
+}
+.forbasket .basket{
+    overflow:hidden auto;
+    height:90vh;
+}
+.forbasket .basket hr {
+  color: #cfa86e;
+}
+.forbasket .basket i {
+  color: #B25E26;
+  margin-left: 350px;
+  font-size: 25px;
+}
+.forbasket .basket .prods {
+  display: flex;
+  margin-bottom: 20px;
+}
+.forbasket .basket .prods img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+.forbasket .basket .prods .prod-text {
+  margin-left: 20px;
+}
+.forbasket .basket .prods .prod-text p {
+  font-size: 20px !important;
+  color: #f3f3f3;
+  font-weight: 500 !important;
+  font-family: "FunctionTwoLight";
+}
+.forbasket .basket .prods .prod-text h6 {
+  color: #fff;
+}
+.forbasket .basket .prods .prod-text span {
+  color: #c19977;
+}
+.forbasket .basket .prods i {
+  color: red;
+  margin-left: 20px;
+  margin-top: 6px;
+  font-size: 20px;
+}
+.forbasket .basket h6 {
+  color: #b1b5b7;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.forbasket .basket h6 span {
+  color: #c19977;
+}
+.forbasket .basket .aboutcart a {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "PT Sans", sans-serif;
+  letter-spacing: 0.5px;
+  line-height: normal;
+  text-transform: capitalize;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 22px;
+  border: 2px solid #cfa86e;
+  border-radius: 0;
+  position: relative;
+  outline: none;
+  color: #cfa86e;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  background: transparent;
+  z-index: 1;
+  margin-bottom: 0;
+}
+.forbasket .basket .aboutcart .checkout {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "PT Sans", sans-serif;
+  letter-spacing: 0.5px;
+  line-height: normal;
+  text-transform: capitalize;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 22px;
+  border: 2px solid #cfa86e;
+  border-radius: 0;
+  position: relative;
+  outline: none;
+  color: #cfa86e;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  background: transparent;
+  z-index: 1;
+  margin-bottom: 0;
+  margin-left: 5px;
+  background: #cfa86e;
+  color: #fff;
+}

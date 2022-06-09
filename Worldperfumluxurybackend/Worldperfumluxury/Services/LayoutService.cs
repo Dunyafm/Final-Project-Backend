@@ -21,6 +21,7 @@ namespace Worldperfumluxury.Services
             _httpContextAccessor = httpContextAccessor;
             _context = context;
         }
+
         public async Task<List<BasketVM>> GetBasket()
         {
             string cookieBasket = _httpContextAccessor.HttpContext.Request.Cookies["basket"];
@@ -39,19 +40,18 @@ namespace Worldperfumluxury.Services
             foreach (BasketVM basketVM in basketVMs)
             {
                 Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.MainImage;
-                basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
+                basketVM.Image = dbProduct.Image;
+                basketVM.Price = dbProduct.Price;
                 basketVM.Name = dbProduct.Name;
 
             }
 
             return basketVMs;
         }
-
         public async Task<Setting> GetSetting()
         {
             return await _context.Settings.FirstOrDefaultAsync();
         }
-
     }
+
 }

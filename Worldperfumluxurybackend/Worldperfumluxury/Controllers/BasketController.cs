@@ -35,9 +35,9 @@ namespace Worldperfumluxury.Controllers
             foreach (BasketVM basketVM in basketVMs)
             {
                 Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.MainImage;
-                basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
-                basketVM.Name = dbProduct.Name;
+                //basketVM.Image = dbProduct.Image;
+                //basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
+                //basketVM.Name = dbProduct.Name;
 
             }
             return View(basketVMs);
@@ -62,7 +62,7 @@ namespace Worldperfumluxury.Controllers
             foreach (BasketVM basketVM in basketVMs)
             {
                 Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.MainImage;
+                basketVM.Image = dbProduct.Image;
                 basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
                 basketVM.Name = dbProduct.Name;
 
@@ -89,7 +89,7 @@ namespace Worldperfumluxury.Controllers
             foreach (BasketVM basketVM in basketVMs)
             {
                 Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.MainImage;
+                basketVM.Image = dbProduct.Image;
                 basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
                 basketVM.Name = dbProduct.Name;
 
@@ -119,7 +119,7 @@ namespace Worldperfumluxury.Controllers
             foreach (BasketVM basketVM in basketVMs)
             {
                 Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.MainImage;
+                basketVM.Image = dbProduct.Image;
                 basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
                 basketVM.Name = dbProduct.Name;
 
@@ -165,7 +165,7 @@ namespace Worldperfumluxury.Controllers
             foreach (BasketVM basketVM in basketVMs)
             {
                 Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.MainImage;
+                basketVM.Image = dbProduct.Image;
                 basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
                 basketVM.Name = dbProduct.Name;
 
@@ -211,7 +211,7 @@ namespace Worldperfumluxury.Controllers
             foreach (BasketVM basketVM in basketVMs)
             {
                 Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.MainImage;
+                basketVM.Image = dbProduct.Image;
                 basketVM.Price = dbProduct.DiscountPrice > 0 ? dbProduct.DiscountPrice : dbProduct.Price;
                 basketVM.Name = dbProduct.Name;
 

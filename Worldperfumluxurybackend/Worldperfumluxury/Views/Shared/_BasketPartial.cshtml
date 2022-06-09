@@ -1,69 +1,25 @@
-﻿@model IEnumerable<BasketVM>
+﻿@model List<BasketVM>
 @{
-    double subTotal = 0;
-    double ecotax = 0;
-    double total = 0;
-    double vat = 0;
-    foreach (BasketVM item in Model)
-    {
-        subTotal += item.Price * item.Count;
-        ecotax = (subTotal * 2) / 100;
-        vat = (subTotal * 20) / 100;
-        total = subTotal + ecotax + vat;
-    }
+    double subtotal = 0;
 }
-<div class="minicart-item-wrapper">
-    <ul>
-        @foreach (BasketVM basketVM in Model)
-        {
-            <li class="minicart-item">
-                <div class="minicart-thumb">
-                    <a href="product-details.html">
-                        <img src="~/assets/img/product/@basketVM.Image" alt="product">
-                    </a>
-                </div>
-                <div class="minicart-content">
-                    <h3 class="product-name">
-                        <a href="product-details.html">@basketVM.Name</a>
-                    </h3>
-                    <p>
-                        <span class="cart-quantity">@basketVM.Count<strong>&times;</strong></span>
-                        <span class="cart-price">$@basketVM.Price</span>
-                    </p>
-                </div>
-                <a asp-controller="Basket" asp-action="DeleteBasket" asp-route-id="@basketVM.ProductId" class="deletebasket"><i class="ion-android-close"></i></a>
-            </li>
-        }
-
-    </ul>
-</div>
-
-<div class="minicart-pricing-box">
-    <ul>
-
-
-
-        <li>
-            <span>sub-total</span>
-            <span><strong>$@subTotal.ToString("0.00")</strong></span>
-        </li>
-        <li>
-            <span>Eco Tax (-2.00)</span>
-            <span><strong>$@ecotax.ToString("0.00")</strong></span>
-        </li>
-        <li>
-            <span>VAT (20%)</span>
-            <span><strong>$@vat.ToString("0.00");</strong></span>
-        </li>
-        <li class="total">
-            <span>total</span>
-            <span><strong>$@total.ToString("0.00")</strong></span>
-        </li>
-    </ul>
-</div>
-
-
-<div class="minicart-button">
-    <a asp-action="Index" asp-controller="Basket"><i class="fa fa-shopping-cart"></i> view cart</a>
-    <a asp-controller="Basket" asp-action="Index"><i class="fa fa-share"></i>Checkout</a>
+<div class="basket">
+    <i class="fa-solid fa-xmark closebasket"></i>
+    <hr>
+    @foreach (BasketVM basketVM in Model)
+    {
+        subtotal += basketVM.Count * basketVM.Price;
+        <div class="prods">
+            <img src="~/assets/img/parfums/@basketVM.Image" alt="">
+            <div class="prod-text">
+                <p>@basketVM.Name</p>
+                <h6>@basketVM.Count × <span>@basketVM.Price₼</span></h6>
+            </div>
+            <a asp-controller="Basket" asp-action="DeleteBasket" asp-route-id="@basketVM.ProductId" class="deletebasket"><i class="fa-solid fa-xmark"></i></a>
+        </div>
+    }
+    <h6>Subtotal: <span>@subtotal₼</span></h6>
+    <div class="aboutcart">
+        <a asp-action="index" asp-controller="Basket">View Cart</a>
+        <a asp-controller="Order" asp-action="Create" class="checkout">Proceed to Checkout</a>
+    </div>
 </div>

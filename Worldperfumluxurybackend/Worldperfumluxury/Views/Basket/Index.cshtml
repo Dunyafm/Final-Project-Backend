@@ -1,41 +1,21 @@
-﻿
-@model List<BasketVM>
+﻿@model List<BasketVM>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
-<link href="~/assets/css/style.css" rel="stylesheet">
-
-<main>
-    <!-- breadcrumb area start -->
-    <div class="breadcrumb-area bg-img" data-bg="~/assets/img/banner/breadcrumb-banner.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb-wrap text-center">
-                        <nav aria-label="breadcrumb">
-                            <h1 class="breadcrumb-title">Cart</h1>
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Cart</li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section class="about">
+    <div class="about-text">
+        <h1>Cart</h1>
+        <a href="">Home </a>
+        <i class="fa-solid fa-angle-right"></i>
+        <span>Cart</span>
     </div>
-    <!-- breadcrumb area end -->
-    <!-- cart main wrapper start -->
-    <div class="cart-main-wrapper section-padding basketIndexPart">
-
+</section>
+<section class="cart">
+    <div class="maincart">
         @await Html.PartialAsync("_BasketIndexPartial", Model)
     </div>
-    <!-- cart main wrapper end -->
-</main>
-
-<script src="~/assets/js/custom.js"></script>
 
 
-
-
+</section>

@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@inject LayoutService layoutService
+@using Microsoft.AspNetCore.Identity
+@*@{ 
+    List<BasketVM> basketVMs = await layoutService.GetBasket();
+}*@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,8 +48,8 @@
                 <div class="col-12">
                     <!-- NAV-BAR START -->
                     <nav class="navbar navbar-expand-lg d-flex d-lg-block justify-content-between d-xl-flex navbar-light py-3 py-lg-0">
-                        <a class="navbar-brand" asp-controller="home" asp-action="index" >
-                            <img style="height:100px" src="~/assets/img/logo/Dunayson.png"  alt="" id="logo">
+                        <a class="navbar-brand" asp-controller="home" asp-action="index">
+                            <img style="height:100px" src="~/assets/img/logo/Dunayson.png" alt="" id="logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -54,7 +59,7 @@
 
                         <div class="collapse navbar-collapse d-none d-lg-block" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
-                              
+
                                 <li class="nav-item">
                                     <a class="nav-link" asp-controller="product" asp-action="index">ƏTİRLƏR</a>
 
@@ -94,7 +99,7 @@
                                             <img src="~/assets/img/icons/heart.png" alt="">
                                         </a>
 
-                                        <a asp-controller="Basket" asp-action="index">
+                                        <a class="basket" asp-controller="Basket" asp-action="index">
                                             <img src="~/assets/img/icons/cart.png" alt="">
                                         </a>
 
@@ -105,6 +110,7 @@
 
                                     </div>
                                 </div>
+
                                 <!-- Right elements -->
 
                             </ul>
@@ -166,7 +172,7 @@
                         <li><a asp-controller="womenshop" asp-action="index">Qadın ətirləri</a></li>
                         <li><a asp-controller="menshop" asp-action="index">Kişi ətirləri</a></li>
                         <li><a asp-controller="unisexshop" asp-action="index">Unisex ətirlər</a></li>
-                        <li><a asp-controller ="product" asp-action="index">Bütün ətir brendləri</a></li>
+                        <li><a asp-controller="product" asp-action="index">Bütün ətir brendləri</a></li>
 
                     </ul>
 
@@ -225,7 +231,13 @@
 
     </footer>
     <!-- FOOTER END     -->
+
+    @*<section class="forbasket">
+        @await Html.PartialAsync("_BasketPartial", basketVMs)
+    </section>*@
     <!-- TESTIMONIAL JS-->
+
+
     <script>
         $('.clients-carousel').owlCarousel({
             loop: true,
@@ -258,6 +270,7 @@
 
 
     <script src="~/assets/js//home.js"></script>
+    <script src="~/assets/js//custom.js"></script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

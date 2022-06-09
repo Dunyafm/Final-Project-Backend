@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Worldperfumluxury.Data;
 using Worldperfumluxury.Helpers;
 using Worldperfumluxury.Models;
+using Worldperfumluxury.Services;
 
 namespace Worldperfumluxury
 {
@@ -55,8 +56,9 @@ namespace Worldperfumluxury
             }).AddDefaultTokenProviders()
          .AddEntityFrameworkStores<AppDbContext>()
          .AddErrorDescriber<IdentityErrorDescriberAz>();
-
+            services.AddScoped<LayoutService>();
             services.AddHttpContextAccessor();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

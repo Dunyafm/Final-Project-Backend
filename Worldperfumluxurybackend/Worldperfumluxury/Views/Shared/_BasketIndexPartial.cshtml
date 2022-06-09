@@ -1,104 +1,64 @@
 ﻿@model List<BasketVM>
 @{
-    double subTotal = 0;
-    double ecotax = 0;
+    double subtotal = 0;
     double total = 0;
-    double vat = 0;
-    double shipping = 0;
-    foreach (BasketVM item in Model)
-    {
-        subTotal += item.Price * item.Count;
-        ecotax = (subTotal * 2) / 100;
-        vat = (subTotal * 20) / 100;
-        shipping = (subTotal * 10) / 100;
-        total = subTotal + ecotax + vat + shipping;
-
-
-    }
 }
-<div class="container">
-    <div class="section-bg-color">
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Cart Table Area -->
-                <div class="cart-table table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th class="pro-thumbnail">Thumbnail</th>
-                                <th class="pro-title">Product</th>
-                                <th class="pro-price">Price</th>
-                                <th class="pro-quantity">Quantity</th>
-                                @*<th class="pro-subtotal">Total</th>*@
-                                <th class="pro-remove">Remove</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (BasketVM basketVM in Model)
-                            {
-                                <tr>
-                                    <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="assets/img/product/@basketVM.Image" alt="Product" /></a></td>
-                                    <td class="pro-title"><a href="#">@basketVM.Name</a></td>
-                                    <td class="pro-price"><span>@basketVM.Price</span></td>
-                                    
-                                    <td class="pro-quantity">
+<section class="cart">
+    <div class="cart-table table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (BasketVM basketVM in Model)
+                {
+                    subtotal = basketVM.Count * basketVM.Price;
+                    total += subtotal;
+                    <tr>
+                        <td><img src="~/assets/img/parfums/@basketVM.Image" alt=""></td>
+                        <td>@basketVM.Name</td>
+                        <td>@basketVM.Price ₼</td>
+                        <td>
+                            <div class="amountcart">
+                                <div class="productamount">
+                                    <a asp-controller="basket" asp-action="update" asp-route-id="@basketVM.ProductId" class="basketUpdate subCount"><i class="fa-solid fa-minus"></i></a>
+                                    <span data-id="@basketVM.ProductId" data-prodcount="@basketVM.Count" class="countInp">@basketVM.Count</span>
+                                    <a asp-controller="basket" asp-action="update" asp-route-id="@basketVM.ProductId" class="basketUpdate addCount"><i class="fa-solid fa-plus"></i></a>
+                                </div>
 
-                                        <div class="pro-qty">
-                                            <a asp-controller="basket" asp-action="update" asp-route-id="@basketVM.ProductId" class="basketUpdate subCount"> <span class="dec qtybtn">-</span></a>
-                                            <input type="text" data-id="@basketVM.ProductId" data-prodcount="@basketVM.Count" class="countInp" value="@basketVM.Count">
-                                            <a asp-controller="basket" asp-action="update" asp-route-id="@basketVM.ProductId" class="basketUpdate addCount"> <span class="inc qtybtn">+</span></a>
-                                        </div>
+                            </div>
+                        </td>
+                        <td>@subtotal ₼</td>
+                        <td><a class="deletecard" asp-controller="Basket" asp-action="DeleteCard" asp-route-id="@basketVM.ProductId"><i class="fa-solid fa-trash-can"></i></a></td>
+
+                    </tr>
+                }
 
 
-                                    </td>
-                                    <td class="pro-subtotal"><span>$@((basketVM.Count * basketVM.Price).ToString("0.00"))</span></td>
-                                    <td class="pro-remove"><a class="deletecard" asp-controller="Basket" asp-action="DeleteCard" asp-route-id="@basketVM.ProductId"><i class="fa fa-trash-o"></i></a></td>
-                                </tr>
-                            }
+            </tbody>
+        </table>
+    </div>
 
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Cart Update Option -->
-                <div class="cart-update-option d-block d-md-flex justify-content-between">
-                    <div class="apply-coupon-wrapper">
-                        <form action="#" method="post" class=" d-block d-md-flex">
-                            <input type="text" placeholder="Enter Your Coupon Code" required />
-                            <button class="btn">Apply Coupon</button>
-                        </form>
-                    </div>
-                    <div class="cart-update">
-                        <a href="#" class="btn">Update Cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-5 ml-auto">
-                <!-- Cart Calculation Area -->
-                <div class="cart-calculator-wrapper">
-                    <div class="cart-calculate-items">
-                        <h3>Cart Totals</h3>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tr>
-                                    <td>Sub Total</td>
-                                    <td>$@subTotal</td>
-                                </tr>
-                                <tr>
-                                    <td>Shipping</td>
-                                    <td>$@shipping</td>
-                                </tr>
-                                <tr class="total">
-                                    <td>Total</td>
-                                    <td class="total-amount">$@total</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <a asp-controller="Payment" asp-action="Create" class="btn d-block">Proceed Checkout</a>
-                </div>
+
+    <div class="itemcarts">
+        <div class="col-lg-5 ml-auto">
+            <div class="rightsection">
+                <h3>Cart Totals</h3>
+                @*<p>Sub Total .........................<span>@subtotal</span></p>*@
+
+                <p>Grand Total ......................<span>@total</span></p>
+                <br>
+                <a href="checkout.html"><button>Proceed to Checkout</button></a>
             </div>
         </div>
     </div>
-</div>
+
+
+</section>
