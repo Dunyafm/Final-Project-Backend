@@ -78,6 +78,8 @@ namespace Worldperfumluxury.Controllers
             var model = _context.BestSellings.FirstOrDefault(m => m.Id == id);
             return View(model);
          }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddBasket(int? Id)
@@ -114,11 +116,27 @@ namespace Worldperfumluxury.Controllers
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult test()
+
+        private async Task<Product> GetProductById(int? id)
         {
-            var cookie = Request.Cookies["basket"];
-            return Json(JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]));
+            return await _context.Products.FindAsync(id);
         }
+
+        private void UpdateBasket(List<BasketVM> basket, Product product)
+        {
+            return ;
+        }
+
+        public IActionResult Basket()
+        {
+            return View();
+
+        }
+        //public IActionResult test()
+        //{
+        //    var cookie = Request.Cookies["basket"];
+        //    return Json(JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]));
+        //}
     }
    
 
@@ -126,7 +144,7 @@ namespace Worldperfumluxury.Controllers
 
 
 
- }
+}
 
 
 

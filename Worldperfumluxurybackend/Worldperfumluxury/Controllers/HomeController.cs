@@ -11,6 +11,7 @@ using Worldperfumluxury.Data;
 using Worldperfumluxury.Models;
 using Worldperfumluxury.ViewModels.Admin;
 using Worldperfumluxury.ViewModels.Home;
+//using Worldperfumluxury.ViewModels.Home;
 
 namespace Worldperfumluxury.Controllers
 {
@@ -23,16 +24,17 @@ namespace Worldperfumluxury.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            HttpContext.Session.SetString("name", "Asger");
-            Response.Cookies.Append("surname", "Asgerov", new CookieOptions { MaxAge = TimeSpan.FromSeconds(20) });
+            HttpContext.Session.SetString("name", "Dunya");
+            Response.Cookies.Append("surname", "Mammadli", new CookieOptions { MaxAge = TimeSpan.FromSeconds(20) });
 
             List<Slider> sliders = await _context.Sliders.ToListAsync();
-            List<Product> products = await _context.Products
-                .Include(m => m.Images)
-                .Take(8)
-                .ToListAsync();
+            //List<Product> products = await _context.Products
+            //    .Include(m => m.Images)
+            //    .Take(8)
+            //    .OrderByDescending(m => m.Id)
+            //    .ToListAsync();
             Video videos = await _context.Videos.FirstOrDefaultAsync();
-            BestSelling bestSelling = await _context.BestSellings.FirstOrDefaultAsync();
+            List<BestSelling> bestSellings = await _context.BestSellings.ToListAsync();
             List<Productmulti> employees = await _context.Productmultis.ToListAsync();
             Blog blogs = await _context.Blogs.FirstOrDefaultAsync();
             List<NewCollection> newCollections = await _context.NewCollections.ToListAsync();
@@ -40,8 +42,8 @@ namespace Worldperfumluxury.Controllers
             HomeVM homeVM = new HomeVM
             {
                 Sliders = sliders,
-                BestSellings = bestSellings,
-                Products = products,
+                BestSellings=bestSellings,
+                //Products = products,
                 Brands = brands,
                 Videos = videos,
                 NewCollections = newCollections,
@@ -73,4 +75,4 @@ namespace Worldperfumluxury.Controllers
 
 
 }
-}
+

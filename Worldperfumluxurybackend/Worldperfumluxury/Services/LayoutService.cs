@@ -37,14 +37,14 @@ namespace Worldperfumluxury.Services
                 basketVMs = new List<BasketVM>();
             }
 
-            foreach (BasketVM basketVM in basketVMs)
-            {
-                Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
-                basketVM.Image = dbProduct.Images;
-                basketVM.Price = dbProduct.Price;
-                basketVM.Name = dbProduct.Name;
+            //foreach (BasketVM basketVM in basketVMs)
+            //{
+            //    Product dbProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.ProductId);
+            //    basketVM.Image = dbProduct.Images;
+            //    basketVM.Price = dbProduct.Price;
+            //    basketVM.Name = dbProduct.Name;
 
-            }
+            //}
 
             return basketVMs;
         }

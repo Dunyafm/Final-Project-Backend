@@ -99,7 +99,10 @@
                                             <img src="~/assets/img/icons/heart.png" alt="">
                                         </a>
 
-                                        <a class="basket" asp-controller="Basket" asp-action="index">
+                                        @*<a class="basket" asp-controller="Basket" asp-action="index">
+                                            <img src="~/assets/img/icons/cart.png" alt="">
+                                        </a>*@
+                                        <a asp-controller="Product" asp-action="Basket">
                                             <img src="~/assets/img/icons/cart.png" alt="">
                                         </a>
 
