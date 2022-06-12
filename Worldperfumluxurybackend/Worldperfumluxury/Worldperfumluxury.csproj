@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\Pagination\" />
     <Folder Include="wwwroot\assets\img\footer-gifs\" />
     <Folder Include="wwwroot\assets\img\Kilians\Notes\Kilian-Akiss\" />
     <Folder Include="wwwroot\assets\img\parfums\parfums-detail\New folder\" />

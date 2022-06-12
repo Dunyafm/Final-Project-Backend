@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using Worldperfumluxury.Data;
 using Worldperfumluxury.Models;
@@ -26,7 +25,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
         }
         public async Task<IActionResult> Index()
         {
-           List<Video> videos = await _context.Videos.AsNoTracking().ToListAsync();
+            List<Video> videos = await _context.Videos.AsNoTracking().ToListAsync();
             return View(videos);
         }
         public async Task<IActionResult> Edit()

@@ -70,7 +70,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             Productmulti product = new Productmulti
             {
                 Image = fileName,
-                
+
 
 
 

@@ -37,7 +37,7 @@ namespace Worldperfumluxury.Controllers
             return View(result);
         }
 
-       
+
         private async Task<int> GetPageCount(int take)
         {
             var count = await _context.Products.CountAsync();
@@ -96,4 +96,3 @@ namespace Worldperfumluxury.Controllers
 
     }
 }
- 

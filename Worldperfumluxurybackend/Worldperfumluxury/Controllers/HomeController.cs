@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Worldperfumluxury.Data;
 using Worldperfumluxury.Models;
-using Worldperfumluxury.ViewModels.Admin;
 using Worldperfumluxury.ViewModels.Home;
 //using Worldperfumluxury.ViewModels.Home;
 
@@ -42,14 +38,14 @@ namespace Worldperfumluxury.Controllers
             HomeVM homeVM = new HomeVM
             {
                 Sliders = sliders,
-                BestSellings=bestSellings,
+                BestSellings = bestSellings,
                 //Products = products,
                 Brands = brands,
                 Videos = videos,
                 NewCollections = newCollections,
                 Blogs = blogs,
-               
-              
+
+
 
             };
             return View(homeVM);

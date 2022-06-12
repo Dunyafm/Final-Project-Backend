@@ -31,7 +31,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             return View(sliders);
         }
 
-    
+
         public IActionResult Create()
         {
             return View();
@@ -71,7 +71,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             Slider slider = new Slider
             {
                 Image = fileName,
-               
+
             };
 
             await _context.Sliders.AddAsync(slider);

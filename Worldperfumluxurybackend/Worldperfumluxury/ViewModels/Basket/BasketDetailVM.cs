@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Worldperfumluxury.ViewModels.Basket
+﻿namespace Worldperfumluxury.ViewModels.Basket
 {
     public class BasketDetailVM
     {

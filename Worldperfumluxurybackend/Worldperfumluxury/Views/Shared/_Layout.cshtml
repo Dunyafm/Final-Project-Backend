@@ -1,8 +1,4 @@
-﻿@inject LayoutService layoutService
-@using Microsoft.AspNetCore.Identity
-@*@{ 
-    List<BasketVM> basketVMs = await layoutService.GetBasket();
-}*@
+﻿
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,9 +91,9 @@
                                         </form>
 
 
-                                        <a asp-controller="Wishlist" asp-action="index">
+                                        @*<a asp-controller="Wishlist" asp-action="index">
                                             <img src="~/assets/img/icons/heart.png" alt="">
-                                        </a>
+                                        </a>*@
 
                                         @*<a class="basket" asp-controller="Basket" asp-action="index">
                                             <img src="~/assets/img/icons/cart.png" alt="">
@@ -273,7 +269,7 @@
 
 
     <script src="~/assets/js//home.js"></script>
-    <script src="~/assets/js//custom.js"></script>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

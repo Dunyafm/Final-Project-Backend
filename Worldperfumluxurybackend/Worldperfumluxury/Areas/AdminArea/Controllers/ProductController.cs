@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -8,14 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Worldperfumluxury.Data;
-using Worldperfumluxury.Extensions;
 using Worldperfumluxury.Models;
 using Worldperfumluxury.Utilites.File;
 using Worldperfumluxury.Utilites.Helpers;
-using Worldperfumluxury.Utilites.Pagination;
 using Worldperfumluxury.ViewModels.Admin;
 //using Worldperfumluxury.ViewModels.Pagination;
 
@@ -200,4 +195,3 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 
 
 }
- 

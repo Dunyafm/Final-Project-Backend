@@ -14,7 +14,7 @@ using Worldperfumluxury.Utilites.Helpers;
 using Worldperfumluxury.ViewModels.Admin;
 
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
-{ 
+{
     [Area("AdminArea")]
     public class NewCollectionController : Controller
     {

@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Worldperfumluxury.Data;
 using Worldperfumluxury.Helpers;
 using Worldperfumluxury.Models;
@@ -31,7 +27,7 @@ namespace Worldperfumluxury
         {
             services.AddSession(option =>
             {
-                option.IdleTimeout=TimeSpan.FromSeconds(60);
+                option.IdleTimeout = TimeSpan.FromSeconds(60);
             });
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options =>
@@ -58,7 +54,7 @@ namespace Worldperfumluxury
          .AddErrorDescriber<IdentityErrorDescriberAz>();
             services.AddScoped<LayoutService>();
             services.AddHttpContextAccessor();
-           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,5 +96,5 @@ namespace Worldperfumluxury
 
     }
 
-        
+
 }

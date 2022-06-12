@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Worldperfumluxury.ViewModels.Admin
+﻿namespace Worldperfumluxury.ViewModels.Admin
 {
     public class WomenListVM
     {

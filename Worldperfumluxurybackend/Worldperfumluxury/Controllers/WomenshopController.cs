@@ -8,7 +8,6 @@ using Worldperfumluxury.Data;
 using Worldperfumluxury.Models;
 using Worldperfumluxury.Utilites.Pagination;
 using Worldperfumluxury.ViewModels.Admin;
-using Worldperfumluxury.ViewModels;
 
 namespace Worldperfumluxury.Controllers
 {

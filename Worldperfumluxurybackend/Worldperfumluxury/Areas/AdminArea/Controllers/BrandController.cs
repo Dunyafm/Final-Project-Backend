@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq; 
+using System.Linq;
 using System.Threading.Tasks;
 using Worldperfumluxury.Data;
 using Worldperfumluxury.Models;
@@ -103,7 +103,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-      
+
         public async Task<IActionResult> Detail(int id)
         {
             Brand brand = await _context.Brands.Where(m => m.Id == id).Include(m => m.Image).FirstOrDefaultAsync();

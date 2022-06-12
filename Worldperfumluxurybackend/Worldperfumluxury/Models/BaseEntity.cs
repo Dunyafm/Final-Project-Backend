@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Worldperfumluxury.Models
+﻿namespace Worldperfumluxury.Models
 {
     public abstract class BaseEntity
     {
@@ -11,7 +6,7 @@ namespace Worldperfumluxury.Models
         public int Id { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsMain { get; set; }
-        
+
         //public Nullable<datetime> createdat { get; set; }
         //public nullable<datetime> deletedat { get; set; }
         //public nullable<datetime> updatedat { get; set; }

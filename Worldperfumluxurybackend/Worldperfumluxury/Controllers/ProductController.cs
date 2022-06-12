@@ -26,6 +26,7 @@ namespace Worldperfumluxury.Controllers
 
         public async Task<IActionResult> Index(int page = 1, int take = 2)
         {
+            ViewBag.ProductCount = _context.Products.Where(p => p.IsDeleted == false).Count();
             List<Product> products = await _context.Products
                 .Skip((page - 1) * take)
                 .Take(take)
@@ -39,7 +40,7 @@ namespace Worldperfumluxury.Controllers
 
             Paginate<ProductListVM> result = new Paginate<ProductListVM>(productlistVM, page, count);
 
-            return View(result);
+            return View(products);
         }
 
 
@@ -60,10 +61,10 @@ namespace Worldperfumluxury.Controllers
                 {
                     Id = product.Id,
                     Name = product.Name,
-                    //Image = product.Images.Where(m => m.IsMain).FirstOrDefault()?.Image,
+                    Image = product.Images,
                     //CategoryName = product.Category.Name,
                     Count = product.Count,
-                    //Price = product.Price
+                    Price = product.Price
                 };
 
                 productList.Add(newProduct);
@@ -87,25 +88,28 @@ namespace Worldperfumluxury.Controllers
         {
             if (Id is null) return NotFound();
 
-            Product dbProduct = await _context.Products.FindAsync(Id);
+            Product dbProduct = await GetProductById(Id);
             if (dbProduct == null) return BadRequest();
 
-            List<BasketVM> basket;
-            if (Request.Cookies["basket"] != null)
-            {
-                basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
-            }
-            else
-            {
-                basket = new List<BasketVM>();
-            }
+            List<BasketVM> basket = GetBasket();
 
-            var existProduct = basket.Find(m => m.Id == dbProduct.Id);
+            UpdateBasket(basket, dbProduct);
+
+            return RedirectToAction("Index", "Home");
+        }
+        private async Task<Product> GetProductById(int? id)
+        {
+            return await _context.Products.FindAsync(id);
+        }
+        private void UpdateBasket(List<BasketVM> basket, Product product)
+        {
+            var existProduct = basket.Find(m => m.Id == product.Id);
+
             if (existProduct == null)
             {
                 basket.Add(new BasketVM
                 {
-                    Id = dbProduct.Id,
+                    Id = product.Id,
                     Count = 1
                 });
             }
@@ -115,31 +119,22 @@ namespace Worldperfumluxury.Controllers
             }
 
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
-            return RedirectToAction("Index", "Home");
         }
-
-        private async Task<Product> GetProductById(int? id)
+        private List<BasketVM> GetBasket()
         {
-            return await _context.Products.FindAsync(id);
-        }
+            List<BasketVM> basket;
 
-        private void UpdateBasket(List<BasketVM> basket, Product product)
-        {
-            return;
+            if (Request.Cookies["basket"] != null)
+            {
+                basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
+            }
+            else
+            {
+                basket = new List<BasketVM>();
+            }
+
+            return basket;
         }
-        //private List<BasketVM> GetBasket()
-        //{
-        //    List<BasketVM> basket;
-        //    if (Request.Cookies["basket"]! = null)
-        //    {
-        //        basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
-        //    }
-        //    else
-        //    {
-        //        basket = new List<BasketVM>();
-        //    }
-        //    return basket;
-        //}
         public async Task<IActionResult> Basket()
         {
             List<BasketVM> basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
@@ -147,27 +142,27 @@ namespace Worldperfumluxury.Controllers
 
             foreach (BasketVM item in basket)
             {
-                Product product = await _context.Products.Include(m => m.Images).FirstOrDefaultAsync(m => m.Id == item.Id);
+                Product product = await _context.Products.FirstOrDefaultAsync(m => m.Id == item.Id);
 
                 BasketDetailVM basketDetail = new BasketDetailVM
                 {
                     Id = item.Id,
                     Name = product.Name,
-                    Image = product.Images.Where(m => m.IsMain).FirstOrDefault().Image,
-                    Count = product.Count,
-                    Price = product.Price
+                    Image = product.Images,
+                    Count = item.Count,
+                    Price = product.Price * item.Count
                 };
 
                 basketDetailItems.Add(basketDetail);
+
             }
             return View(basketDetailItems);
 
-
         }
     }
-   
 
 
+     
 
 
 
@@ -177,8 +172,8 @@ namespace Worldperfumluxury.Controllers
 
 
 
-       
-    
+
+
 
 
 
