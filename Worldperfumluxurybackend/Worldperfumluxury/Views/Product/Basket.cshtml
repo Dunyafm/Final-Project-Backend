@@ -1,6 +1,6 @@
-﻿
+﻿@model List<BasketDetailVM>
     @{
-        ViewData["Title"] = "Detail";
+        ViewData["Title"] = "Basket";
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
@@ -24,23 +24,38 @@
                             <thead>
                                 <tr>
                                     <th> Number </th>
-                                    <th> Category name </th>
-                                    <th> Setting </th>
+                                    <th> Image </th>
+                                    <th> Name </th>
+                                    <th> Count </th>
+                                    <th> Price </th>
+                           
 
                                 </tr>
                             </thead>
                             <tbody>
 
-
+                                foreach (var product in model)
+                             {
 
                                 <tr>
-                                    <td>  </td>
-                                    <td></td>
                                     <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
                                     </td>
                                 </tr>
 
-
+                              }
 
 
 
