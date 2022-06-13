@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Worldperfumluxury.Data;
+
 using Worldperfumluxury.Models;
 using Worldperfumluxury.Utilites.File;
 using Worldperfumluxury.Utilites.Helpers;
@@ -29,30 +30,9 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<Productmulti> products = await _context.Productmultis.AsNoTracking().ToListAsync();
+            List<Product> products = await _context.Products.AsNoTracking().ToListAsync();
             return View(products);
         }
-        //public async Task<IActionResult> Index(int page = 1, int take = 10)
-        //{
-        //    List<Product> products = await _context.Products
-
-
-        //        .Include(m => m.Image)
-        //        .Skip((page - 1) * take)
-        //        .Take(take)
-        //        .AsNoTracking()
-        //        .OrderByDescending(m => m.Id)
-        //        .ToListAsync();
-
-        //    //var productsVM = GetMapDatas(products);
-
-        //    //int count = await GetPageCount(take);
-
-        //    //Paginate<ProductListVM> result = new Paginate<ProductListVM>(ProductVM, page, count);
-
-        //    return View(products);
-        //}
-
 
 
 
@@ -96,65 +76,16 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             {
                 Images = fileName,
 
-
-
-
             };
 
             await _context.Products.AddAsync(product);
+
+
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(int id)
-        {
-            var product = await GetProductById(id);
-            if (product is null) return NotFound();
-            return View(product);
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product)
-        {
-            var dbproduct = await GetProductById(id);
-            if (dbproduct == null) return NotFound();
-
-            if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
-
-            if (!product.Photo.CheckFileType("image/"))
-            {
-                ModelState.AddModelError("Photo", "Image type is wrong");
-                return View(dbproduct);
-            }
-
-            if (!product.Photo.CheckFileSize(10000))
-            {
-                ModelState.AddModelError("Photo", "Image size is wrong");
-                return View(dbproduct);
-            }
-
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", dbproduct.Images);
-
-            Helper.DeleteFile(path);
-
-
-            string fileName = Guid.NewGuid().ToString() + "_" + product.Photo.FileName;
-
-            string newPath = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", fileName);
-
-            using (FileStream stream = new FileStream(newPath, FileMode.Create))
-            {
-                await product.Photo.CopyToAsync(stream);
-            }
-
-            dbproduct.Images = fileName;
-
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
-        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -172,6 +103,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         public async Task<IActionResult> Detail(int id)
         {
