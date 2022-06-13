@@ -83,25 +83,28 @@ namespace Worldperfumluxury.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> AddBasket(int? Id)
         {
             if (Id is null) return NotFound();
 
-            Product dbProduct = await GetProductById(Id);
+            BestSelling dbProduct = await GetProductById(Id);
+
             if (dbProduct == null) return BadRequest();
 
             List<BasketVM> basket = GetBasket();
 
             UpdateBasket(basket, dbProduct);
-
-            return RedirectToAction("Index", "Home");
+          
+            return Json(new {status=200});
         }
-        private async Task<Product> GetProductById(int? id)
+     
+        private async Task<BestSelling> GetProductById(int? Id)
         {
-            return await _context.Products.FindAsync(id);
+         return await _context.BestSellings.FindAsync(Id);
+            
         }
-        private void UpdateBasket(List<BasketVM> basket, Product product)
+        private void UpdateBasket(List<BasketVM> basket, BestSelling product)
         {
             var existProduct = basket.Find(m => m.Id == product.Id);
 
@@ -142,15 +145,15 @@ namespace Worldperfumluxury.Controllers
 
             foreach (BasketVM item in basket)
             {
-                Product product = await _context.Products.FirstOrDefaultAsync(m => m.Id == item.Id);
+                BestSelling bestSelling = await _context.BestSellings.FirstOrDefaultAsync(m => m.Id == item.Id);
 
                 BasketDetailVM basketDetail = new BasketDetailVM
                 {
                     Id = item.Id,
-                    Name = product.Name,
-                    Image = product.Images,
+                    Name = bestSelling.Title,
+                    Image = bestSelling.Image,
                     Count = item.Count,
-                    Price = product.Price * item.Count
+                    Price = bestSelling.NewPrice * item.Count
                 };
 
                 basketDetailItems.Add(basketDetail);

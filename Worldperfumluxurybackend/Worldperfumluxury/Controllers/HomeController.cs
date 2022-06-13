@@ -29,7 +29,6 @@ namespace Worldperfumluxury.Controllers
             //    .Take(8)
             //    .OrderByDescending(m => m.Id)
             //    .ToListAsync();
-            Video videos = await _context.Videos.FirstOrDefaultAsync();
             List<BestSelling> bestSellings = await _context.BestSellings.ToListAsync();
             List<Productmulti> employees = await _context.Productmultis.ToListAsync();
             Blog blogs = await _context.Blogs.FirstOrDefaultAsync();
@@ -41,7 +40,6 @@ namespace Worldperfumluxury.Controllers
                 BestSellings = bestSellings,
                 //Products = products,
                 Brands = brands,
-                Videos = videos,
                 NewCollections = newCollections,
                 Blogs = blogs,
 

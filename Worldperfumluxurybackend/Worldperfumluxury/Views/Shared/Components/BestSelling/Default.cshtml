@@ -2,26 +2,62 @@
 
 
 
-    @foreach (var bestSelling in Model)
-    {
-        <!-- Single Product -->
-        <div class="col-md-6 col-lg-4 col-xl-3">
-            <div id="product-1" class="single-product">
-                <div class="part-1" style="background:url('assets/img/parfums/@bestSelling.Image') ; background-size:cover">
+@foreach (var bestSelling in Model)
+{
+    <!-- Single Product -->
+    <div class="col-md-6 col-lg-4 col-xl-3">
+        <div id="product-1" class="single-product">
+            <div class="part-1" style="background:url('assets/img/parfums/@bestSelling.Image') ; background-size:cover">
 
-                    <ul>
-                        <li><a asp-controller="Product" asp-action="Detail" asp-route-Id="@bestSelling.Id"><i class="fas fa-info"></i></a></li>
-                        <li><a asp-controller="Product" asp-action="Basket" asp-route-Id="@bestSelling.Id" class="addToBasket"><i class="fas fa-shopping-cart"></i></a></li>
-               
-                       
-                    </ul>
-                </div>
-                <div class="part-2">
-                    <h2 class="product-header">KILIAN</h2>
-                    <h3 class="product-old-price">350₼</h3>
-                    <h4 class="product-price">300₼</h4>
-                </div>
+                <ul>
+                    <li><a asp-controller="Product" asp-action="Detail" asp-route-Id="@bestSelling.Id" class="btn btn-sm"><i class="fas fa-info"></i></a></li>
+                    <li>
+                        <form style="display:inline-block">
+                            <a data-id="@bestSelling.Id" class=" add-items ad-basket btn btn-sm"><i data-id="@bestSelling.Id" class="fas fa-shopping-cart"></i></a>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div class="part-2">
+                <h2 class="product-header">KILIAN</h2>
+                <h3 class="product-old-price">350₼</h3>
+                <h4 class="product-price">300₼</h4>
             </div>
         </div>
-    }
+    </div>
+}
+
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    var btns = document.querySelectorAll(".ad-basket")
+
+    btns.forEach((val, i) => {
+
+        val.addEventListener("click", function (e) {
+            e.preventDefault()
+
+            var id = this.getAttribute("data-id")
+
+
+            $.ajax({
+                url: "https://localhost:44334/product/AddBasket",
+                data: {
+                    id: id
+                },
+                dataType: 'json',
+                type: "post",
+                success: function (data) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Uğurla əlavə edildi',
+                        showConfirmButton: false,
+                        timer: 1000
+                    })
+                }
+            })
+        })
+    })
+</script>*@
 

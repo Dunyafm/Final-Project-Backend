@@ -92,12 +92,12 @@
 
 
                                         @*<a asp-controller="Wishlist" asp-action="index">
-                                            <img src="~/assets/img/icons/heart.png" alt="">
-                                        </a>*@
+                                                <img src="~/assets/img/icons/heart.png" alt="">
+                                            </a>*@
 
                                         @*<a class="basket" asp-controller="Basket" asp-action="index">
-                                            <img src="~/assets/img/icons/cart.png" alt="">
-                                        </a>*@
+                                                <img src="~/assets/img/icons/cart.png" alt="">
+                                            </a>*@
                                         <a asp-controller="Product" asp-action="Basket">
                                             <img src="~/assets/img/icons/cart.png" alt="">
                                         </a>
@@ -230,10 +230,9 @@
 
     </footer>
     <!-- FOOTER END     -->
-
     @*<section class="forbasket">
-        @await Html.PartialAsync("_BasketPartial", basketVMs)
-    </section>*@
+            @await Html.PartialAsync("_BasketPartial", basketVMs)
+        </section>*@
     <!-- TESTIMONIAL JS-->
 
 
@@ -301,8 +300,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
+    @RenderSection("Script",false)
 
 </body>
 

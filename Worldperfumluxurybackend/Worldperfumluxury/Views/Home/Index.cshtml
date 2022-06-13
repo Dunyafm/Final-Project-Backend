@@ -431,7 +431,6 @@ BRANS LOGO SLDIER -->
 
 
 <!-- HOVER CARD END -->
-
 <!-- VIDEO LINK START -->
 
 
@@ -444,7 +443,7 @@ BRANS LOGO SLDIER -->
                     <iframe width="760" height="515" src="https://www.youtube.com/embed/NMtn_zgL4O8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
-       
+
         </div>
     </div>
 </section>
@@ -542,7 +541,7 @@ BRANS LOGO SLDIER -->
                             <input type="email" name="EMAIL" placeholder="Email Address" class="form-control-lg rounded-0">
                             <button class="btn btn-danger btn-lg rounded-0 px-5 mt-3 mt-sm-0" type="submit">Subscribe</button>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
@@ -558,3 +557,40 @@ BRANS LOGO SLDIER -->
     <div class="mailchimp-error"></div><!-- mailchimp-error end -->
 </div>
 <!-- mailchimp-alerts end -->
+@section Script{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        var btns = document.querySelectorAll(".ad-basket")
+        console.log(btns)
+
+        btns.forEach((val, i) => {
+
+            val.addEventListener("click", function (e) {
+                e.preventDefault()
+
+                var id = this.getAttribute("data-id")
+
+
+                $.ajax({
+                    url: "https://localhost:44334/product/AddBasket",
+                    data: {
+                        id: id
+                    },
+                    dataType: 'json',
+                    type: "post",
+                    success: function (data) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Uğurla əlavə edildi',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+
+}

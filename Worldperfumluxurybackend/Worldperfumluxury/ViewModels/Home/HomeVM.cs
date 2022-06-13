@@ -9,7 +9,6 @@ namespace Worldperfumluxury.ViewModels.Home
         public List<BestSelling> BestSellings { get; set; }
         public List<Product> Products { get; set; }
         public Subscribe Subscribe { get; set; }
-        public Video Videos { get; set; }
         public List<Productmulti> Productmultis { get; set; }
         public Blog Blogs { get; set; }
         public List<NewCollection> NewCollections { get; set; }
