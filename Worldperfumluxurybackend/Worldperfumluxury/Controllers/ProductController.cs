@@ -40,7 +40,7 @@ namespace Worldperfumluxury.Controllers
 
             Paginate<ProductListVM> result = new Paginate<ProductListVM>(productlistVM, page, count);
 
-            return View(products);
+            return View(result);
         }
 
 
