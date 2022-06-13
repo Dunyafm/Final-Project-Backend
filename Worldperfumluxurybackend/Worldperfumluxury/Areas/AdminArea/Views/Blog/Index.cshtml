@@ -42,14 +42,14 @@
 
                                         <td>
                                             <a class="btn btn-primary btn-sm" asp-action="Detail" asp-route-id="@blog.Id">
-                                                <i class="icon-options"></i>
+                                                <i class="fas fa-info"></i>
                                             </a>
                                             <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@blog.Id">
                                                 <i class="icon-pencil"></i>
                                             </a>
                                             <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@blog.Id">
                                                 <button class="btn btn-danger btn-sm" type="submit">
-                                                    <i class=" icon-close"></i>
+                                                    <i class="fas fa-times-circle"></i>
                                                 </button>
                                             </form>
                                         </td>
