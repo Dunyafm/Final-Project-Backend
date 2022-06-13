@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+
+<div class="container my-5">
+    <div style="margin-top:100px">
+
+    </div>
+    <h2>Active Users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mail</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var activeUser in Model.activeUsers)
+            {
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@activeUser.FullName</td>
+                    <td>@activeUser.Email</td>
+
+                    <td><a asp-action="ChangeStatus" asp-route-id="@activeUser.Id"><i class="far fa-check-circle" style="font-size:20px;color:green"></i></a></td>
+                </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+
+    <h2 class="mt-5">Deactive Users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mail</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var deactiveUser in Model.deactiveUsers)
+            {
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@deactiveUser.FullName</td>
+                    <td>@deactiveUser.Email</td>
+
+                    <td><a asp-action="ChangeStatus" asp-route-id="@deactiveUser.Id"><i class="far fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ using Worldperfumluxury.ViewModels.Admin;
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "Admin")]
 
     public class ProductController : Controller
     {

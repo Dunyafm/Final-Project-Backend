@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Apis.Admin.Directory.directory_v1" Version="1.57.0.2713" />
     <PackageReference Include="MailKit" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />

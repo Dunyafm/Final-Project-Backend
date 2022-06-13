@@ -308,3 +308,9 @@ C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfu
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Worldperfumluxury.Views.pdb
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Worldperfumluxury.csproj.CopyComplete
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Worldperfumluxury.genruntimeconfig.cache
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\User\Index.cshtml.g.cs
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\bin\Debug\net5.0\Google.Apis.dll
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\bin\Debug\net5.0\Google.Apis.Admin.Directory.directory_v1.dll
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\bin\Debug\net5.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\bin\Debug\net5.0\Google.Apis.Auth.dll
+C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\bin\Debug\net5.0\Google.Apis.Core.dll
