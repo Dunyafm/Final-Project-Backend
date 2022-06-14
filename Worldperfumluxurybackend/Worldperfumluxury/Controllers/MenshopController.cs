@@ -19,7 +19,7 @@ namespace Worldperfumluxury.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int page = 1, int take = 2)
+        public async Task<IActionResult> Index(int page = 1, int take = 6)
         {
             List<Menshop> menshops = await _context.Menshops
                 .Skip((page - 1) * take)
@@ -55,7 +55,8 @@ namespace Worldperfumluxury.Controllers
                 {
                     Id = menshop.Id,
                     Name = menshop.Name,
-                    //Image = product.Images.Where(m => m.IsMain).FirstOrDefault()?.Image,
+                    Image = menshop.Images,
+                    Date = menshop.Date
                     //CategoryName = product.Category.Name,
                     //Count = menshop.Count,
                     //Price = product.Price
@@ -67,31 +68,6 @@ namespace Worldperfumluxury.Controllers
             return menshopLists;
         }
 
-
-
-
-        //public async Task<IActionResult> Loadmore(int skip)
-        //{
-        //    List<Menshop> menshops = DbContext.Menshops.Where(p => p.IsDeleted == false)
-        //        //.Include(m => m.Category)
-        //        .Include(m => m.Images)
-        //        .OrderByDescending(m => m.Id)
-        //        .skip(skip)
-        //        .Take(4)
-        //        .ToList();
-
-        //    return PartialView("_ProductPartial", products);
-        //}
-        //public async Task<IActionResult> AddBasket(int? id)
-        //{
-        //    if (id is null) return NotFound();
-        //    Product dbproduct = await _context.Products.FindAsync(id);
-        //    if (dbproduct== null) return BadRequest();
-
-        //    return Json(id);
-
-        //}
-        //}
 
 
     }

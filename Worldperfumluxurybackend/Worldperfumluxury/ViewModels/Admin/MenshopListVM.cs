@@ -1,4 +1,6 @@
-﻿namespace Worldperfumluxury.ViewModels.Admin
+﻿using System;
+
+namespace Worldperfumluxury.ViewModels.Admin
 {
     public class MenshopListVM
     {
@@ -6,7 +8,7 @@
         public string Name { get; set; }
         public int Count { get; set; }
         public decimal Price { get; set; }
-
+        public DateTime Date { get; set; }
         public string Image { get; set; }
 
 

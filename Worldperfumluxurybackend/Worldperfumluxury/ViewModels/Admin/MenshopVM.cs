@@ -1,4 +1,6 @@
-﻿namespace Worldperfumluxury.ViewModels.Admin
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Worldperfumluxury.ViewModels.Admin
 {
     public class MenshopVM
     {
@@ -7,5 +9,7 @@
         public int Count { get; set; }
         public decimal Price { get; set; }
         public string Image { get; set; }
+
+        public IFormFile Photo { get; set; }
     }
 }

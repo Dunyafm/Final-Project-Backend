@@ -88,7 +88,7 @@
 
                 <h2>QADIN</h2>
 
-                <p><a style="font-size:large" class="btn btn-secondary" asp-controller="womenshop" asp-action="index" role="button" >Sifarişə başla  &raquo;</a></p>
+                <p><a style="font-size:large" class="btn btn-secondary" asp-controller="womenshop" asp-action="index" role="button">Sifarişə başla  &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <img src="~/assets/img/catergories/mefor.jpg" width="170" height="200" aria-label="Placeholder: 140x140"
@@ -97,7 +97,7 @@
 
                 <h2>KİŞİ</h2>
 
-                <p><a style="font-size:large" class="btn btn-secondary"asp-controller="menshop" asp-action="index" role="button">Sifarişə başla  &raquo;</a></p>
+                <p><a style="font-size:large" class="btn btn-secondary" asp-controller="menshop" asp-action="index" role="button">Sifarişə başla  &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <img src="~/assets/img/catergories/unisex-catergory.jpg" width="170" height="200"
@@ -125,142 +125,32 @@
             </div>
             <div class="row">
                 <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-1" class="single-product">
-                        <div class="part-1">
+                @foreach (var item in Model.Datas)
+                {
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div id="product-1" class="single-product">
+                            <div class="part-1" style="background:url('assets/img/parfums/@item.Image') ; background-size:cover">
+                                <div class="part-1">
 
-                            <ul>
-                                <li><a asp-controller="Product" asp-action="index"><i class="fas fa-info"></i></a></li>
-                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
-                                
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h2 class="product-header">KILIAN</h2>
-                            <h3 class="product-old-price">350₼</h3>
-                            <h4 class="product-price">300₼</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-2" class="single-product">
-                        <div class="part-1">
-                            <span class="discount">15% off</span>
-                            <ul>
-                                <li><a asp-controller="Product" asp-action="Detail"><i class="fas fa-info"></i></a></li>
-                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
-                               
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title">BLACK OPIUM</h3>
-                            <h4 class="product-price">200₼</h4>
+                                    <ul>
+                                        <li><a asp-controller="Product" asp-action="Detail"><i class="fas fa-info"></i></a></li>
+                                        <form style="display:inline-block">
+                                            <a data-id="@item.Id" class=" add-items ad-basket btn btn-sm"><i data-id="@item.Id" class="fas fa-shopping-cart"></i></a>
+                                        </form>
 
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <h2 class="product-header">KILIAN</h2>
+                                    <h3 class="product-old-price">350₼</h3>
+                                    <h4 class="product-price">300₼</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
                 <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-3" class="single-product">
-                        <div class="part-1">
-                            <ul>
-                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
-                                
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title">MY WAY</h3>
-                            <h4 class="product-old-price">200₼</h4>
-                            <h4 class="product-price">160₼</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-4" class="single-product">
-                        <div class="part-1">
-                            <span class="new">new</span>
-                            <ul>
-                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
-                                
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title">GOOD GIRL GONE BAD</h3>
-                            <h4 class="product-price">380₼</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-5" class="single-product">
-                        <div class="part-1">
-                            <ul>
-                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
-                               
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title">DELINA EXCLUSIF</h3>
-                            <h4 class="product-old-price">450₼</h4>
-                            <h4 class="product-price">400₼</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-6" class="single-product">
-                        <div class="part-1">
-                            <span class="discount">15% off</span>
-                            <ul>
-                                <li><a asp-controller="Productdetail" asp-action="index"><i class="fas fa-info"></i></a></li>
-                                <li><a asp-controller="Shopping_cart" asp-action="index"><i class="fas fa-shopping-cart"></i></a></li>
-                               
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title">BACCARAT ROUGE540</h3>
-                            <h4 class="product-price">580₼</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-7" class="single-product">
-                        <div class="part-1">
-                            <ul>
-                                <li><a href="product-detail.html"><i class="fas fa-info"></i></a></li>
-                                <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title">INITIO</h3>
-                            <h4 class="product-old-price">570₼</h4>
-                            <h4 class="product-price">510₼</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-8" class="single-product">
-                        <div class="part-1">
-                            <span class="new">new</span>
-                            <ul>
-                                <li><a href="product-detail.html"><i class="fas fa-info"></i></a></li>
-                                <li><a href="shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                               
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title">OMBRE LEATHER</h3>
-                            <h4 class="product-price">140₼</h4>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
         @*PAGINATION*@
@@ -288,6 +178,43 @@
 
     <!-- ALL PRODUCTS END -->
 
+    @section Script{
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            var btns = document.querySelectorAll(".ad-basket")
+            console.log(btns)
+
+            btns.forEach((val, i) => {
+
+                val.addEventListener("click", function (e) {
+                    e.preventDefault()
+
+                    var id = this.getAttribute("data-id")
+
+
+                    $.ajax({
+                        url: "https://localhost:44334/product/AddBasket",
+                        data: {
+                            id: id
+                        },
+                        dataType: 'json',
+                        type: "post",
+                        success: function (data) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Uğurla əlavə edildi',
+                                showConfirmButton: false,
+                                timer: 1000
+                            })
+                        }
+                    })
+                })
+            })
+        </script>
+
+    }
 
 </main>
 

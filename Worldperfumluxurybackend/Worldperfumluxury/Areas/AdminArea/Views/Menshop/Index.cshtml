@@ -1,0 +1,63 @@
+﻿@model List<Menshop>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+<div class="container mt-3">
+    <div class="row">
+        <div class="header d-flex justify-content-between mt-3">
+            <h3>Menshop</h3>
+            <div class="ml-4">
+                <a class="btn btn-success" asp-controller="Menshop" asp-action="Create">Create</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var menshop in Model)
+                    {
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                <img src="~/assets/img/parfums/@menshop.Images" style="width:250px;height:150px; border-radius:unset" alt="menshop" />
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" asp-action="Detail" asp-route-id="@menshop.Id">
+                                    <i class="fas fa-info"></i>
+                                </a>
+                                <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@menshop.Id">
+                                    <i class="icon-pencil"></i>
+                                </a>
+                                <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@menshop.Id">
+                                    <button class="btn btn-danger btn-sm" type="submit">
+                                        <i class="fas fa-times-circle"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        count++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
