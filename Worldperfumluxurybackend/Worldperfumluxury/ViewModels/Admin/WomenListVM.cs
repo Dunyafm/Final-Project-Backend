@@ -1,4 +1,6 @@
-﻿namespace Worldperfumluxury.ViewModels.Admin
+﻿using System;
+
+namespace Worldperfumluxury.ViewModels.Admin
 {
     public class WomenListVM
     {
@@ -9,6 +11,7 @@
 
         public string Image { get; set; }
 
+        public DateTime Date { get; set; }
 
     }
 }

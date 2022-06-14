@@ -23,20 +23,20 @@ namespace Worldperfumluxury.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int page = 1, int take = 2)
+        public async Task<IActionResult> Index(int page = 1, int take = 6)
         {
             List<Womenshop> womenshops = await _context.Womenshops
                 .Skip((page - 1) * take)
                 .Take(take)
-                .AsNoTracking()
+                   .AsNoTracking()
                 .OrderByDescending(m => m.Id)
                 .ToListAsync();
 
-            var WomenListVM = GetMapDatas(womenshops);
+            var womenshopList = GetMapDatas(womenshops);
 
             int count = await GetPageCount(take);
 
-            Paginate<WomenListVM> result = new Paginate<WomenListVM>(WomenListVM, page, count);
+            Paginate<WomenListVM> result = new Paginate<WomenListVM>(womenshopList, page, count);
 
             return View(result);
         }
@@ -59,7 +59,7 @@ namespace Worldperfumluxury.Controllers
                 {
                     Id = womenshop.Id,
                     Name = womenshop.Name,
-                    //Image = product.Images.Where(m => m.IsMain).FirstOrDefault()?.Image,
+                    Image = womenshop.Images,
                     //CategoryName = product.Category.Name,
                     Count = womenshop.Count,
                     //Price = product.Price

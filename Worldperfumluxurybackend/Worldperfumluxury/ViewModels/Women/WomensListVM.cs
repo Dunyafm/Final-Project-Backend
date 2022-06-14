@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
 
 namespace Worldperfumluxury.ViewModels.Admin
 {
-    public class WomenshopVM
+    public class WomensListVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -11,6 +11,7 @@ namespace Worldperfumluxury.ViewModels.Admin
 
         public string Image { get; set; }
 
-        public IFormFile Photo { get; set; }
+        public DateTime Date { get; set; }
+
     }
 }
