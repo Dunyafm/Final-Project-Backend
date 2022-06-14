@@ -23,6 +23,7 @@ namespace Worldperfumluxury.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Womenshop> Womenshops { get; set; }
         public DbSet<Menshop> Menshops { get; set; }
+        public DbSet<Unisexshop> Unisexshops { get; set; }
 
 
         public virtual DbSet<FullOrder> FullOrders { get; set; }

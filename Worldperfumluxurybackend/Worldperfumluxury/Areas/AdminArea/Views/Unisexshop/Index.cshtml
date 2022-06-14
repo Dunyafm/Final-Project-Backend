@@ -1,4 +1,4 @@
-﻿@model List<Menshop>
+﻿@model List<Unisexshop>
 @{
     ViewData["Title"] = "Index";
     int count = 1;
@@ -6,9 +6,9 @@
 <div class="container mt-3">
     <div class="row">
         <div class="header d-flex justify-content-between mt-3">
-            <h3>Menshop</h3>
+            <h3>Unisexshop</h3>
             <div class="ml-4">
-                <a class="btn btn-success" asp-controller="Menshop" asp-action="Create">Create</a>
+                <a class="btn btn-success" asp-controller="Unisexshop" asp-action="Create">Create</a>
             </div>
         </div>
 
@@ -23,30 +23,34 @@
                             Image
                         </th>
                         <th>
-                            Settings
+                            Name
+                        </th>
+                        <th>
+                            Price
                         </th>
                     </tr>
+
                 </thead>
                 <tbody>
-                    @foreach (var menshop in Model)
+                    @foreach (var unisexshop in Model)
                     {
                         <tr>
                             <td>
                                 @count
                             </td>
                             <td>
-                                <img src="~/assets/img/parfums/@menshop.Images" style="width:250px;height:150px; border-radius:unset" alt="menshop" />
+                                <img src="~/assets/img/parfums/@unisexshop.Images" style="width:250px;height:150px; border-radius:unset" alt="unisexshop" />
                             </td>
                             <td>
-                                <a class="btn btn-primary btn-sm" asp-action="Detail" asp-route-id="@menshop.Id">
+                                <a class="btn btn-primary btn-sm" asp-action="Detail" asp-route-id="@unisexshop.Id">
                                     <i class="fas fa-info"></i>
                                 </a>
-                                <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@menshop.Id">
+                                <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@unisexshop.Id">
                                     <i class="icon-pencil"></i>
                                 </a>
 
 
-                                <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@menshop.Id">
+                                <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@unisexshop.Id">
                                     <button class="btn btn-danger btn-sm" type="submit">
                                         <i class="fas fa-times-circle"></i>
                                     </button>
@@ -54,7 +58,7 @@
                             </td>
                         </tr>
                         count++;
-                     }
+                    }
 
 
 
@@ -65,4 +69,5 @@
     </div>
 
 </div>
+
 

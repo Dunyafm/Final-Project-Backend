@@ -1,0 +1,26 @@
+﻿@model Womenshop
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-5">
+    <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
+        <div class="form-group" style="margin-top:7rem!important">
+            <label asp-for="Photo"></label>
+            <input class="form-control" style="width:238px; height:60px" asp-for="Photo">
+            <span class="text-danger" asp-validation-for="Photo"></span>
+            <input asp-for="Name" type="text" placeholder="Name" />
+            <span asp-validation-for="Name"></span>
+            <input asp-for="Price" type="text" placeholder="Price" />
+            <span asp-validation-for="Price"></span>
+
+
+        </div>
+
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+    </form>
+</div>
+
+
+
