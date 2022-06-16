@@ -283,7 +283,6 @@ C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfu
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\Unisexshop\Create.cshtml.g.cs
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\Unisexshop\Edit.cshtml.g.cs
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\Unisexshop\Index.cshtml.g.cs
-C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\Unisex\Index.cshtml.g.cs
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\User\Index.cshtml.g.cs
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\Womenshop\Create.cshtml.g.cs
 C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\obj\Debug\net5.0\Razor\Areas\AdminArea\Views\Womenshop\Detail.cshtml.g.cs

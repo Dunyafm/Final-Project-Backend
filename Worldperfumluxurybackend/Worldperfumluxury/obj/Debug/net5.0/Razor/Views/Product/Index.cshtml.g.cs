@@ -63,13 +63,20 @@ using Worldperfumluxury.ViewModels.Admin;
 #nullable disable
 #nullable restore
 #line 8 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Views\_ViewImports.cshtml"
+using Worldperfumluxury.ViewModels.Unisex;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Views\_ViewImports.cshtml"
 using Worldperfumluxury.Services;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e2a7673db96a931b28f03f053af5389c2de74289", @"/Views/Product/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5cb96e96330129b805c4e65075114610263929bf", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e71286130c938bb1d6ebcf81ec9a0c2c613e745c", @"/Views/_ViewImports.cshtml")]
     public class Views_Product_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Paginate<ProductListVM>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/css/product.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -155,7 +162,7 @@ using Worldperfumluxury.Services;
         integrity=""sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo""
         crossorigin=""anonymous""></scri");
             WriteLiteral("pt>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428915722", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428915960", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -185,7 +192,7 @@ using Worldperfumluxury.Services;
             BeginWriteAttribute("alt", " alt=\"", 1773, "\"", 1779, 0);
             EndWriteAttribute();
             WriteLiteral(">\r\n\r\n                <div class=\"container\">\r\n                    <div class=\"carousel-caption text-left\">\r\n                        <h1>AY SONUNA KİMİ</h1>\r\n                        <p>50 % endirimlər davam edir</p>\r\n                        <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428917771", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428918009", async() => {
                 WriteLiteral("Sifariş et");
             }
             );
@@ -205,7 +212,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"carousel-item\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428919446", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428919684", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -220,7 +227,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n                <div class=\"container\">\r\n                    <div class=\"carousel-caption\">\r\n                        <h1></h1>\r\n                        <p></p>\r\n                        <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428920765", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428921003", async() => {
                 WriteLiteral("Sifariş et");
             }
             );
@@ -240,7 +247,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"carousel-item\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428922440", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428922678", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -255,7 +262,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n                <div class=\"container\">\r\n                    <div class=\"carousel-caption text-right\">\r\n                        <h1>1+1 kampaniya başladi!!!</h1>\r\n                        <p></p>\r\n                        <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428923794", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428924032", async() => {
                 WriteLiteral("Yeni kolleksiya");
             }
             );
@@ -295,7 +302,7 @@ using Worldperfumluxury.Services;
         <div class=""row"">
             <div class=""col-lg-4"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428926070", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428926308", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -313,7 +320,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n                <h2>QADIN</h2>\r\n\r\n                <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428927499", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428927737", async() => {
                 WriteLiteral("Sifarişə başla  &raquo;");
             }
             );
@@ -334,7 +341,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</p>\r\n            </div>\r\n            <div class=\"col-lg-4\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428929213", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428929451", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -352,7 +359,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n\r\n                <h2>KİŞİ</h2>\r\n\r\n                <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428930645", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428930883", async() => {
                 WriteLiteral("Sifarişə başla  &raquo;");
             }
             );
@@ -373,7 +380,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</p>\r\n            </div>\r\n            <div class=\"col-lg-4\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428932359", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e2a7673db96a931b28f03f053af5389c2de7428932597", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -391,7 +398,7 @@ using Worldperfumluxury.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n                <h2>UNISEX</h2>\r\n\r\n                <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428933789", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428934027", async() => {
                 WriteLiteral("Sifarişə başla &raquo;");
             }
             );
@@ -455,7 +462,7 @@ WriteAttributeValue("", 5835, item.Image, 5835, 11, false);
             WriteAttributeValue(" ", 5850, "background-size:cover", 5851, 22, true);
             EndWriteAttribute();
             WriteLiteral(">\r\n                                <div class=\"part-1\">\r\n\r\n                                    <ul>\r\n                                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428937294", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428937532", async() => {
                 WriteLiteral("<i class=\"fas fa-info\"></i>");
             }
             );
@@ -473,7 +480,7 @@ WriteAttributeValue("", 5835, item.Image, 5835, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428938728", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428938966", async() => {
                 WriteLiteral("\r\n                                            <a data-id=\"");
 #nullable restore
 #line 138 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Views\Product\Index.cshtml"
@@ -539,7 +546,7 @@ WriteAttributeValue(" ", 7196, Model.HasPrevious ? "" : "disabled", 7197, 38, fa
             WriteAttributeValue(" ", 7235, "", 7236, 1, true);
             EndWriteAttribute();
             WriteLiteral(">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428942544", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428942782", async() => {
                 WriteLiteral("Previous");
             }
             );
@@ -591,7 +598,7 @@ WriteAttributeValue(" ", 7517, i==Model.CurrentPage ? "disabled" : "", 7518, 41,
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428945774", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428946012", async() => {
 #nullable restore
 #line 166 "C:\Users\dima-\Desktop\Final-Project-Backend\Worldperfumluxurybackend\Worldperfumluxury\Views\Product\Index.cshtml"
                                                                                    Write(i);
@@ -648,7 +655,7 @@ WriteAttributeValue(" ", 7753, Model.HasNext ? "" : "disabled", 7754, 34, false)
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428949161", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2a7673db96a931b28f03f053af5389c2de7428949399", async() => {
                 WriteLiteral("Next");
             }
             );

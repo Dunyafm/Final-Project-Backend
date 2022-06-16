@@ -1,4 +1,4 @@
-﻿@*@model Paginate<UnisexshopListVM>*@
+﻿@model Paginate<UnisexshopListVM>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -27,7 +27,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
                         <div class="card">
                             <img class="card-img-top"
-                                 src="./assets/img/parfums/Women/Products/DeMarly-Oriana.jfif">
+                                 src="~/assets/img/parfums/Women/Products/DeMarly-Oriana.jfif">
                             <div class="card-body">
                                 <h6 class="font-weight-bold pt-1">Product title</h6>
                                 <div class="text-muted description">Space for small product description</div>
@@ -58,12 +58,12 @@
 <!-- MAIN START -->
 <!-- PRODUCT CARD -->
 <div class="container container-xl">
-    <h2>UNISEX ƏTİRLƏR</h2>
+  
 </div>
 
 <div class="container">
 
-    @foreach (var item in Model.Datas@*.Where(m => m.Date.Day == date)*@)
+    @foreach (var item in Model.Datas.Where(m => m.Date.Day == date))
     {
         <div class="card-1 card-div">
             <div class="like-icon-div">
@@ -91,9 +91,26 @@
         </div>
     }
 
-
-
-
+    @*PAGINATION*@
+    <div class="row my-3">
+        <nav aria-label="...">
+            <ul class="pagination" style="padding-left:-100px">
+                <li class="page-item @(Model.HasPrevious ? "" : "disabled") ">
+                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage-1)">Previous</a>
+                </li>
+                @for (int i = 1; i <= Model.TotalPage; i++)
+                {
+                    <li class="page-item @(i==Model.CurrentPage ? "disabled" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                    </li>
+                }
+                <li class="page-item @(Model.HasNext ? "" : "disabled")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage+1)">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
 
 
 </div>

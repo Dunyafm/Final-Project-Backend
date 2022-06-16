@@ -423,10 +423,10 @@ body {
       background-color: #21BBD8;
   }
   #products{
-      width: 65%;
+      
       font-size: 1rem;
       padding-left: 0px;
-      padding-right: 0px;
+      padding-right: 350px;
       margin: 0;
       float: right;
   }

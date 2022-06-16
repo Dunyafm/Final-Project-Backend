@@ -425,7 +425,7 @@ body {
       background-color: #21BBD8;
   }
   #products{
-      width: 65%;
+     
       font-size: 1rem;
       padding-left: 0px;
       padding-right: 0px;
@@ -493,7 +493,7 @@ body {
           width: 55%;
       }
       #products{
-          width: 75%;
+         
       }
       .filter,#mobile-filter{
           display: none;
