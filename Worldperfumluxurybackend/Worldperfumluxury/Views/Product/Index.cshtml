@@ -133,7 +133,9 @@
                                 <div class="part-1">
 
                                     <ul>
-                                        <li><a asp-controller="Product" asp-action="Detail"><i class="fas fa-info"></i></a></li>
+                                        <li><a asp-controller="Product" asp-action="Detail" asp-route-Id="@item.Id" class="btn btn-sm"><i class="fas fa-info"></i></a></li>
+                                        <li>
+                                       
                                         <form style="display:inline-block">
                                             <a data-id="@item.Id" class=" add-items ad-basket btn btn-sm"><i data-id="@item.Id" class="fas fa-shopping-cart"></i></a>
                                         </form>
