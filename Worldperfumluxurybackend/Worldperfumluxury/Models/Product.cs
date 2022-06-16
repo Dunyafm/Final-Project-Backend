@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +15,7 @@ namespace Worldperfumluxury.Models
         public int Count { get; set; }
         public int BranId { get; set; }
         public virtual Brand Brand { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         public double DiscountPrice { get; set; }
         [StringLength(1000)]
         public string Images { get; set; }
