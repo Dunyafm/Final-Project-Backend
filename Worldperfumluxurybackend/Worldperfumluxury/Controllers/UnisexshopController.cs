@@ -9,6 +9,7 @@ using Worldperfumluxury.Data;
 using Worldperfumluxury.Models;
 using Worldperfumluxury.Utilites.Pagination;
 using Worldperfumluxury.ViewModels;
+using Worldperfumluxury.ViewModels.Admin;
 using Worldperfumluxury.ViewModels.Basket;
 using Worldperfumluxury.ViewModels.Unisex;
 
@@ -150,8 +151,18 @@ namespace Worldperfumluxury.Controllers
             }
             return View(basketDetailItems);
 
+           
         }
+        [HttpPost]
+        public List<ProductListVM> RemoveProduct(int productId)
+        {
+            List<ProductListVM> productListCookies = JsonConvert.DeserializeObject<List<ProductListVM>>(Request.Cookies["productListVM"]);
+            ProductListVM productRemove = productListCookies.Find(mbox => mbox.Id == productId);
+            productListCookies.Remove(productRemove);
+            Response.Cookies.Append("productList", JsonConvert.SerializeObject(productListCookies));
 
+            return productListCookies;
+        }
 
 
 

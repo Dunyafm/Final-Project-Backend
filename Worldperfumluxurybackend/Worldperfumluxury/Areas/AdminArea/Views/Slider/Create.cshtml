@@ -1,4 +1,4 @@
-﻿@model Blog
+﻿@model Slider
 @{
     ViewData["Title"] = "Create";
 }
@@ -7,13 +7,9 @@
     <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
         <div class="form-group" style="margin-top:7rem!important">
             <label asp-for="Photo"></label>
-            <input class="form-control" style="width:238px; height:60px" asp-for="Photo">
+            <input class="form-control" style="width:320px; height:61px" asp-for="Photo">
             <span class="text-danger" asp-validation-for="Photo"></span>
-            <input asp-for="Header" type="text" placeholder="Header" />
-            <span asp-validation-for="Header"></span>
-
-            <input asp-for="Desc" type="text" placeholder="Desc" />
-            <span asp-validation-for="Desc"></span>
+           
             
 
         </div>

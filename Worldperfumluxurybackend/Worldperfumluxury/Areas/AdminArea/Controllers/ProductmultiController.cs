@@ -18,7 +18,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
 
     [Area("AdminArea")]
-    [Authorize(Roles = "Admin")]
+
     public class ProductmultiController : Controller
     {
         private readonly AppDbContext _context;
@@ -84,17 +84,17 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Editmulti(int id)
         {
             var product = await GetProductById(id);
             if (product is null) return NotFound();
-            return View(product);
+            return View();
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Productmulti product)
+        public async Task<IActionResult> Editmulti(int id, Productmulti product)
         {
             var dbproduct = await GetProductById(id);
             if (dbproduct == null) return NotFound();

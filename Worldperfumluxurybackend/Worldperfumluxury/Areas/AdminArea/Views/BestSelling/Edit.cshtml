@@ -1,32 +1,25 @@
-﻿
-@*@model BestSelling
+﻿@model BestSelling
 @{
     ViewData["Title"] = "Edit";
 }
 
+
 <div class="container mt-5">
-    <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="img">
+        <img src="~/assets/img/parfums/@Model.Image" alt="bestSelling" style="width:250px;height:250px" />
+    </div>
+    <form class="forms-sample" method="post" asp-action="Edit" enctype="multipart/form-data">
         <div class="form-group">
-            <label asp-for="Photo"></label>
-            <input class="form-control" style="width:300px" asp-for="Photo">
+
+            <input class="form-control" style="width:300px;height:60px" asp-for="Photo">
             <span class="text-danger" asp-validation-for="Photo"></span>
-
-            <input asp-for="Title" type="text" placeholder="Title" />
-            <span asp-validation-for="Title"></span>
-
-            <input asp-for="Oldprice" type="text" placeholder="Oldprice" />
-            <span asp-validation-for="Oldprice"></span>
-
-            <input asp-for="NewPrice" type="text" placeholder="Newprice" />
-            <input asp-for="Discount" type="text" placeholder="Start" />
-
-
+            <input class="form-check-info" style="width:300px;height:60px" asp-for="Title">
+            <span class="text-danger" asp-validation-for="Title"></span>
+            <input class="form-check-info" style="width:300px;height:60px" asp-for="NewPrice">
+            <span class="price-button" asp-validation-for="NewPrice"></span>
         </div>
         <button type="submit" class="btn btn-primary me-2">Submit</button>
         <a asp-action="Index" class="btn btn-light">Cancel</a>
     </form>
 </div>
-@section Scripts{
-    <partial name="_ValidationPartial" />
-}*@
 

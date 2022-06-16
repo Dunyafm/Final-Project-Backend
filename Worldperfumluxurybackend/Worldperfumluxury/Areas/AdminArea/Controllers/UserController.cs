@@ -14,7 +14,7 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
   
     
         [Area("AdminArea")]
-        [Authorize(Roles = "Admin")]
+     
         public class UserController : Controller
         {
 

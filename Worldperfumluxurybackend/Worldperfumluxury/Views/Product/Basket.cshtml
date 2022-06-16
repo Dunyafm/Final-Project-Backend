@@ -27,9 +27,9 @@
                                     <th> Name </th>
                                     <th> Count </th>
                                     <th> Price </th>
-                           
+
                                 </tr>
-                         
+
                             </thead>
                             <tbody>
 
@@ -38,36 +38,38 @@
 
                                     <tr>
                                         <td>
-                                            @count 
+                                            @count
                                         </td>
-       
+
                                         <td>
-                                            <img src="~/assets/img/parfums/@product.Image" height="150"alt="product_image" />
-                                           
+                                            <img src="~/assets/img/parfums/@product.Image" height="150" alt="product_image" />
+
 
                                         </td>
-                                     
+
                                         <td>
-                                          
+
                                             @product.Name
                                         </td>
-                                    <td>
-                                        @product.Count
-                               
-                                    </td>
-                                    <td>
-                                        @product.Price ₼
-                                    </td>
+                                        <td>
+                                            @product.Count
+
+                                        </td>
+                                        <td>
+                                            @product.Price ₼
+                                        </td>
                                     </tr>
                                     count++;
                                     totalPrice += product.Price;
-                                 }
-                                <div class="my-3">
+                                }
+                                <div class="my-5">
                                     <span>Total price: @totalPrice ₼ </span>
                                 </div>
 
                             </tbody>
+
                         </table>
+                        
                     </div>
                 </div>
             </div>

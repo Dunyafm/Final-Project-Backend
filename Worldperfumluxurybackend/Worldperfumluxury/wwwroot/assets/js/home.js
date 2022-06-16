@@ -15,7 +15,7 @@ function toggleShow () {
     $(".owl-carousel").owlCarousel();
   });
 
-})(jQuery);
+})
 
 // CATERGORIES
 $(document).ready(function(){

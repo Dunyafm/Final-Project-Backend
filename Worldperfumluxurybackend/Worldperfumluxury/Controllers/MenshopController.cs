@@ -81,31 +81,31 @@ namespace Worldperfumluxury.Controllers
         {
             if (Id is null) return NotFound();
 
-            BestSelling dbProduct = await GetProductById(Id);
+            Menshop dbMenshop = await GetMenshopById(Id);
 
-            if (dbProduct == null) return BadRequest();
+            if (dbMenshop == null) return BadRequest();
 
             List<BasketVM> basket = GetBasket();
 
-            UpdateBasket(basket, dbProduct);
+            UpdateBasket(basket, dbMenshop);
 
             return Json(new { status = 200 });
         }
 
-        private async Task<BestSelling> GetProductById(int? Id)
+        private async Task<Menshop> GetMenshopById(int? Id)
         {
-            return await _context.BestSellings.FindAsync(Id);
+            return await _context.Menshops.FindAsync(Id);
 
         }
-        private void UpdateBasket(List<BasketVM> basket, BestSelling product)
+        private void UpdateBasket(List<BasketVM> basket, Menshop menshop)
         {
-            var existProduct = basket.Find(m => m.Id == product.Id);
+            var existProduct = basket.Find(m => m.Id == menshop.Id);
 
             if (existProduct == null)
             {
                 basket.Add(new BasketVM
                 {
-                    Id = product.Id,
+                    Id = menshop.Id,
                     Count = 1
                 });
             }
@@ -138,15 +138,15 @@ namespace Worldperfumluxury.Controllers
 
             foreach (BasketVM item in basket)
             {
-                BestSelling bestSelling = await _context.BestSellings.FirstOrDefaultAsync(m => m.Id == item.Id);
+                Menshop menshop = await _context.Menshops.FirstOrDefaultAsync(m => m.Id == item.Id);
 
                 BasketDetailVM basketDetail = new BasketDetailVM
                 {
                     Id = item.Id,
-                    Name = bestSelling.Title,
-                    Image = bestSelling.Image,
+                    Name = menshop.Name,
+                    Image = menshop.Images,
                     Count = item.Count,
-                    Price = bestSelling.NewPrice * item.Count
+                    Price =(decimal)menshop.Price * item.Count
                 };
 
                 basketDetailItems.Add(basketDetail);

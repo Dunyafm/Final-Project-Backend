@@ -1,0 +1,78 @@
+﻿@model List<BasketDetailVM>
+@{
+    ViewData["Title"] = "Basket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 1;
+    decimal totalPrice = 0;
+
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="header d-flex justify-content-between my-5">
+
+                        <h1 class="card-title my-3">Basket</h1>
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> # </th>
+                                    <th> Image </th>
+                                    <th> Name </th>
+                                    <th> Count </th>
+                                    <th> Price </th>
+
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+                                @foreach (var womenshop in Model)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @count
+                                        </td>
+
+                                        <td>
+                                            <img src="~/assets/img/parfums/@womenshop.Image" height="150" alt="product_image" />
+
+
+                                        </td>
+
+                                        <td>
+
+                                            @womenshop.Name
+                                        </td>
+                                        <td>
+                                            @womenshop.Count
+
+                                        </td>
+                                        <td>
+                                            @womenshop.Price ₼
+                                        </td>
+                                    </tr>
+                                    count++;
+                                    totalPrice += womenshop.Price;
+                                }
+                                <div class="my-5">
+                                    <span>Total price: @totalPrice ₼ </span>
+                                </div>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

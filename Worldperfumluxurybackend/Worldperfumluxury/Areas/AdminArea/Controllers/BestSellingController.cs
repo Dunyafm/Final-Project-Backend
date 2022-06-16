@@ -17,7 +17,7 @@ using Worldperfumluxury.ViewModels.Admin;
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    [Authorize(Roles = "Admin")]
+   
 
     public class BestSellingController : Controller
     {
@@ -73,6 +73,8 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             BestSelling bestSelling = new BestSelling
             {
                 Image = fileName,
+                
+
 
 
 
@@ -103,6 +105,57 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var bestSelling = await GetBestSellingById(id);
+            if (bestSelling is null) return NotFound();
+            return View(bestSelling);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, BestSelling bestSelling)
+        {
+            var dbBestSelling = await GetBestSellingById(id);
+            if (dbBestSelling == null) return NotFound();
+
+            if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
+
+            if (!bestSelling.Photo.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("Photo", "Image type is wrong");
+                return View(dbBestSelling);
+            }
+
+            if (!bestSelling.Photo.CheckFileSize(10000))
+            {
+                ModelState.AddModelError("Photo", "Image size is wrong");
+                return View(dbBestSelling);
+            }
+
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", dbBestSelling.Image);
+
+            Helper.DeleteFile(path);
+
+
+            string fileName = Guid.NewGuid().ToString() + "_" + bestSelling.Photo.FileName;
+
+            string newPath = Helper.GetFilePath(_env.WebRootPath, "assets/img/parfums", fileName);
+
+            using (FileStream stream = new FileStream(newPath, FileMode.Create))
+            {
+                await bestSelling.Photo.CopyToAsync(stream);
+            }
+
+            dbBestSelling.Image = fileName;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         //Helper Method
         private async Task<BestSelling> GetBestSellingById(int Id)
         {

@@ -14,106 +14,110 @@
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link rel="stylesheet" href="./assets/css/unisexshop.css">
 
-<!-- FILTER START -->
-
-<div class="wrapper">
 
 
-    <section id="products">
-        <div class="container py-3">
-            <div class="row">
-                @foreach (var item in Model.Datas)
-                {
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
-                        <div class="card">
-                            <img class="card-img-top"
-                                 src="~/assets/img/parfums/Women/Products/DeMarly-Oriana.jfif">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold pt-1">Product title</h6>
-                                <div class="text-muted description">Space for small product description</div>
-                                <div class="d-flex align-items-center product">
-                                    <span class="fas fa-star"></span>
-                                    <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="far fa-star"></span>
+<!-- Products Section -->
+<section id="products" style="padding-right:300px">
+    <div class="container py-3">
+        <div class="row">
+            @foreach (var unisexshop in Model.Datas)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
+                    <div class="card">
+                        <img class="card-img-top"
+                             src="~/assets/img/parfums/@unisexshop.Image">
+                        <div class="card-body">
+                            <h6 class="font-weight-bold pt-1">@unisexshop.Name</h6>
+                           
+                            <div class="d-flex align-items-center product">
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="far fa-star"></span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between pt-3">
+                                <div class="d-flex flex-column">
+                                    <div class="h6 font-weight-bold">@unisexshop.Price</div>
+
                                 </div>
-                                <div class="d-flex align-items-center justify-content-between pt-3">
-                                    <div class="d-flex flex-column">
-                                        <div class="h6 font-weight-bold">36.99 USD</div>
-                                        <div class="text-muted rebate">48.56</div>
-                                    </div>
-                                    <div class="btn btn-primary">Sifariş et</div>
-                                </div>
+                                <a data-id="@unisexshop.Id" class=" add-items ad-basket btn btn-sm"><i data-id="@unisexshop.Id" class="fas fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                 }
 
 
-            </div>
+            }
+
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
-<!-- FILTER END -->
+
 <!-- MAIN START -->
 <!-- PRODUCT CARD -->
+
+
 <div class="container container-xl">
-  
+    <h2>Yeni kişi ətirləri</h2>
 </div>
 
 <div class="container">
-
     @foreach (var item in Model.Datas.Where(m => m.Date.Day == date))
+
     {
         <div class="card-1 card-div">
             <div class="like-icon-div">
                 <label for="card-1-like" class="like-icon-div-child">
                     <input type="checkbox" id="card-1-like">
-                    <i class="far fa-heart heart-empty"></i>
-                    <i class="fas fa-heart heart-fill"></i>
+
                 </label>
             </div>
 
             <div class="gow-img-div img-div">
-                <img src="./assets/img/parfums/Women/Products/gucci-flora.jfif" alt="god-of-war-figurine">
+                <img src="~/assets/img/parfums/@item.Image" alt="god-of-war-figurine">
             </div>
             <div class="text-container">
-                <h2 class="item-name"> GUCCI </h2>
-                <p class="perfum-name"> Flora Gorgeous Gardenia eau de parfum </p>
+
+                <p class="perfum-name">@item.Name</p>
                 <div class="pricing-and-cart">
                     <div class="pricing">
-                        <p class="previous-price">220azn</p>
-                        <p class="current-price">180azn</p>
+                        <p class="previous-price">220</p>
+                        <p class="current-price">@item.Price/p>
                     </div>
-                    <i class="fas fa-shopping-cart"></i>
+                    <a data-id="@item.Id" class=" add-items ad-basket btn btn-sm"><i data-id="@item.Id" class="fas fa-shopping-cart"></i></a>
                 </div>
             </div>
         </div>
+
     }
 
-    @*PAGINATION*@
-    <div class="row my-3">
-        <nav aria-label="...">
-            <ul class="pagination" style="padding-left:-100px">
-                <li class="page-item @(Model.HasPrevious ? "" : "disabled") ">
-                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage-1)">Previous</a>
-                </li>
-                @for (int i = 1; i <= Model.TotalPage; i++)
-                {
-                    <li class="page-item @(i==Model.CurrentPage ? "disabled" : "")">
-                        <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
-                    </li>
-                }
-                <li class="page-item @(Model.HasNext ? "" : "disabled")">
-                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage+1)">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    
 
 
 </div>
+<!-- MAIN END -->
+@*PAGINATION*@
+<div class="row my-3">
+    <nav aria-label="...">
+        <ul class="pagination" style="padding-left:850px">
+            <li class="page-item @(Model.HasPrevious ? "" : "disabled") ">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage-1)">Previous</a>
+            </li>
+            @for (int i = 1; i <= Model.TotalPage; i++)
+            {
+                <li class="page-item @(i==Model.CurrentPage ? "disabled" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.HasNext ? "" : "disabled")">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage+1)">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+
 <!-- MAIN END -->
 <!-- Filter -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>

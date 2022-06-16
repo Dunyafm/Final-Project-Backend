@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MimeKit.Text;
+using System;
 using System.IO;
 using System.Security.Claims;
 //using System.Net.Mail;
@@ -284,16 +285,16 @@ namespace Worldperfumluxury.Controllers
         #endregion
 
 
-        //public async Task CreateRole()
-        //{
-        //    foreach (var role in Enum.GetValues(typeof(Utilites.Helpers.Helper.UserRoles)))
-        //    {
-        //        if (!await _roleManager.RoleExistsAsync(role.ToString()))
-        //        {
-        //            await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
-        //        }
-        //    }
-        //}
+        public async Task CreateRole()
+        {
+            foreach (var role in Enum.GetValues(typeof(Utilites.Helpers.Helper.UserRoles)))
+            {
+                if (!await _roleManager.RoleExistsAsync(role.ToString()))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+                }
+            }
+        }
 
 
     }

@@ -34,11 +34,11 @@
                             <div class="my-2 d-flex justify-content-between align-items-center">
                                 <div class="form-check">
                                     <label class="form-check-label text-muted">
-                                        <input type="checkbox" class="form-check-input">
+                                        <input type="checkbox" style="margin:0px !important" class="form-check-input">
                                         Keep me signed in
                                     </label>
                                 </div>
-                                <a asp-controller="Accaunt" asp-action="ForgotPassword" class="auth-link text-black">Forgot password?</a>
+                                <a asp-controller="Login" asp-action="ForgotPassword" class="auth-link text-black">Forgot password?</a>
                             </div>
                             <div class="mb-2">
                                 <button type="button" class="btn btn-block btn-facebook auth-form-btn">
@@ -46,7 +46,7 @@
                                 </button>
                             </div>
                             <div class="text-center mt-4 fw-light">
-                                Don't have an Accaunt? <a asp-action="Login" class="text-primary">Register</a>
+                                Şifrənizi unutdunuz? <a asp-action="Register" class="text-primary" asp-controller="LoginRegister">Register</a>
                             </div>
                         </form>
                     </div>

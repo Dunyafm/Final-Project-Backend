@@ -1,49 +1,52 @@
-﻿@*@model FileClass
+﻿@model List<Product>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form methord="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
-    <input type="file" name="fifile" />
-    <input type="submit" value="Upload" />
-    <hr />
-</form>
-<div>
-    File Name:<input id="search" />
-    <button onclick="search()">search</button>
-</div>
-<table class="table">
-    <tr>
-        <th>File Name</th>
 
-    </tr>
-    @foreach (var item in FileClass)
-    {
-        <tr>
-            <td>@item.Name</td>
-            <td><a href="@Url.Action("Download","Home",new { filename=item.Name })">Download</a></td>
-            @if (User.IsInRole("Admin"))
+
+<!-- ALL PRODUCTS START -->
+
+<section class="section-products">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="header">
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Single Product -->
+            @foreach (var item in Model)
             {
-                <td><a href="@Url.Action("Delete", "Home", new { filedel = item.Name })">Delete</a></td>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div id="product-1" class="single-product">
+                        <div class="part-1" style="background:url('assets/img/parfums/@item.Images') ; background-size:cover">
+                            <div class="part-1">
+
+                                <ul>
+                                    <li><a asp-controller="Product" asp-action="Detail"><i class="fas fa-info"></i></a></li>
+                                    <form style="display:inline-block">
+                                        <a data-id="@item.Id" class=" add-items ad-basket btn btn-sm"><i data-id="@item.Id" class="fas fa-shopping-cart"></i></a>
+                                    </form>
+
+                                </ul>
+                            </div>
+                            <div class="part-2">
+                                <h2 class="product-header">KILIAN</h2>
+                                <h3 class="product-old-price">350₼</h3>
+                                <h4 class="product-price">300₼</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
-            <td><a href="/Home/DocumentViewer/@item.Name">Viewer</a></td>
+            <!-- Single Product -->
 
-        </tr>
-    }
-</table>
-@section scripts
-{
-    <script>
-        function search() {
-            $("tr").each(function (index, value) {
-                if (index > 0 && !$(this).find("td")[0].innerText.includes($("#search").val())) {
-                    $(this).attr("hidden", true);
-                } else {
-                    $(this).removeAttr("hidden");
-                }
-                console.log(value);
-            })
-        }
-    </script>
-}*@
+        </div>
+    </div>
 
+</section>
+
+<!-- ALL PRODUCTS END -->

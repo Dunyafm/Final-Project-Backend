@@ -18,7 +18,7 @@ using Worldperfumluxury.ViewModels.Admin;
 namespace Worldperfumluxury.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    [Authorize(Roles = "Admin")]
+
     public class NewCollectionController : Controller
     {
         private readonly AppDbContext _context;

@@ -25,11 +25,7 @@
             <input class="form-control" style="width:300px" asp-for="NewPrice">
             <span class="text-danger" asp-validation-for="NewPrice"></span>
         </div>
-        <div class="form-group">
-            <label asp-for="Note"></label>
-            <input class="form-control" style="width:300px" asp-for="Note">
-            <span class="text-danger" asp-validation-for="Note"></span>
-        </div>
+      
         <button type="submit" class="btn btn-primary me-2">Submit</button>
         <a asp-action="Index" class="btn btn-light">Cancel</a>
     </form>

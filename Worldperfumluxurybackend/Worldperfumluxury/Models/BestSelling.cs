@@ -8,7 +8,9 @@ namespace Worldperfumluxury.Models
     {
         public string Image { get; set; }
         public string Title { get; set; }
+        public string Desc { get; set; }
         public string Note { get; set; }
+
         public int Oldprice { get; set; }
         public int NewPrice { get; set; }
 

@@ -1,3 +1,4 @@
+/// <reference path="product.js" />
 // var start = 0;
 // var nb = 4;
 // var end = start + nb;

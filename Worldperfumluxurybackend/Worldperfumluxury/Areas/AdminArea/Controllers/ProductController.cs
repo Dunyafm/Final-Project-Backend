@@ -77,6 +77,8 @@ namespace Worldperfumluxury.Areas.AdminArea.Controllers
             Product product = new Product
             {
                 Images = fileName,
+                
+
 
             };
 
