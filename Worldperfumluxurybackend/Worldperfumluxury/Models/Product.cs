@@ -12,6 +12,8 @@ namespace Worldperfumluxury.Models
 
         public string Desc { get; set; }
         public int Count { get; set; }
+        public int BranId { get; set; }
+        public virtual Brand Brand { get; set; }
         public double DiscountPrice { get; set; }
         [StringLength(1000)]
         public string Images { get; set; }

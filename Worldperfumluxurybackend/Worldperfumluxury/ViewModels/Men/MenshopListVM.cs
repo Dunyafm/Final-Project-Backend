@@ -1,4 +1,5 @@
 ﻿using System;
+using Worldperfumluxury.Models;
 
 namespace Worldperfumluxury.ViewModels.Admin
 {
@@ -10,6 +11,7 @@ namespace Worldperfumluxury.ViewModels.Admin
         public decimal Price { get; set; }
         public DateTime Date { get; set; }
         public string Image { get; set; }
+        public Brand Brands { get; set; }
 
 
     }

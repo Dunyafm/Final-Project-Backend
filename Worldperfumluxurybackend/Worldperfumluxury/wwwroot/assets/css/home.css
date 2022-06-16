@@ -1030,7 +1030,8 @@ body {
 
 @media (min-width: 576px) {
   #subscribe .content input {
-    width: 50% !important;
+    width: 60% !important;
+	height: 65%
   }
 }
 

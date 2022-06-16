@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Worldperfumluxury.Data;
 
 namespace Worldperfumluxury.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220615111208_AddBrandTable")]
+    partial class AddBrandTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -424,14 +426,8 @@ namespace Worldperfumluxury.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BrandsId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("DeletedByUserId")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Desc")
                         .HasColumnType("nvarchar(max)");
@@ -456,8 +452,6 @@ namespace Worldperfumluxury.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BrandsId");
 
                     b.ToTable("Menshops");
                 });
@@ -626,12 +620,6 @@ namespace Worldperfumluxury.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BranId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BrandId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
@@ -661,8 +649,6 @@ namespace Worldperfumluxury.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
 
                     b.ToTable("Products");
                 });
@@ -946,13 +932,6 @@ namespace Worldperfumluxury.Migrations
                         .HasForeignKey("BillingAddressId");
                 });
 
-            modelBuilder.Entity("Worldperfumluxury.Models.Menshop", b =>
-                {
-                    b.HasOne("Worldperfumluxury.Models.Brand", "Brands")
-                        .WithMany()
-                        .HasForeignKey("BrandsId");
-                });
-
             modelBuilder.Entity("Worldperfumluxury.Models.Message", b =>
                 {
                     b.HasOne("Worldperfumluxury.Models.AppUser", "AppUser")
@@ -982,13 +961,6 @@ namespace Worldperfumluxury.Migrations
                     b.HasOne("Worldperfumluxury.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
-                });
-
-            modelBuilder.Entity("Worldperfumluxury.Models.Product", b =>
-                {
-                    b.HasOne("Worldperfumluxury.Models.Brand", "Brand")
-                        .WithMany("Products")
-                        .HasForeignKey("BrandId");
                 });
 
             modelBuilder.Entity("Worldperfumluxury.Models.Review", b =>

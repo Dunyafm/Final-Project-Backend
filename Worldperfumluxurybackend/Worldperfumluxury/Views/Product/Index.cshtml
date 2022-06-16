@@ -156,7 +156,7 @@
         @*PAGINATION*@
         <div class="row my-3">
             <nav aria-label="...">
-                <ul class="pagination">
+                <ul class="pagination" style="padding-left:910px">
                     <li class="page-item @(Model.HasPrevious ? "" : "disabled") ">
                         <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage-1)">Previous</a>
                     </li>

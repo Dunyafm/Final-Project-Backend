@@ -18,7 +18,8 @@ namespace Worldperfumluxury.Models
         public string MainImage { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
-
+        public Brand Brands { get; set; }
+        public bool DeletedByUserId { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
 

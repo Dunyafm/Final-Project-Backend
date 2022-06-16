@@ -313,7 +313,7 @@ padding-top:5px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url('../img/slider/contact-back.jpg');
+  background: url('../img/slider/9366339.jpg');
   background-size: cover;
 }
 .contact .content {
@@ -323,7 +323,7 @@ padding-top:5px;
 .contact .content h2 {
   font-size: 36px;
   font-weight: 500;
-  color: black;
+  color: white;
 }
 .contact .content p {
   font-weight: 300;

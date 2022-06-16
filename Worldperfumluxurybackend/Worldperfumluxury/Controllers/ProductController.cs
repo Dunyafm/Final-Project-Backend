@@ -24,7 +24,7 @@ namespace Worldperfumluxury.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int page = 1, int take = 5)
+        public async Task<IActionResult> Index(int page = 1, int take = 8)
         {
             ViewBag.ProductCount = _context.Products.Where(p => p.IsDeleted == false).Count();
             List<Product> products = await _context.Products
@@ -164,7 +164,6 @@ namespace Worldperfumluxury.Controllers
         }
 
 
-        //FILTER START
 
 
     }
